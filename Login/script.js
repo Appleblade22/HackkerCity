@@ -1,20 +1,21 @@
-document.getElementByClassName("login-form").style.display = "none";
-document.getElementByClassName("login").css("background", "none");
+document.querySelector(".login-form").style.display="none";
+document.querySelector(".login").style.background ="none";
 
-document.getElementByClassName("login").click(function(){
-  document.getElementByClassName("signup-form").style.display = "none";
-  document.getElementByClassName("login-form").style.display = "";
-  document.getElementByClassName("signup").css("background", "none");
-  document.getElementByClassName("login").css("background", "#fff");
+console.log(document.querySelector(".login"));
+document.querySelector(".login").addEventListener('click', () =>{
+  document.querySelector(".signup-form").style.display = "none";
+  document.querySelector(".login-form").style.display = "block";
+  document.querySelector(".signup").style.background = "none";
+  document.querySelector(".login").style.background ="#fff";
 });
 
-document.getElementByClassName("signup").click(function(){
-  document.getElementByClassName("signup-form").style.display = "";
-  document.getElementByClassName("login-form").style.display = "none";
-  document.getElementByClassName("login").css("background", "none");
-  document.getElementByClassName("signup").css("background", "#fff");
+document.querySelector(".signup").addEventListener("click",() => {
+  document.querySelector(".signup-form").style.display = "block";
+  document.querySelector(".login-form").style.display = "none";
+  document.querySelector(".login").style.background = "none";
+  document.querySelector(".signup").style.background ="#fff";
 });
 
-document.getElementByClassName("btn").click(function(){
-  document.getElementByClassName("input").value = "";
+document.querySelector(".btn").addEventListener("click",() =>{
+  document.querySelector(".input").value = "";
 });
