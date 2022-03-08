@@ -16,6 +16,10 @@ document.querySelector(".signup").addEventListener("click",() => {
   document.querySelector(".signup").style.background ="#fff";
 });
 
-document.querySelector(".btn").addEventListener("click",() =>{
-  document.querySelector(".input").value = "";
+document.querySelector(".btn1").addEventListener("click",() =>{
+  console.log(document.querySelectorAll(".input"));
+});
+
+document.querySelector(".btn2").addEventListener("click",() =>{
+  console.log(document.querySelectorAll(".input"));
 });
