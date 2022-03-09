@@ -4,32 +4,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Login/style.css">
+    <title>Login and Signup</title>
 </head>
 <body>
-    <h1>HackerCity</h1>
-    <div class="wrapper">
-        <div class="container">
-          
-          <div class="signup">Sign Up</div>
-          <div class="login">Log In</div>
-          
-           <div class="signup-form">
-              <input type="email" placeholder="Your Email Address" class="input" required><br />
-              <input type="text" placeholder="Choose a Username" class="input" required><br />
-              <input type="password" placeholder="Choose a Password" class="input" required><br />
-              <div class="btn1">Create account</div>
-           </div>
-          
-          <div class="login-form">
-              <input type="email" placeholder="Email" class="input" required><br />
-              <input type="password" placeholder="Password" class="input" required><br />
-              <div class="btn2">log in</div>
-              <span><a href="#" style= "color: #2691d9 ">Forgot Password?</a></span>
-           </div>
-          
-        </div>
-      </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <div class = "container">
+        <form class = "form" id = "login">
+            <h1 class="form_title">Login</h1>
+            <div class = "form_message form_message-error">Inncorrect username or password</div>
+            <div class="form_input-group">
+                <input type="text" class="form_input" autofocus placeholder="Email">
+                <div class="form_input_error-message">Error Message</div>
+            </div>
+            <div class="form_input-group">
+                <input type="password" class="form_input" autofocus placeholder="Password">
+                <div class="form_input_error-message"></div>
+            </div>
+            <button class="form_button" type = "submit">Log In</button>
+            <p class="form_text">
+                <a href="#" class="form_link">Forgot your password?</a>
+            </p>
+            <p class="form_text">
+                <a class="form_link" id="linkCreateAccount">Create Account</a>
+            </p>
+        </form>
+    </div>
       <script src="../Login/script.js"></script>
 </body>
 </html>
