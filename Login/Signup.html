@@ -1,5 +1,4 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <form class="form" id="login">
-            <h1 class="form_title">Login</h1>
+        <form class="form" id="Signup">
+            <h1 class="form_title">SignUp</h1>
             <div class="form_message form_message-error"></div>
+            <div class="form_input-group">
+                <input type="text" class="form_input" autofocus placeholder="Username">
+                <div class="form_input-error-message"></div>
+            </div>
             <div class="form_input-group">
                 <input type="text" class="form_input" autofocus placeholder="Email">
                 <div class="form_input-error-message"></div>
@@ -20,12 +23,13 @@
                 <input type="password" class="form_input" autofocus placeholder="Password">
                 <div class="form_input-error-message"></div>
             </div>
-            <button class="form_button" type="submit">Log In</button>
+            <div class="form_input-group">
+                <input type="password" class="form_input" autofocus placeholder="Confirm Password">
+                <div class="form_input-error-message"></div>
+            </div>
+            <button class="form_button" type="submit">Sign Up</button>
             <p class="form_text">
-                <a href="#" class="form_link">Forgot your password?</a>
-            </p>
-            <p class="form_text">
-                <a class="form_link" href="./Signup.html">Create Account</a>
+                <a class="form_link" href="../Login/Login.html">Already Have an Account? Log In</a>
             </p>
         </form>
     </div>
