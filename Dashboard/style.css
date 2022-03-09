@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: white;
+  /* background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%; */
+}
+
+/* Layout */
+
+header {
+  position: relative;
+  height: 25vh;
+  /* border-bottom: 1px solid #0c5ca7; */
+}
+
+.site {
+  position: absolute;
+  top: 3rem;
+  left: 7rem;
+  font-size: 5rem;
+  color: black;
+}
+
+.login {
+  position: absolute;
+  top: 4rem;
+  right: 5rem;
+}
+
+.signup {
+  position: absolute;
+  top: 4rem;
+  right: 17rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard {
+  margin: 0;
+  position: absolute;
+  /* margin-top: 2%; */
+  width: 500px;
+  max-width: 500px;
+  font-size: 3rem;
+  color: black;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
+}
+
+.dashboard h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.dashboard p {
+  text-align: center;
+  font-size: 2.2rem;
+  width: 50%;
+  transform: translateX(50%);
+  margin-bottom: 3rem;
+}
+
+.sign {
+  text-align: center;
+  /* margin-left: 50%; */
+}
+
+.btn {
+  border: none;
+  background-color: #0ac028;
+  color: black;
+  font-size: 2rem;
+  font-family: inherit;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(45, 168, 8, 0.5);
+}
+
+.btn:hover {
+  background-color: #a2ca44;
+}
