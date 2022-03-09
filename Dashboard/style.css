@@ -79,7 +79,10 @@ main {
 
 .sign {
   text-align: center;
-  /* margin-left: 50%; */
+}
+
+.signin {
+  border-radius: 30px;
 }
 
 .btn {
@@ -94,5 +97,5 @@ main {
 }
 
 .btn:hover {
-  background-color: #a2ca44;
+  background-color: #e2ece2;
 }
