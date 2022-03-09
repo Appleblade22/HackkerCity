@@ -7,20 +7,21 @@
     <link rel="stylesheet" href="../Login/style.css">
     <title>Login and Signup</title>
 </head>
+
 <body>
     <div class="container">
         <form class="form" id="login">
             <h1 class="form_title">Login</h1>
             <div class="form_message form_message-error"></div>
             <div class="form_input-group">
-                <input type="text" class="form_input" autofocus placeholder="Email">
+                <input type="text" id="email" class="form_input" autofocus placeholder="Email">
                 <div class="form_input-error-message"></div>
             </div>
             <div class="form_input-group">
                 <input type="password" class="form_input" autocomplete=off autofocus placeholder="Password">
                 <div class="form_input-error-message"></div>
             </div>
-            <button class="form_button" type="submit">Log In</button>
+                <button class="form_button" type="submit" id="submit">Log In</button>
             <p class="form_text">
                 <a href="../Login/forgotpassword.html" class="form_link">Forgot your password?</a>
             </p>
