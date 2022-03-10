@@ -1,6 +1,5 @@
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form_message");
-
     messageElement.textContent = message;
     messageElement.classList.remove("form_message-success", "form_message-error");
     messageElement.classList.add(`form_message-${type}`);
@@ -21,21 +20,45 @@ function ValidateEmail(mail) {
     }
     return (false)
 }
+function login(){
+    const form = document.getElementById("login");
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    if(email === "" || password === ""){
+        setFormMessage(form, "error", "Please fill all the fields");
+        return;
+    }
+    if(!ValidateEmail(email)){
+        setFormMessage(form, "error", "Please enter a valid email");
+        return;
+    }
+    //Do your Fetch operation with firebase
+    window.location.href = "http://www.w3schools.com";
+}
+
+function signup(){
+    const form = document.getElementById("Signup");
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const cpassword = document.getElementById("cpassword").value;
+    const username = document.getElementById("signupUsername").value;
+    if(email === "" || password === "" || cpassword === "" || username === ""){
+        setFormMessage(form, "error", "Please fill all the fields");
+        return;
+    }
+    if(!ValidateEmail(email)){
+        setFormMessage(form, "error", "Please enter a valid email");
+        return;
+    }
+    if(password !== cpassword){
+        setFormMessage(form, "error", "Passwords do not match");
+        return;
+    }
+    //Do your Fetch operation with firebase
+    window.location.href = "http://www.w3schools.com";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    // const loginForm = document.querySelector("#login");
-    // const signupForm = document.querySelector("#Signup");
-    // loginForm.addEventListener("submit", e => {
-    //     e.preventDefault();
-    //     if(ValidateEmail(document.getElementById("email").value)){
-    //     setFormMessage(loginForm, "success", "Email is valid!");
-    //     }
-    //     else{
-    //         setFormMessage(loginForm, "error", "Invalid username/password combination");
-    //     }
-    //     // Perform your AJAX/Fetch login
-
-    // });
-
     document.querySelectorAll(".form_input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
             if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 7) {

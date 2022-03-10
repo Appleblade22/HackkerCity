@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <form class="form" id="Signup">
+        <form class="form" id="Signup" onsubmit="event.preventDefault()">
             <h1 class="form_title">SignUp</h1>
             <div class="form_message form_message-error"></div>
             <div class="form_input-group">
@@ -20,14 +20,14 @@
                 <div class="form_input-error-message"></div>
             </div>
             <div class="form_input-group">
-                <input type="password" class="form_input" autocomplete=off autofocus placeholder="Password">
+                <input type="password" class="form_input" autocomplete=off id = "password" autofocus placeholder="Password">
                 <div class="form_input-error-message"></div>
             </div>
             <div class="form_input-group">
-                <input type="password" class="form_input" autocomplete=off autofocus placeholder="Confirm Password">
+                <input type="password" class="form_input" autocomplete=off id = "cpassword" autofocus placeholder="Confirm Password">
                 <div class="form_input-error-message"></div>
             </div>
-            <button class="form_button" type="submit">Sign Up</button>
+            <button class="form_button" type="submit" onclick="signup()">Sign Up</button>
             <p class="form_text">
                 <a class="form_link" href="../Login/Login.html">Already Have an Account? Log In</a>
             </p>
