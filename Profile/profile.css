@@ -1,11 +1,10 @@
 .profile-picture{
-    align-self: flex-start;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 0 auto;
+
     margin-bottom: 20px;
-    background-color: black;
+    width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background: #333;
 }
 #pfp-content{
     position: relative;
@@ -13,15 +12,6 @@
     left: 38px;
     color: aliceblue;
 }
-/* .left-panel{
-    display: inline-block;
-    width: 25%;
-}
-.right-panel{
-    margin-bottom: 30px;
-    display: inline-block;
-    margin-left: 20px;
-} */
 nav{
     height: 40px;
     background-color: #2691d9;
@@ -35,6 +25,29 @@ nav{
     vertical-align: top;
     position: relative;
     left: -70px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(126, 114, 114);
+    border-bottom-style: solid;
+}
+.pfp-username{
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(126, 114, 114);
+    border-bottom-style: solid;
+}
+#delete-acc{
+    color: white;
+    background-color: red;
+    border-radius: 4px;
+}
+.form-control{
+    margin-bottom: 10px;
+}
+.settings{
+    display: inline-block;
+    padding: 20px 5px;
+}
+.settings h4{
+    margin-bottom: 20px;
 }
 .test{
     margin: 0;
@@ -51,7 +64,6 @@ nav{
 }
 #badges{
     margin: 0;
-  /* margin-top: 2%; */
   width: 900px;
   max-width: 900px;
   font-size: 1.5rem;
@@ -71,7 +83,6 @@ nav{
 }
 #submissions{
     margin: 0;
-  /* margin-top: 2%; */
   width: 900px;
   max-width: 900px;
   font-size: 1.5rem;
@@ -84,8 +95,16 @@ nav{
 #submissions-card-body a{
     font-weight: 500;
 }
-#load-more{
+button{
     color: #2691d9;
     border-color: #2691d9;
     background-color: white;
+    border-radius: 4px;
+}
+#pfp-text{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    line-height: 100px;
 }
