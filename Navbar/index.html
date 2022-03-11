@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-nav-links">
+        <ul class="nav-links">
+          <li class="nav-link-item logo">
+            <a href="../Dashboard">HackerCity</a>
+            <span class="hlogo">H</span><span class="clogo">C</span>
+          </li>
+          <li class="nav-link-item list">
+            <a href="#">Practice</a>
+          </li>
+          <li class="nav-link-item list">
+            <a href="#">Submissions</a>
+          </li>
+          <li class="nav-link-item list">
+            <a href="../Profile/profile.html">Profile</a>
+          </li>
+        </ul>
+      </div>
+      <div class="searchbar">
+        <div class="search">
+          <input type="text" placeholder="Search" value="search" />
+          <span
+            ><button type="submit"><i class="fa fa-search"></i></button
+          ></span>
+          <span>
+            <button
+              type="submit"
+              onclick="window.location.href='../Profile/profile.html'"
+            >
+              <i class="fa fa-user"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
