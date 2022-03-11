@@ -12,38 +12,45 @@
     />
   </head>
   <body>
-    <div class="container">
-      <div class="header-nav-links">
-        <ul class="nav-links">
-          <li class="nav-link-item logo">
-            <a href="../Dashboard">HackerCity</a>
-            <span class="hlogo">H</span><span class="clogo">C</span>
-          </li>
-          <li class="nav-link-item list">
-            <a href="#">Practice</a>
-          </li>
-          <li class="nav-link-item list">
-            <a href="#">Submissions</a>
-          </li>
-          <li class="nav-link-item list">
-            <a href="../Profile/profile.html">Profile</a>
-          </li>
-        </ul>
-      </div>
-      <div class="searchbar">
-        <div class="search">
+    <div class="headerlink">
+      <ul class="firstul">
+        <li class="nav-link-item logo">
+          <a href="../Dashboard">HackerCity</a>
+        </li>
+        <li class="nav-link-item list">
+          <a href="#">Practice</a>
+        </li>
+        <li class="nav-link-item list">
+          <a href="#">Submissions</a>
+        </li>
+        <li class="nav-link-item list">
+          <a href="../Profile/profile.html">Profile</a>
+        </li>
+      </ul>
+      <ul class="secondul">
+        <li class="icons menu">
+          <button type="menu">
+            <i class="fa fa-bars"></i>
+          </button>
+        </li>
+        <li class="icons close">
+          <button type="close">
+            <i class="fa fa-times"></i>
+          </button>
+        </li>
+      </ul>
+      <div class="rightside">
+        <div class="searchbar">
           <input type="text" placeholder="Search" value="search" />
           <span
             ><button type="submit"><i class="fa fa-search"></i></button
           ></span>
-          <span>
-            <button
-              type="submit"
-              onclick="window.location.href='../Profile/profile.html'"
-            >
-              <i class="fa fa-user"></i>
-            </button>
-          </span>
+          <button
+            type="prof"
+            onclick="window.location.href='../Profile/profile.html'"
+          >
+            <i class="fa fa-user"></i>
+          </button>
         </div>
       </div>
     </div>
