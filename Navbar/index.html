@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DashBoard</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-</head>
-
-<body>
-  <div class="headerlink">
-    <ul class="firstul">
-      <li class="nav-link-item logo">
-        <a href="../Dashboard">HackerCity</a>
-      </li>
-      <li class="nav-link-item list">
-        <a href="#">Practice</a>
-      </li>
-      <li class="nav-link-item list">
-        <a href="#">Submissions</a>
-      </li>
-      <li class="nav-link-item list">
-        <a href="../Profile/profile.html">Profile</a>
-      </li>
-    </ul>
-    <ul class="secondul">
-      <li class="icons menu">
-        <button type="menu">
-          <i class="fa fa-bars"></i>
-        </button>
-      </li>
-      <li class="icons close">
-        <button type="close">
-          <i class="fa fa-times"></i>
-        </button>
-      </li>
-      <div class="header">
-        <h2 Style="color : white;">HackkerCity</h2>
-      </div>
-    </ul>
-    <div class="rightside">
-      <div class="searchbar">
-        <input type="text" placeholder="Search" value="search" />
-        <span><button type="submit"><i class="fa fa-search"></i></button></span>
-        <button type="prof" onclick="window.location.href='../Profile/profile.html'">
-          <i class="fa fa-user"></i>
-        </button>
+  <body>
+    <div class="headerlink">
+      <ul class="firstul">
+        <li class="nav-link-item logo">
+          <a href="../Dashboard">HackerCity</a>
+        </li>
+        <li class="nav-link-item list">
+          <a href="#">Practice</a>
+        </li>
+        <li class="nav-link-item list">
+          <a href="#">Submissions</a>
+        </li>
+        <li class="nav-link-item list">
+          <a href="../Profile/profile.html">Profile</a>
+        </li>
+      </ul>
+      <ul class="secondul">
+        <li class="icons menu">
+          <button type="menu">
+            <i class="fa fa-bars"></i>
+          </button>
+        </li>
+        <li class="icons close">
+          <button type="close">
+            <i class="fa fa-times"></i>
+          </button>
+        </li>
+        <div class="header">
+          <h2 style="color: white">HackkerCity</h2>
+        </div>
+      </ul>
+      <div class="rightside">
+        <div class="searchbar">
+          <input type="text" placeholder="Search" value="search" />
+          <span
+            ><button type="submit"><i class="fa fa-search"></i></button
+          ></span>
+          <button
+            type="prof"
+            onclick="window.location.href='../Profile/profile.html'"
+          >
+            <i class="fa fa-user"></i>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

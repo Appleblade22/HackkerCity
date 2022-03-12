@@ -35,6 +35,10 @@
   color: #adadad;
 }
 
+.header {
+  display: none;
+}
+
 .logo {
   margin-right: 2rem;
   font-size: 2rem;
@@ -95,7 +99,7 @@ button {
 }
 */
 
-@media (max-width: 1250px) {
+@media (max-width: 1230px) {
   .searchbar input[type="text"] {
     margin-left: 2rem;
   }
@@ -107,14 +111,14 @@ button {
   }
 }
 
-@media (max-width: 954px) {
+@media (max-width: 900px) {
   .searchbar {
     display: none;
   }
 }
 
-@media (max-width: 954px) {
-  .firstul {
+@media (max-width: 900px) {
+  .list {
     display: none;
   }
   .icons {
@@ -125,8 +129,6 @@ button {
   }
   button[type="menu"] {
     font-size: 25px;
-  }
-  .header {
-    padding-left: 20px;
+    margin-right: 5rem;
   }
 }
