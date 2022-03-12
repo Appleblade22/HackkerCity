@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,6 +7,7 @@
     <link rel="stylesheet" href="../Login/style.css">
     <title>Login and Signup</title>
 </head>
+
 <body>
     <div class="container">
         <form class="form" id="Signup" onsubmit="event.preventDefault()">
@@ -16,15 +18,17 @@
                 <div class="form_input-error-message"></div>
             </div>
             <div class="form_input-group">
-                <input type="text" id ="email" class="form_input" autofocus placeholder="Email">
+                <input type="text" id="email" class="form_input" autofocus placeholder="Email">
                 <div class="form_input-error-message"></div>
             </div>
             <div class="form_input-group">
-                <input type="password" class="form_input" autocomplete=off id = "password" autofocus placeholder="Password">
+                <input type="password" class="form_input" autocomplete=off id="password" autofocus
+                    placeholder="Password">
                 <div class="form_input-error-message"></div>
             </div>
             <div class="form_input-group">
-                <input type="password" class="form_input" autocomplete=off id = "cpassword" autofocus placeholder="Confirm Password">
+                <input type="password" class="form_input" autocomplete=off id="cpassword" autofocus
+                    placeholder="Confirm Password">
                 <div class="form_input-error-message"></div>
             </div>
             <button class="form_button" type="submit" onclick="signup()">Sign Up</button>
