@@ -52,15 +52,42 @@ nav .menu-btn i {
   cursor: pointer;
   display: none;
 }
+
+.searchbar input[type="text"] {
+  width: 12rem;
+  border-radius: 1rem;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font: 25px;
+}
+
+button {
+  padding: 4px 6px;
+  background: none;
+  color: white;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+}
+
 input[type="checkbox"] {
   display: none;
 }
-@media (max-width: 1000px) {
+
+@media (max-width: 1130px) {
+  li .searchbar {
+    display: none;
+  }
+}
+
+@media (max-width: 1230px) {
   nav {
     padding: 0 40px 0 50px;
   }
 }
-@media (max-width: 920px) {
+@media (max-width: 720px) {
   nav .menu-btn i {
     display: block;
   }
@@ -81,7 +108,7 @@ input[type="checkbox"] {
   #click:checked ~ ul {
     left: 0;
   }
-  nav ul li {
+  .page {
     width: 100%;
     margin: 40px 0;
     border-bottom: 0.5px solid #adadad4d;

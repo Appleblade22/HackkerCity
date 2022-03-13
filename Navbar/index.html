@@ -18,9 +18,23 @@
         <i class="fas fa-bars"></i>
       </label>
       <ul>
-        <li><a class="active" href="#">Practice</a></li>
-        <li><a href="#">Submissions</a></li>
-        <li><a href="../Profile/profile.html">Profile</a></li>
+        <li class="page"><a class="active" href="#">Practice</a></li>
+        <li class="page"><a href="#">Submissions</a></li>
+        <li class="page"><a href="../Profile/profile.html">Profile</a></li>
+        <li>
+          <div class="searchbar">
+            <input type="text" placeholder="Search" />
+            <span
+              ><button type="submit"><i class="fa fa-search"></i></button
+            ></span>
+            <button
+              type="prof"
+              onclick="window.location.href='../Profile/profile.html'"
+            >
+              <i class="fa fa-user"></i>
+            </button>
+          </div>
+        </li>
       </ul>
     </nav>
   </body>
