@@ -17,17 +17,10 @@ nav{
     background-color: #2691d9;
     margin-bottom: 30px;
 }
-.container span{
-    display: inline-block;
-}
-.small-box{
-    width: 25%;
-    vertical-align: top;
-    position: relative;
-    left: -70px;
-    border-bottom-width: 1px;
-    border-bottom-color: rgb(126, 114, 114);
-    border-bottom-style: solid;
+#sb{
+    margin-left: 20px;
+    width: 350px;
+    padding: 30px;
 }
 .pfp-username{
     border-bottom-width: 1px;
