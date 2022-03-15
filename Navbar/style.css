@@ -1,134 +1,136 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 * {
   margin: 0;
   padding: 0;
-}
-
-.headerlink {
-  font-family: "Open Sans", sans-serif;
-  background: rgba(0, 0, 0, 0.822);
-  padding: 20px 30px;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+nav {
+  display: flex;
   height: 80px;
   width: 100%;
-  display: flex;
-}
-
-.firstul {
-  display: flex;
+  background: rgba(0, 0, 0, 0.822);
   align-items: center;
-  text-transform: uppercase;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
 }
 
-.secondul {
-  display: flex;
-  align-items: center;
-}
-
-.nav-link-item {
-  list-style: none;
-  margin-right: 1rem;
-  font-size: 1rem;
-}
-
-.nav-link-item a {
-  text-decoration: none;
-  color: #adadad;
-}
-
-.header {
-  display: none;
-}
-
-.logo {
-  margin-right: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.logo a {
+nav .logo {
+  font-size: 35px;
+  font-weight: 600;
   background: -webkit-linear-gradient(rgb(17, 173, 17), #eee);
   background-clip: text-decoration;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-.list:hover {
-  border-bottom: 2px solid rgb(17, 173, 17);
-  transition: 0.3s;
-  color: white;
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li {
+  margin: 0 5px;
+}
+nav ul li a {
+  color: #adadad;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a:hover {
+  color: #111;
+  background: #fff;
+}
+nav .menu-btn i {
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
 }
 
-.rightside {
-  font-family: "Open Sans", sans-serif;
-  background: none;
+.searchbar input[type="text"] {
+  width: 12rem;
+  border-radius: 1rem;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font: 25px;
 }
 
 button {
-  padding: 6px 10px;
+  padding: 4px 6px;
   background: none;
   color: white;
-  font-size: 17px;
+  font-size: 13px;
   border: none;
   cursor: pointer;
 }
 
-.searchbar input[type="text"] {
-  padding: 9px 7px;
-  box-sizing: border-box;
-  border-radius: 1rem;
-  margin-left: 20rem;
-  font-size: 1rem;
-}
-
-.icons {
-  list-style: none;
+input[type="checkbox"] {
   display: none;
 }
 
-/* .searchbar {
-  font-family: "Open Sans", sans-serif;
-  background: rgba(0, 0, 0, 0.822);
-  padding: 20px 30px;
-  display: flex;
-  float: right;
-  width: 100%;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  height: 80px;
+@media (max-width: 1130px) {
+  li .searchbar {
+    display: none;
+  }
 }
-*/
 
 @media (max-width: 1230px) {
-  .searchbar input[type="text"] {
-    margin-left: 2rem;
+  nav {
+    padding: 0 40px 0 50px;
   }
 }
-
-@media (max-width: 950px) {
-  .searchbar button[type="prof"] {
-    display: none;
-  }
-}
-
-@media (max-width: 900px) {
-  .searchbar {
-    display: none;
-  }
-}
-
-@media (max-width: 900px) {
-  .list {
-    display: none;
-  }
-  .icons {
+@media (max-width: 720px) {
+  nav .menu-btn i {
     display: block;
   }
-  button[type="close"] {
-    display: none;
+  #click:checked ~ .menu-btn i:before {
+    content: "\f00d";
   }
-  button[type="menu"] {
-    font-size: 25px;
-    margin-right: 5rem;
+  nav ul {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: rgba(0, 0, 0, 0.822);
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  #click:checked ~ ul {
+    left: 0;
+  }
+  .page {
+    width: 100%;
+    margin: 40px 0;
+    border-bottom: 0.5px solid #adadad4d;
+  }
+  nav ul li a {
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a {
+    margin-left: 0px;
+  }
+
+  nav ul li a.active {
+    background: none;
+    color: #adadad;
+  }
+
+  nav ul li a:hover {
+    background: none;
+    color: rgb(15, 163, 15);
   }
 }
