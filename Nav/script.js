@@ -12,6 +12,7 @@ menuBtn.onclick = ()=>{
 }
 
 cancelBtn.onclick = ()=>{
+  document.body.classList.toggle('lock-scroll');
   items.classList.remove("active");
   menuBtn.classList.remove("hide");
   searchBtn.classList.remove("hide");
@@ -20,6 +21,7 @@ cancelBtn.onclick = ()=>{
   cancelBtn.style.color = "#ff3d00";
 }
 searchBtn.onclick = ()=>{
+  document.body.classList.toggle('lock-scroll');
   form.classList.add("active");
   searchBtn.classList.add("hide");
   cancelBtn.classList.add("show");
