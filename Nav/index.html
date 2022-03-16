@@ -1,27 +1,35 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src = "https://kit.fontawesome.com/a076d05399.js"></script>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+ </head>
+ <body>
     <nav>
-        <ul>
-            <li class = "logo">HackkerCity</li>
-            <div class = "items">
-                <li><a href = "#" >Practice</a></li>
-                <li><a href = "#" >Submissions</a></li> 
-                <li><a href = "#" >Profile</a></li>
-            </div>
-            <li class = "search-icon">
-                <input type = "search" placeholder = "Search">
-                <span class = "fas fa-search"></span>
-            </li>
-        </ul>
+       <div class="menu-icon">
+          <span class="fas fa-bars"></span>
+       </div>
+       <div class="logo">
+         Hackkerank
+       </div>
+       <div class="nav-items">
+          <li><a href="#">Practice</a></li>
+          <li><a href="#">Submissions</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Contact</a></li>
+       </div>
+       <div class="search-icon">
+          <span class="fas fa-search"></span>
+       </div>
+       <div class="cancel-icon">
+          <span class="fas fa-times"></span>
+       </div>
+       <form action="#">
+          <input type="search" class="search-data" placeholder="Search" required>
+          <button type="submit" class="fas fa-search"></button>
+       </form>
     </nav>
-</body>
+    <script src="./script.js"></script>
+ </body>
 </html>
