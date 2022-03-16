@@ -93,7 +93,7 @@ main {
   font-family: inherit;
   padding: 1rem 2rem;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(45, 168, 8, 0.5);
+  box-shadow: 0 0 10px rgba(45, 168, 8, 0.5);
 }
 
 .btn:hover {
