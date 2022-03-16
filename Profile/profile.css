@@ -1,65 +1,62 @@
-.profile-picture{
-    margin-bottom: 20px;
-    width: 100px;
+.profile-picture {
+  margin-bottom: 20px;
+  width: 100px;
   height: 100px;
   border-radius: 100px;
   background: #333;
 }
-#pfp-content{
-    position: relative;
-    top: 38px;
-    left: 38px;
-    color: aliceblue;
+#pfp-content {
+  position: relative;
+  top: 38px;
+  left: 38px;
+  color: aliceblue;
 }
-nav{
-    height: 40px;
-    background-color: #2691d9;
-    margin-bottom: 30px;
+
+#sb {
+  margin-left: 20px;
+  width: 400px;
+  padding: 30px;
+  padding-right: 70px;
 }
-#sb{
-    margin-left: 20px;
-    width: 400px;
-    padding: 30px;
-    padding-right: 70px;
-}#bb{
-    padding: 30px;
+#bb {
+  padding: 30px;
 }
-.pfp-username{
-    border-bottom-width: 1px;
-    border-bottom-color: rgb(126, 114, 114);
-    border-bottom-style: solid;
+.pfp-username {
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(126, 114, 114);
+  border-bottom-style: solid;
 }
-#delete-acc{
-    color: white;
-    background-color: red;
-    border-radius: 4px;
+#delete-acc {
+  color: white;
+  background-color: red;
+  border-radius: 4px;
 }
-.form-control{
-    margin-bottom: 10px;
+.form-control {
+  margin-bottom: 10px;
 }
-.settings{
-    display: inline-block;
-    padding: 20px 5px;
-    margin-top: 25px;
+.settings {
+  display: inline-block;
+  padding: 20px 5px;
+  margin-top: 25px;
 }
-.settings h4{
-    margin-bottom: 20px;
+.settings h4 {
+  margin-bottom: 20px;
 }
-.test{
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+.test {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
 }
 #c1 {
-    border-radius: 2%;
-    border: none;
+  border-radius: 2%;
+  border: none;
 }
-#badges{
-    margin: 0;
+#badges {
+  margin: 0;
   width: 900px;
   max-width: 900px;
   font-size: 1.5rem;
@@ -69,19 +66,19 @@ nav{
   box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
   margin-bottom: 30px;
 }
-#badges:hover{
-    box-shadow: 0 0 40px rgb(0, 0, 0, 0.4);
+#badges:hover {
+  box-shadow: 0 0 40px rgb(0, 0, 0, 0.4);
 }
-#submissions a{
-    font-size: 1rem;
+#submissions a {
+  font-size: 1rem;
 }
-#submissions i{
-    font-size: 1rem;
-    font-weight: 500;
-    color: grey;
+#submissions i {
+  font-size: 1rem;
+  font-weight: 500;
+  color: grey;
 }
-#submissions{
-    margin: 0;
+#submissions {
+  margin: 0;
   width: 900px;
   max-width: 900px;
   font-size: 1.5rem;
@@ -91,22 +88,22 @@ nav{
   box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
   margin-bottom: 30px;
 }
-#submissions:hover{
-    box-shadow: 0 0 40px rgb(0, 0, 0, 0.4);
+#submissions:hover {
+  box-shadow: 0 0 40px rgb(0, 0, 0, 0.4);
 }
-#submissions-card-body a{
-    font-weight: 500;
+#submissions-card-body a {
+  font-weight: 500;
 }
-#load-more{
-    color: #2691d9;
-    border-color: #2691d9;
-    background-color: white;
-    border-radius: 4px;
+#load-more {
+  color: #2691d9;
+  border-color: #2691d9;
+  background-color: white;
+  border-radius: 4px;
 }
-#pfp-text{
-    width: 100%;
-    text-align: center;
-    color: white;
-    font-size: 36px;
-    line-height: 100px;
+#pfp-text {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 36px;
+  line-height: 100px;
 }
