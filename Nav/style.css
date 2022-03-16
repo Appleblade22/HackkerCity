@@ -22,4 +22,10 @@ nav ul{
 }
 nav ul li.logo{
     flex: 1;
+    font-size: 30px;
+    font-weight: 700; 
+}
+nav ul div.items{
+    display: inline-flex;
+    padding: 0 25px;
 }
