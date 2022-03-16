@@ -18,8 +18,9 @@ nav{
 }
 #sb{
     margin-left: 20px;
-    width: 350px;
+    width: 400px;
     padding: 30px;
+    padding-right: 70px;
 }#bb{
     padding: 30px;
 }
@@ -39,6 +40,7 @@ nav{
 .settings{
     display: inline-block;
     padding: 20px 5px;
+    margin-top: 25px;
 }
 .settings h4{
     margin-bottom: 20px;
@@ -67,6 +69,9 @@ nav{
   box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
   margin-bottom: 30px;
 }
+#badges:hover{
+    box-shadow: 0 0 40px rgb(0, 0, 0, 0.4);
+}
 #submissions a{
     font-size: 1rem;
 }
@@ -85,6 +90,9 @@ nav{
   border-radius: 4px;
   box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
   margin-bottom: 30px;
+}
+#submissions:hover{
+    box-shadow: 0 0 40px rgb(0, 0, 0, 0.4);
 }
 #submissions-card-body a{
     font-weight: 500;
