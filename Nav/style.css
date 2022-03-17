@@ -17,12 +17,11 @@ nav {
   justify-content: space-between;
   height: 70px;
   padding: 0 100px;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
-/* 
+
 .sticky {
   position: fixed;
-  top: 0;
   width: 100%;
 }
 
@@ -32,7 +31,7 @@ nav {
 
 .sticky + .content {
   padding-top: 60px;
-} */
+}
 
 nav .logo {
   color: #fff;
