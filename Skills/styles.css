@@ -7,6 +7,10 @@ body {
   font-family: sans-serif;
 }
 
+h1 {
+  font-weight: 1000;
+}
+
 .conatainer-headline {
   padding: auto;
   width: 100%;
@@ -27,8 +31,8 @@ body {
 .button_language {
   padding-top: 20px;
   padding-bottom: 20px;
-  box-shadow: 5px 5px 5px gray;
-  border-style: inset;
+  box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
+  border-style: groove;
   background-color: white;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
@@ -71,7 +75,7 @@ body {
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  box-shadow: 7px 7px 5px gray;
+  box-shadow: 0 0 40px rgb(0, 0, 0, 0.3);
 }
 
 .row {
