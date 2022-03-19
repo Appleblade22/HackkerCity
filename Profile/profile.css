@@ -88,6 +88,54 @@
   box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
   margin-bottom: 30px;
 }
+@media  screen and (max-width: 910px) {
+  #submissions {
+    width: 700px;
+  }
+  #badges {
+    width: 700px;
+  }
+}
+@media  screen and (max-width: 770px) {
+  #submissions {
+    width: 600px;
+  }
+  #badges {
+    width: 600px;
+  }
+}
+@media  screen and (max-width: 650px) {
+  #submissions {
+    width: 500px;
+  }
+  #badges {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 510px) {
+  #submissions {
+    width: 400px;
+  }
+  #badges {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 430px) {
+  #submissions {
+    width: 340px;
+  }
+  #badges {
+    width: 340px;
+  }
+}
+@media screen and (max-width: 370px) {
+  #submissions {
+    width: 300px;
+  }
+  #badges {
+    width: 300px;
+  }
+}
 #submissions:hover {
   box-shadow: 0 0 40px rgb(0, 0, 0, 0.4);
 }
