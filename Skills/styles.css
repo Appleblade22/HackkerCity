@@ -1,88 +1,83 @@
-body{
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-    font-family: sans-serif;
+body {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: sans-serif;
 }
 
-.conatainer-headline{
-    padding: auto;
-    width: 100%;
-    height: 69%;
-    display: flex;
-    background-color: rgb(144, 247, 170);
+.conatainer-headline {
+  padding: auto;
+  width: 100%;
+  height: 69%;
+  display: flex;
+  background-color: rgb(144, 247, 170);
 }
 
-.languages{
-    margin: auto;
-    margin-top: 80px;
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    height: 40%;
+.languages {
+  margin: auto;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 40%;
 }
 
-.button_language{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    box-shadow: 5px 5px 5px gray;
-    border-style: inset;
-    background-color: white;
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+.button_language {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 5px 5px 5px gray;
+  border-style: inset;
+  background-color: white;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
-.button_language:hover{
-    background-color: rgb(31, 194, 85);
-    color: white;
+.button_language:hover {
+  background-color: rgb(31, 194, 85);
+  color: white;
 }
 
-
-
-.Skills-navigation{
-    text-align: center;
-    font-weight: 700;
+.Skills-navigation {
+  text-align: center;
+  font-weight: 700;
 }
 
-.Heading-2{
-    text-align: center;
-    font-weight: 700;
+.Heading-2 {
+  text-align: center;
+  font-weight: 700;
 }
 
-.page-footer{
-    padding-bottom: 0px;
-    margin-top: 25px;
-    background-color: rgb(47, 48, 48);
-    color: white;
+.page-footer {
+  padding-bottom: 0px;
+  margin-top: 25px;
+  background-color: rgb(47, 48, 48);
+  color: white;
 }
 
-.card-text{
-    text-overflow: ellipsis;
-    overflow: hidden;
+.card-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
+.card {
+  width: 30% !important;
+  height: 9cm !important;
 
-
-.card{
-    width: 30%!important;
-    height: 9cm!important;
-
-    background-color: #00ff73!important;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    box-shadow: 7px 7px 5px gray;
+  background-color: #00ff73 !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 7px 7px 5px gray;
 }
 
-.row{
+.row {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   padding: 10px;
 }
-
