@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.probheader {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin-top: 1.5rem;
+  width: 50%;
+  padding: 20px 30px;
+  margin-left: 1rem;
+  border-radius: 5px;
+}
+
+ol {
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.arrow {
+  padding-right: 4px;
+  color: black;
+}
+
+.name {
+  font-weight: 550;
+}
+
+.probheader h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.question {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin-top: 1.5rem;
+  width: 50%;
+  padding: 20px 30px;
+  margin-left: 1rem;
+  overflow: auto;
+  font-size: 1.25rem;
+  border-radius: 10px;
+}
+
+.main,
+.head {
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  margin-bottom: 1rem;
+}
+
+.givenprob {
+  margin-bottom: 2rem;
+}
+
+.example h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.example-ques {
+  padding: 5px 10px;
+  width: 30%;
+  font-size: 1rem;
+  background-color: #dfddddb6;
+  overflow: auto;
+  margin-bottom: 1rem;
+}
+
+.constraint h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.constraint-ques {
+  padding: 5px 10px;
+  width: 30%;
+  font-size: 1rem;
+  overflow: auto;
+  margin-bottom: 1rem;
+  border: none;
+}
