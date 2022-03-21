@@ -69,7 +69,9 @@ ol {
   margin-bottom: 1rem;
 }
 
-.example-ques {
+.example-ques,
+.subtask-ques,
+.explain-ques {
   padding: 5px 10px;
   width: 30%;
   font-size: 1rem;
@@ -89,5 +91,5 @@ ol {
   font-size: 1rem;
   overflow: auto;
   margin-bottom: 1rem;
-  border: none;
+  background-color: #dfddddb6;
 }
