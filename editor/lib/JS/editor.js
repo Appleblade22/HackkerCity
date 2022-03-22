@@ -5,7 +5,7 @@ const defaultCode  = "// Hello my friends" + "\n";
 
 //Setup ace
 let codeEditor = ace.edit("editorCode");
-
+let consoleMessages = [];
 let editorlib = {
     init(){
         codeEditor.setTheme("ace/theme/dracula");
