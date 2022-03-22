@@ -1,3 +1,5 @@
+const { reauthenticateWithCredential } = require("@firebase/auth");
+
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form_message");
     messageElement.textContent = message;
@@ -36,10 +38,7 @@ function login(){
     window.location.href = "http://www.w3schools.com";
 }
 
-const signup_btn = document.querySelector('#signup_form');
-signup_btn.addEventListener('submit', (e) => {
-    console.log("hello");
-    e.preventDefault();
+function signup(){
     const form = document.getElementById("Signup");
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -49,29 +48,22 @@ signup_btn.addEventListener('submit', (e) => {
     if(email === "" || password === "" || cpassword === "" || username === ""){
         setFormMessage(form, "error", "Please fill all the fields");
         flag = 0;
+        return;
     }
     if(!ValidateEmail(email)){
         setFormMessage(form, "error", "Please enter a valid email");
         flag = 0;
+        return;
     }
     if(password !== cpassword){
         setFormMessage(form, "error", "Passwords do not match");
         flag = 0;
+        return;
     }
     //Do your Fetch operation with firebase
     //Sign up User
-    console.log(flag);
-    if(flag){
-    createUserWithEmailAndPassword(auth, email, password).then(function(user){
-        setFormMessage(form, "success", "Account created successfully");
-        user.updateProfile({
-            displayName: username
-        });
-    }).catch(function(error) {
-        setFormMessage(form, "error", error.message);
-    });
-    }
-});   
+    
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
