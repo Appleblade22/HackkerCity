@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-analytics.js';
 import { getDatabase, set, ref, update } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 
 //Configuration
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 setInputError(inputElement, "Please enter a valid email address");
             }
         });
-
+        
         inputElement.addEventListener("input", e => {
             clearInputError(inputElement);
         });
@@ -182,8 +182,44 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Forgot password
-const forgotForm = document.getElementById('forgot');
+const forgotForm = document.getElementById('send_reset');
 if(forgotForm){
-    
+    console.log("Heya");
+forgotForm.addEventListener('click', (event) => {
+    event.preventDefault();
+    const form = document.getElementById("forgot");
+    const email = document.getElementById("email").value;
+    clearFormMessage(form);
+    let flag1 = 1;
+    if (email === "") {
+        setFormMessage(form, "error", "Please enter your email");
+        flag1 = 0;
+    }
+    if (!ValidateEmail(email)) {
+        setFormMessage(form, "error", "Please enter a valid email");
+        flag1 = 0;
+    }
+    if (flag1 && ValidateEmail(email)) {
+        sendPasswordResetEmail(auth, email).then(function () {
+            setFormMessage(form, "success", "Password reset email sent");
+            window.location.href = "../Login/login.html";
+        }).catch(function (error) {
+            setFormMessage(form, "error", "Something went wrong");
+        });
+    }
+});
+}
+
+//Logout
+const logout = document.getElementById('logout');
+if(logout){
+logout.addEventListener('click', (event) => {
+    event.preventDefault();
+    signOut(auth).then(function () {
+        window.location.href = "../Login/login.html";
+    }).catch(function (error) {
+        console.log(error);
+    });
+});
 }
 
