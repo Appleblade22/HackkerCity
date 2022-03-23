@@ -2,10 +2,9 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-analytics.js';
 import { getDatabase, set, ref, update } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
+//Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAvdACqDU3yNw2kHI1nFkfhzp5l8CXdp8U",
     authDomain: "hackercity-dc10f.firebaseapp.com",
@@ -16,13 +15,15 @@ const firebaseConfig = {
     appId: "1:708724640074:web:9bf5a99aa8caa3991cd9b3",
     measurementId: "G-6TMD2EJLF3"
 };
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase();
 const auth = getAuth();
-console.log(auth);
 
+
+// Form Message functions
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form_message");
     messageElement.textContent = message;
@@ -49,6 +50,8 @@ function ValidateEmail(mail) {
     }
     return (false)
 }
+
+//Login Backend
 const loginForm = document.getElementById("enter");
 if(loginForm){
 let flag2 = 1;
@@ -74,7 +77,7 @@ loginForm.addEventListener('click', (event) => {
                 last_login: date,
             }).then(function () {
                 console.log("User Logged in");
-                window.location.href = "../Login/forgotpasssword.html";
+                window.location.href = "../Skills/skills.html";
             }).catch(function (error) {
                 console.log(error);
             }
@@ -97,6 +100,8 @@ loginForm.addEventListener('click', (event) => {
 });
 }
 
+
+//Signup Backend
 const signupForm = document.getElementById('save_data');
 if(signupForm){
 signupForm.addEventListener('click', (event) => {
@@ -124,7 +129,8 @@ signupForm.addEventListener('click', (event) => {
         setFormMessage(form, "error", "Passwords do not match");
         flags = 0;
     }
-    //Do your Fetch operation with firebase
+
+    //Create operation with firebase
     if (flags && (username.length > 4) && ValidateEmail(email)) {
         createUserWithEmailAndPassword(auth, email, password).then(function (userCredentials) {
             const us = userCredentials.user;
@@ -136,7 +142,7 @@ signupForm.addEventListener('click', (event) => {
             }).then(function () {
                 alert('user created');
                 console.log("User Created");
-                window.location.href = "../Login/Login.html";
+                window.location.href = "../Login/Redirect.html";
             }).catch(function (error) {
                 console.log(error);
             });
@@ -152,6 +158,8 @@ signupForm.addEventListener('click', (event) => {
     }
 });
 }
+
+//Email and Username validation
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".form_input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
@@ -171,3 +179,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
