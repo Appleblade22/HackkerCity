@@ -181,3 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+//Forgot password
+const forgotForm = document.getElementById('forgot');
+if(forgotForm){
+    
+}
+
