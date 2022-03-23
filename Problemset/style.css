@@ -19,7 +19,7 @@ body {
 }
 
 .solvebtn {
-  transform: translate(50%, 25%);
+  transform: translateY(25%);
 }
 
 .headingskill {
@@ -38,7 +38,7 @@ body {
 .liclass {
   margin-bottom: 2rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  width: 62%;
+  width: 50rem;
   margin-left: 2rem;
   list-style: none;
 }
@@ -90,4 +90,21 @@ button:hover:after {
 .btn:hover {
   background-color: #99949452; /* Green */
   color: rgb(0, 0, 0);
+}
+
+@media (max-width: 845px) {
+  .liclass {
+    width: 40rem;
+  }
+  .solvebtn {
+    transform: translate(-20%, 25%);
+  }
+}
+@media (max-width: 680px) {
+  .liclass {
+    width: 30rem;
+  }
+  .solvebtn {
+    transform: translate(-15%, 25%);
+  }
 }
