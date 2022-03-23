@@ -143,6 +143,7 @@ signupForm.addEventListener('click', (event) => {
                 alert('user created');
                 console.log("User Created");
                 window.location.href = "../Login/Redirect.html";
+                console.log(userCredentials.user.uid);
             }).catch(function (error) {
                 console.log(error);
             });
