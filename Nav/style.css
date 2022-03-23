@@ -92,8 +92,29 @@ nav form button {
   border-radius: 2px;
   cursor: pointer;
 }
+
+.logout {
+  padding: 8px 15px;
+  background-color: rgb(223, 0, 0);
+  margin-left: 2rem;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.logout a {
+  text-decoration: none;
+  color: black;
+}
+
+.logout:hover {
+  background-color: rgb(255, 0, 0);
+  box-shadow: 0 0 15px rgb(255, 255, 255, 0.3);
+}
+
 nav form button:hover {
   background: rgb(28, 236, 28);
+  font-size: 18px;
 }
 nav .menu-icon,
 nav .cancel-icon,
