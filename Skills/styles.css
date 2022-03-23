@@ -71,12 +71,12 @@ h1 {
   width: 30% !important;
   height: 9cm !important;
 
-  background-color: #00ff73 !important;
+  background-color: rgb(78, 243, 133) !important;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  box-shadow: 0 0 40px rgb(0, 0, 0, 0.3);
+  box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
 }
 
 .row {
@@ -85,4 +85,8 @@ h1 {
   flex-direction: row;
   justify-content: center;
   padding: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 0 40px rgb(0, 0, 0, 0.4);
 }

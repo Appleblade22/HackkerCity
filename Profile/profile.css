@@ -21,6 +21,10 @@
 #bb {
   padding: 30px;
 }
+button{
+  padding: 5px 5px;
+  border-radius: 3px;
+}
 .pfp-username {
   border-bottom-width: 1px;
   border-bottom-color: rgb(126, 114, 114);
@@ -154,4 +158,43 @@
   color: white;
   font-size: 36px;
   line-height: 100px;
+}
+#hexagon {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  margin-right: 5%;
+  width: 104px;
+  height: 60px;
+  background-color: rgb(127, 212, 127);
+  border-color: rgb(127, 212, 127);
+  position: relative;
+  display: flex;
+}
+#hexagon::before {
+  content: " ";
+    width: 0; height: 0;
+    border-bottom: 30px solid;
+    border-color: inherit;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+    position: absolute;
+    top: -30px;
+}
+#hexagon::after {
+  content: "";
+    width: 0;
+    position: absolute;
+    bottom: -30px;
+    border-top: 30px solid;
+    border-color: inherit;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+}
+#badges-body{
+  display: flex;
+}
+#badge-title{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
