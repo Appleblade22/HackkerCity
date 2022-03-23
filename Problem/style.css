@@ -64,32 +64,25 @@ ol {
   margin-bottom: 2rem;
 }
 
-.example h4 {
+.inputform h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.example-ques,
+.inputform-ques,
 .subtask-ques,
-.explain-ques {
+.explain-ques,
+.constraint-ques,
+.outputform-ques {
   padding: 5px 10px;
-  width: 30%;
+  width: 80%;
   font-size: 1rem;
   background-color: #dfddddb6;
-  overflow: auto;
+  overflow-wrap: break-word;
   margin-bottom: 1rem;
 }
 
 .constraint h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-}
-
-.constraint-ques {
-  padding: 5px 10px;
-  width: 30%;
-  font-size: 1rem;
-  overflow: auto;
-  margin-bottom: 1rem;
-  background-color: #dfddddb6;
 }
