@@ -137,7 +137,6 @@ signupForm.addEventListener('click', (event) => {
             set(ref(database, 'users/' + us.uid), {
                 username: username,
                 email: email,
-                password: password,
                 uid: userCredentials.user.uid
             }).then(function () {
                 alert('user created');
