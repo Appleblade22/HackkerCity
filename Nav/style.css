@@ -112,6 +112,10 @@ nav form button {
   box-shadow: 0 0 15px rgb(255, 255, 255, 0.3);
 }
 
+.logouthead a {
+  display: none;
+}
+
 nav form button:hover {
   background: rgb(28, 236, 28);
   font-size: 18px;
@@ -132,12 +136,20 @@ nav .cancel-icon,
 nav .search-icon {
   display: none;
 }
-@media (max-width: 1245px) {
+
+/* @media (max-width: 1245px) {
   nav {
     padding: 0 50px;
   }
-}
-@media (max-width: 1140px) {
+} */
+
+@media (max-width: 1369px) {
+  .logout {
+    display: none;
+  }
+  .logouthead a {
+    display: block;
+  }
   nav {
     padding: 0px;
   }
