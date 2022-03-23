@@ -67,7 +67,7 @@ body {
   transition: all 0.5s;
 }
 
-button:after {
+.solve:after {
   content: "»";
   font-size: 26px;
   position: absolute;
@@ -82,7 +82,7 @@ button:after {
   padding-left: 24px;
 } */
 
-button:hover:after {
+.solve:hover:after {
   opacity: 2;
   right: 20px;
 }
