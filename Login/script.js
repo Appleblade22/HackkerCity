@@ -50,6 +50,7 @@ function ValidateEmail(mail) {
     return (false)
 }
 const loginForm = document.getElementById("enter");
+if(loginForm){
 let flag2 = 1;
 loginForm.addEventListener('click', (event) => {
     flag2 = 1;
@@ -94,8 +95,10 @@ loginForm.addEventListener('click', (event) => {
         });
     }
 });
+}
 
 const signupForm = document.getElementById('save_data');
+if(signupForm){
 signupForm.addEventListener('click', (event) => {
     event.preventDefault();
     const form = document.getElementById("Signup");
@@ -148,6 +151,7 @@ signupForm.addEventListener('click', (event) => {
         });
     }
 });
+}
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".form_input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
