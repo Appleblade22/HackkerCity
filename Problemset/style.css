@@ -17,14 +17,20 @@
   transform: translate(120%, 25%);
 }
 
-.headingskill {
+.heading {
   font-size: 1.5rem;
   padding: 20px 30px;
+}
+
+.headingskill {
   width: 100%;
-  height: 20vh;
-  margin: auto;
+  height: 9rem;
   margin-bottom: 3rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.responsive-filt {
+  display: none;
 }
 
 h1 {
@@ -73,26 +79,32 @@ h1 {
 }
 
 .rightside {
-  margin-left: 4rem;
+  margin-left: 5rem;
+  position: sticky;
 }
 
-.filter {
+.filter-sol,
+.filter-diff {
   list-style: none;
 }
 
 input[type="checkbox"] {
   cursor: pointer;
   font-size: 8rem;
-}
-
-.status {
-  color: #949494;
   margin-bottom: 0.5rem;
 }
 
-.solved {
+.status {
+  color: #838383;
+  margin-bottom: 0.75rem;
+}
+
+.solved,
+.unsolved,
+.easy,
+.intermediate,
+.hard {
   margin-left: 0.5rem;
-  margin-bottom: 1rem;
 }
 
 .solve:after {
@@ -105,11 +117,6 @@ input[type="checkbox"] {
   transition: 0.5s;
 }
 
-/* button:hover {
-  padding-right: 24px;
-  padding-left: 24px;
-} */
-
 .solve:hover:after {
   opacity: 2;
   right: 20px;
@@ -120,7 +127,22 @@ input[type="checkbox"] {
   color: rgb(0, 0, 0);
 }
 
-@media (max-width: 845px) {
+@media (max-width: 1115px) {
+  .rightside-response {
+    display: none;
+  }
+  .responsive-filt {
+    display: block;
+  }
+  .headingskill {
+    height: 22rem;
+  }
+  .rightside {
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 875px) {
   .liclass {
     width: 40rem;
   }
@@ -128,7 +150,7 @@ input[type="checkbox"] {
     transform: translate(20%, 25%);
   }
 }
-@media (max-width: 680px) {
+@media (max-width: 710px) {
   .liclass {
     width: 30rem;
   }
