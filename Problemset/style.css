@@ -135,9 +135,14 @@ input[type="checkbox"] {
     display: block;
   }
   .headingskill {
-    height: 22rem;
+    height: 15rem;
   }
   .rightside {
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: row;
+  }
+  input[type="checkbox"] {
     margin-left: 2rem;
   }
 }
