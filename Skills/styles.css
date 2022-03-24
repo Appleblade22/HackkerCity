@@ -68,8 +68,9 @@ h1 {
 }
 
 .card {
-  width: 30% !important;
-  height: 9cm !important;
+  width: 24rem !important;
+  min-width: 24rem !important;
+  height: 8cm !important;
 
   background-color: rgb(78, 243, 133) !important;
   margin-top: 10px;
