@@ -73,7 +73,26 @@ h1 {
 }
 
 .rightside {
-  margin-left: 2rem;
+  margin-left: 4rem;
+}
+
+.filter {
+  list-style: none;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  font-size: 8rem;
+}
+
+.status {
+  color: #949494;
+  margin-bottom: 0.5rem;
+}
+
+.solved {
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .solve:after {
