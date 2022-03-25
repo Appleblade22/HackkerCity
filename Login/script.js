@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-analytics.js';
 import { getDatabase, set, ref, update } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 
 //Configuration
@@ -21,7 +21,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase();
 const auth = getAuth();
-
 
 // Form Message functions
 function setFormMessage(formElement, type, message) {
@@ -78,7 +77,10 @@ if (loginForm) {
                 update(ref(database, 'users/' + us.uid), {
                     last_login: date,
                 }).then(function () {
-                    console.log("User Logged in");
+                    console.log(auth);
+                    console.log(auth.currentUser);
+                    localStorage.setItem('userData', JSON.stringify(auth));
+                    alert("Logged in");
                     window.location.href = "../Skills/skills.html";
                 }).catch(function (error) {
                     console.log(error);
@@ -211,16 +213,4 @@ if (forgotForm) {
     });
 }
 
-//Logout
-const logout = document.getElementById('logout');
-if (logout) {
-    logout.addEventListener('click', (event) => {
-        event.preventDefault();
-        signOut(auth).then(function () {
-            window.location.href = "../Login/login.html";
-        }).catch(function (error) {
-            console.log(error);
-        });
-    });
-}
 
