@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-analytics.js';
 import { getDatabase, set, ref, update } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 
 //Configuration
@@ -53,110 +53,112 @@ function ValidateEmail(mail) {
 
 //Login Backend
 const loginForm = document.getElementById("enter");
-if(loginForm){
-let flag2 = 1;
-loginForm.addEventListener('click', (event) => {
-    flag2 = 1;
-    const form = document.getElementById("login");
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    clearFormMessage(form);
-    if (email === "" || password === "") {
-        setFormMessage(form, "error", "Please fill all the fields");
-        let flag2 = 0;
-    }
-    if (!ValidateEmail(email)) {
-        setFormMessage(form, "error", "Please enter a valid email");
-        let flag2 = 0;
-    }
-    if (flag2 && ValidateEmail(email)) {
-        signInWithEmailAndPassword(auth, email, password).then(function (userCredentials) {
-            const us = userCredentials.user;
-            const date = new Date();
-            update(ref(database, 'users/' + us.uid), {
-                last_login: date,
-            }).then(function () {
-                console.log("User Logged in");
-                window.location.href = "../Skills/skills.html";
+if (loginForm) {
+    let flag2 = 1;
+    loginForm.addEventListener('click', (event) => {
+        flag2 = 1;
+        const form = document.getElementById("login");
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        clearFormMessage(form);
+        if (email === "" || password === "") {
+            setFormMessage(form, "error", "Please fill all the fields");
+            let flag2 = 0;
+        }
+        if (!ValidateEmail(email)) {
+            setFormMessage(form, "error", "Please enter a valid email");
+            let flag2 = 0;
+        }
+        if (flag2 && ValidateEmail(email)) {
+            const spin = document.getElementById("cover-spin");
+            signInWithEmailAndPassword(auth, email, password).then(function (userCredentials) {
+                spin.style.display = "block";
+                const us = userCredentials.user;
+                const date = new Date();
+                update(ref(database, 'users/' + us.uid), {
+                    last_login: date,
+                }).then(function () {
+                    console.log("User Logged in");
+                    window.location.href = "../Skills/skills.html";
+                }).catch(function (error) {
+                    console.log(error);
+                }
+                );
             }).catch(function (error) {
-                console.log(error);
-            }
-            );
-        }).catch(function (error) {
-            if (error.message.includes("user-not-found")) {
-                setFormMessage(form, "error", "Email already in use");
-            }
-            else if (error.message.includes("wrong-password")) {
-                setFormMessage(form, "error", "Wrong Password");
-            }
-            else if (error.message.includes("user-not-found")) {
-                setFormMessage(form, "error", "User not found");
-            }
-            else {
-                setFormMessage(form, "error", "Something went wrong");
-            }
-        });
-    }
-});
+                spin.style.display = "none";
+                if (error.message.includes("user-not-found")) {
+                    setFormMessage(form, "error", "User Not Found");
+                }
+                else if (error.message.includes("wrong-password")) {
+                    setFormMessage(form, "error", "Wrong Password");
+                }
+                else {
+                    setFormMessage(form, "error", "Something went wrong");
+                }
+            });
+        }
+    });
 }
 
 
 //Signup Backend
 const signupForm = document.getElementById('save_data');
-if(signupForm){
-signupForm.addEventListener('click', (event) => {
-    event.preventDefault();
-    const form = document.getElementById("Signup");
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const cpassword = document.getElementById("cpassword").value;
-    const username = document.getElementById("signupUsername").value;
-    console.log(typeof (username));
-    clearFormMessage(form);
-    let flags = 1;
-    if (email === "" || password === "" || cpassword === "" || username === "") {
-        setFormMessage(form, "error", "Please fill all the fields");
-        flags = 0;
-    }
-    if (!ValidateEmail(email)) {
-        setFormMessage(form, "error", "Please enter a valid email");
-        flags = 0;
-    }
-    if (password.length < 6) {
-        setFormMessage(form, "error", "Password must be atleast 6 characters long");
-    }
-    if (password !== cpassword) {
-        setFormMessage(form, "error", "Passwords do not match");
-        flags = 0;
-    }
+if (signupForm) {
+    signupForm.addEventListener('click', (event) => {
+        event.preventDefault();
+        const form = document.getElementById("Signup");
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const cpassword = document.getElementById("cpassword").value;
+        const username = document.getElementById("signupUsername").value;
+        console.log(typeof (username));
+        clearFormMessage(form);
+        let flags = 1;
+        if (email === "" || password === "" || cpassword === "" || username === "") {
+            setFormMessage(form, "error", "Please fill all the fields");
+            flags = 0;
+        }
+        if (!ValidateEmail(email)) {
+            setFormMessage(form, "error", "Please enter a valid email");
+            flags = 0;
+        }
+        if (password.length < 6) {
+            setFormMessage(form, "error", "Password must be atleast 6 characters long");
+        }
+        if (password !== cpassword) {
+            setFormMessage(form, "error", "Passwords do not match");
+            flags = 0;
+        }
+        //Create operation with firebase
+        if (flags && (username.length > 3) && ValidateEmail(email)) {
+            console.log(flags);
+            const spin = document.getElementById("cover-spin");
+            createUserWithEmailAndPassword(auth, email, password).then(function (userCredentials) {
+                spin.style.display = "block";
+                const us = userCredentials.user;
+                set(ref(database, 'users/' + us.uid), {
+                    username: username,
+                    email: email,
+                    uid: userCredentials.user.uid
+                }).then(function () {
+                    window.location.href = "../Login/Redirect.html";
+                    console.log(userCredentials.user.uid);
+                }).catch(function (error) {
+                    console.log(error);
+                });
 
-    //Create operation with firebase
-    if (flags && (username.length > 4) && ValidateEmail(email)) {
-        createUserWithEmailAndPassword(auth, email, password).then(function (userCredentials) {
-            const us = userCredentials.user;
-            set(ref(database, 'users/' + us.uid), {
-                username: username,
-                email: email,
-                uid: userCredentials.user.uid
-            }).then(function () {
-                alert('user created');
-                console.log("User Created");
-                window.location.href = "../Login/Redirect.html";
-                console.log(userCredentials.user.uid);
             }).catch(function (error) {
+                spin.style.display = "none";
                 console.log(error);
+                if (error.message.includes("email-already-in-use")) {
+                    setFormMessage(form, "error", "Email already in use");
+                }
+                else {
+                    setFormMessage(form, "error", "Something went wrong");
+                }
             });
-
-        }).catch(function (error) {
-            if (error.message.includes("email-already-in-use")) {
-                setFormMessage(form, "error", "Email already in use");
-            }
-            else {
-                setFormMessage(form, "error", "Something went wrong");
-            }
-        });
-    }
-});
+        }
+    });
 }
 
 //Email and Username validation
@@ -173,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 setInputError(inputElement, "Please enter a valid email address");
             }
         });
-        
+
         inputElement.addEventListener("input", e => {
             clearInputError(inputElement);
         });
@@ -182,43 +184,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Forgot password
 const forgotForm = document.getElementById('send_reset');
-if(forgotForm){
+if (forgotForm) {
     console.log("Heya");
-forgotForm.addEventListener('click', (event) => {
-    event.preventDefault();
-    const form = document.getElementById("forgot");
-    const email = document.getElementById("email").value;
-    clearFormMessage(form);
-    let flag1 = 1;
-    if (email === "") {
-        setFormMessage(form, "error", "Please enter your email");
-        flag1 = 0;
-    }
-    if (!ValidateEmail(email)) {
-        setFormMessage(form, "error", "Please enter a valid email");
-        flag1 = 0;
-    }
-    if (flag1 && ValidateEmail(email)) {
-        sendPasswordResetEmail(auth, email).then(function () {
-            setFormMessage(form, "success", "Password reset email sent");
-            window.location.href = "../Login/login.html";
-        }).catch(function (error) {
-            setFormMessage(form, "error", "Something went wrong");
-        });
-    }
-});
+    forgotForm.addEventListener('click', (event) => {
+        event.preventDefault();
+        const form = document.getElementById("forgot");
+        const email = document.getElementById("email").value;
+        clearFormMessage(form);
+        let flag1 = 1;
+        if (email === "") {
+            setFormMessage(form, "error", "Please enter your email");
+            flag1 = 0;
+        }
+        if (!ValidateEmail(email)) {
+            setFormMessage(form, "error", "Please enter a valid email");
+            flag1 = 0;
+        }
+        if (flag1 && ValidateEmail(email)) {
+            sendPasswordResetEmail(auth, email).then(function () {
+                setFormMessage(form, "success", "Password reset email sent");
+                window.location.href = "../Login/login.html";
+            }).catch(function (error) {
+                setFormMessage(form, "error", "Something went wrong");
+            });
+        }
+    });
 }
 
 //Logout
 const logout = document.getElementById('logout');
-if(logout){
-logout.addEventListener('click', (event) => {
-    event.preventDefault();
-    signOut(auth).then(function () {
-        window.location.href = "../Login/login.html";
-    }).catch(function (error) {
-        console.log(error);
+if (logout) {
+    logout.addEventListener('click', (event) => {
+        event.preventDefault();
+        signOut(auth).then(function () {
+            window.location.href = "../Login/login.html";
+        }).catch(function (error) {
+            console.log(error);
+        });
     });
-});
 }
 
