@@ -77,10 +77,10 @@ if (loginForm) {
                 update(ref(database, 'users/' + us.uid), {
                     last_login: date,
                 }).then(function () {
-                    console.log(auth);
-                    console.log(auth.currentUser);
+                    // console.log(auth);
+                    // console.log(auth.currentUser);
                     localStorage.setItem('userData', JSON.stringify(auth));
-                    alert("Logged in");
+                    // alert("Logged in");
                     window.location.href = "../Skills/skills.html";
                 }).catch(function (error) {
                     console.log(error);
