@@ -68,8 +68,8 @@ h1 {
 }
 
 .card {
-  width: 24rem !important;
-  min-width: 24rem !important;
+  width: 20rem !important;
+  min-width: 20rem !important;
   height: 8cm !important;
 
   background-color: rgb(78, 243, 133) !important;

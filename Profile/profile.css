@@ -21,7 +21,7 @@
 #bb {
   padding: 30px;
 }
-button{
+button {
   padding: 5px 5px;
   border-radius: 3px;
 }
@@ -31,9 +31,11 @@ button{
   border-bottom-style: solid;
 }
 #delete-acc {
+  margin-top: 10px;
   color: white;
-  background-color: red;
+  background-color: rgb(223, 0, 0);
   border-radius: 4px;
+  border: none;
 }
 .form-control {
   margin-bottom: 10px;
@@ -92,7 +94,7 @@ button{
   box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
   margin-bottom: 30px;
 }
-@media  screen and (max-width: 910px) {
+@media screen and (max-width: 910px) {
   #submissions {
     width: 700px;
   }
@@ -100,7 +102,7 @@ button{
     width: 700px;
   }
 }
-@media  screen and (max-width: 770px) {
+@media screen and (max-width: 770px) {
   #submissions {
     width: 600px;
   }
@@ -108,7 +110,7 @@ button{
     width: 600px;
   }
 }
-@media  screen and (max-width: 650px) {
+@media screen and (max-width: 650px) {
   #submissions {
     width: 500px;
   }
@@ -174,27 +176,29 @@ button{
 }
 #hexagon::before {
   content: " ";
-    width: 0; height: 0;
-    border-bottom: 30px solid;
-    border-color: inherit;
-    border-left: 52px solid transparent;
-    border-right: 52px solid transparent;
-    position: absolute;
-    top: -30px;
+  width: 0;
+  height: 0;
+  border-bottom: 30px solid;
+  border-color: inherit;
+  border-left: 52px solid transparent;
+  border-right: 52px solid transparent;
+  position: absolute;
+  top: -30px;
 }
 #hexagon::after {
   content: "";
-    width: 0;
-    position: absolute;
-    bottom: -30px;
-    border-top: 30px solid;
-    border-color: inherit;
-    border-left: 52px solid transparent;
-    border-right: 52px solid transparent;
+  width: 0;
+  position: absolute;
+  bottom: -30px;
+  border-top: 30px solid;
+  border-color: inherit;
+  border-left: 52px solid transparent;
+  border-right: 52px solid transparent;
 }
-#badges-body{
+#badges-body {
   display: flex;
 }
-#badge-title{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+#badge-title {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }

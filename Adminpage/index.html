@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Admin Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="listuser">
+        <p class="tagline">List of All Users</p>
+        <div class="listbtn">
+          <button class="btn user">User List</button>
+        </div>
+      </div>
+      <div class="blockuser">
+        <p class="tagline">Block a User Account</p>
+        <div class="blockbtn">
+          <button class="btn block">Block User</button>
+        </div>
+      </div>
+      <div class="deleteuser">
+        <p class="tagline">Delete a User Account</p>
+        <div class="deletebtn">
+          <button class="btn delete">Delete User</button>
+        </div>
+      </div>
+    </div>
+    <div class="tablecontent">
+      <div class="submission-container hidden">
+        <h1 class="heading">List of users</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Username</th>
+              <th>Last Login</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Email">Hello World!</td>
+              <td data-label="Username">10</td>
+              <td data-label="Last Login">C++</td>
+            </tr>
+            <tr>
+              <td data-label="Email">Print Array!</td>
+              <td data-label="Username">10</td>
+              <td data-label="Last Login">C++</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

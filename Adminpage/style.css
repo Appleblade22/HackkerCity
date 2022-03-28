@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10rem;
+}
+
+.listuser,
+.blockuser,
+.deleteuser {
+  display: inline-block;
+  margin: 1rem;
+  height: 15rem;
+  min-width: 20rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.tagline {
+  font-size: 1.75rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.listbtn,
+.blockbtn,
+.deletebtn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 13px 20px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* User list Table */
+
+.tablecontent {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.submission-container {
+  padding: 0 10%;
+  margin: 40px auto 0;
+}
+
+.heading {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead tr th {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 1;
+  padding: 12px;
+  letter-spacing: 0.35px;
+  vertical-align: top;
+  border: 1px solid #adadad;
+}
+.table tbody tr td {
+  font-size: 14px;
+  font-weight: normal;
+  padding: 18px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  border: 1px solid #adadad;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    margin-bottom: 2rem;
+  }
+  .table tbody tr td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
+  }
+}

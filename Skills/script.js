@@ -1,3 +1,6 @@
+
+console.log(JSON.parse(localStorage.getItem("userData")));
+
 function insertTest() {
   const insertCard = document.querySelector(".row");
   insertCard.innerHTML += `<div class="card">
@@ -9,4 +12,15 @@ function insertTest() {
     </div>`;
 }
 
-// insertTest();
+//Logout
+const logout = document.getElementById("logout");
+if (logout) {
+  logout.addEventListener("click", (event) => {
+    event.preventDefault();
+    localStorage.removeItem("userData");
+
+    window.location.href = "../Dashboard/index.html";
+  });
+}
+
+// insertTest()

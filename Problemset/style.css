@@ -14,7 +14,7 @@
 }
 
 .solvebtn {
-  transform: translate(120%, 25%);
+  transform: translate(150%, 25%);
 }
 
 .heading {
@@ -107,21 +107,6 @@ input[type="checkbox"] {
   margin-left: 0.5rem;
 }
 
-.solve:after {
-  content: "»";
-  font-size: 26px;
-  position: absolute;
-  opacity: 0;
-  top: 6px;
-  right: -8px;
-  transition: 0.5s;
-}
-
-.solve:hover:after {
-  opacity: 2;
-  right: 20px;
-}
-
 .btn:hover {
   background-color: #99949452; /* Green */
   color: rgb(0, 0, 0);
@@ -152,14 +137,51 @@ input[type="checkbox"] {
     width: 40rem;
   }
   .solvebtn {
-    transform: translate(20%, 25%);
+    transform: translate(70%, 25%);
   }
 }
 @media (max-width: 710px) {
   .liclass {
     width: 30rem;
+    margin-left: 3rem;
   }
   .solvebtn {
     transform: translate(-15%, 25%);
+  }
+}
+
+@media (max-width: 510px) {
+  .liclass {
+    width: 25.5rem;
+    margin-left: 0.25rem;
+  }
+  .pull-left {
+    flex-direction: column;
+  }
+  .solvebtn {
+    transform: translate(20%, -25%);
+  }
+}
+
+@media (max-width: 410px) {
+  .liclass {
+    width: 25.5rem;
+    margin-left: 0.25rem;
+  }
+  .pull-left {
+    flex-direction: column;
+  }
+  .solvebtn {
+    transform: translate(20%, -25%);
+  }
+  .solved,
+  .unsolved,
+  .easy,
+  .intermediate,
+  .hard {
+    margin-left: 0.1rem;
+  }
+  input[type="checkbox"] {
+    margin-left: 0.5rem;
   }
 }
