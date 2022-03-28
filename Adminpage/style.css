@@ -34,7 +34,9 @@ body {
 
 .listbtn,
 .blockbtn,
-.deletebtn {
+.deletebtn,
+.confirmbtn,
+.textbox {
   display: flex;
   justify-content: center;
 }
@@ -43,6 +45,7 @@ body {
   padding: 13px 20px;
   margin-top: 10px;
   font-size: 18px;
+  cursor: pointer;
 }
 
 /* User list Table */
@@ -87,9 +90,66 @@ body {
   border: 1px solid #adadad;
 }
 
+/* Block and Delete User */
+
 .hidden {
   display: none;
 }
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.headingcls {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.text-p {
+  font-size: 1.5rem;
+}
+
+.textfield {
+  margin-left: 2rem;
+  font-size: 1rem;
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  padding: 5px;
+}
+
+/* Responsive */
 
 @media (max-width: 768px) {
   .table thead {
@@ -119,5 +179,39 @@ body {
     font-weight: 600;
     font-size: 14px;
     text-align: left;
+  }
+}
+
+@media (max-width: 690px) {
+  .overlay {
+    position: fixed;
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
+@media (max-width: 420px) {
+  .modal {
+    width: 10rem;
+    overflow: hidden;
+  }
+
+  .text-p {
+    font-size: 15px;
+  }
+  .headingcls {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+  .textfield {
+    margin-left: 0rem;
+    font-size: 15px;
+    border: 1px solid black;
+    margin-bottom: 1rem;
+    padding: 3px;
   }
 }
