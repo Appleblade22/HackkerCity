@@ -29,51 +29,33 @@ function RetrieveData() {
   const data = ref(db, "/users");
   onValue(data, (snapshot) => {
     snapshot.forEach((child) => {
-      child.val().email;
-      child.val().username;
-
-      // this.intVal.push(child.val());
-      // console.log("intVal", this.intVal);
+      AddItemsToTable(
+        child.val().email,
+        child.val().username,
+        child.val().last_login
+      );
     });
-
   });
 }
 RetrieveData();
 
-// function SelectAllData() {
-//   firebase
-//     .database()
-//     .ref("users")
-//     .on("value", function (AllRecords) {
-//       AllRecords.forEach(function (CurrentRecord) {
-//         var username = CurrentRecord.val().username;
-//         var email = CurrentRecord.val().email;
-//         var lastlogin = CurrentRecord.val().last_login;
-//         AddItemsToTable(email, username, lastlogin);
-//         console.log(CurrentRecord);
-//       });
-//     });
-// }
-
-// document.addEventListene;
-
-// var stdNo = 0;
-// function AddItemsToTable(email, username, lastlogin) {
-//   var tbody = document.getElementById("tbody1");
-//   var trow = document.createElement("tr");
-//   var td1 = document.createElement("td");
-//   var td2 = document.createElement("td");
-//   var td3 = document.createElement("td");
-//   var td4 = document.createElement("td");
-//   td1.innerHTML = ++stdNo;
-//   td2.innerHTML = email;
-//   td3.innerHTML = username;
-//   td4.innerHTML = lastlogin;
-//   trow.appendChild(td1);
-//   trow.appendChild(td2);
-//   trow.appendChild(td3);
-//   trow.appendChild(td4);
-//   tbody.appendChild(trow);
-// }
+var stdNo = 0;
+function AddItemsToTable(email, username, lastlogin) {
+  var tbody = document.getElementById("tbody1");
+  var trow = document.createElement("tr");
+  var td1 = document.createElement("td");
+  var td2 = document.createElement("td");
+  var td3 = document.createElement("td");
+  var td4 = document.createElement("td");
+  td1.innerHTML = ++stdNo;
+  td2.innerHTML = email;
+  td3.innerHTML = username;
+  td4.innerHTML = lastlogin;
+  trow.appendChild(td1);
+  trow.appendChild(td2);
+  trow.appendChild(td3);
+  trow.appendChild(td4);
+  tbody.appendChild(trow);
+}
 
 // SelectAllData();
