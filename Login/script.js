@@ -167,6 +167,7 @@ if (signupForm) {
             username: username,
             email: email,
             uid: userCredentials.user.uid,
+            admin: false,
           })
             .then(function () {
               window.location.href = "../Login/Redirect.html";
