@@ -21,6 +21,10 @@
   border-collapse: collapse;
 }
 
+thead {
+  text-align: center;
+}
+
 .table thead tr th {
   font-size: 14px;
   font-weight: 600;
@@ -82,15 +86,15 @@
     text-align: left;
   }
 }
-#viewSubModal{
+#viewSubModal {
   width: 100%;
   height: 600px;
 }
-.modal-body{
+.modal-body {
   height: 400px;
   overflow-y: auto;
 }
-#editor__wrapper{
+#editor__wrapper {
   width: 100%;
   height: 100%;
   padding: 0;
