@@ -30,8 +30,8 @@
       <li><a href="../Skills/skills.html">Practice</a></li>
       <li><a href="../Submission/index.html">Submissions</a></li>
       <li><a href="../Profile/profile.html">Profile</a></li>
-      <li><a href="../ContactUs/ContactUs.html">Contact</a></li>
-      <li class="logouthead"><a href="../Dashboard/index.html">Logout</a></li>
+      <li><a href="../ContactUs/ContactUs.html" target="_blank">Contact</a></li>
+      <li class="logouthead" id="log"><a href="../Dashboard/index.html">Logout</a></li>
     </div>
     <div class="search-icon">
       <span class="fas fa-search"></span>
@@ -64,7 +64,10 @@
     <div class="card">
       <div class="card-body">
         <p class="card-text">
-        <h4>Test</h4>
+        <div class="score">
+          <h4 class="lang">C++</h4>
+          <span>Score:</span><span class="total">20</span>
+        </div>
         </p>
       </div>
     </div>
@@ -72,7 +75,10 @@
     <div class="card">
       <div class="card-body">
         <p class="card-text">
-        <h4>Test</h4>
+        <div class="score">
+          <h4 class="lang">Java</h4>
+          <span>Score:</span><span class="total">10</span>
+        </div>
         </p>
       </div>
     </div>
@@ -80,7 +86,10 @@
     <div class="card">
       <div class="card-body">
         <p class="card-text">
-        <h4>Test</h4>
+        <div class="score">
+          <h4 class="lang">Python</h4>
+          <span>Score:</span><span class="total">50</span>
+        </div>
         </p>
       </div>
     </div>
@@ -99,18 +108,15 @@
           C++</b></button>
       <br>
       <br>
-      <button type="button" class="button_language"><img
-          src="../svgs/Java.svg"><b>
+      <button type="button" class="button_language"><img src="../svgs/Java.svg"><b>
           JAVA</b></button>
       <br>
       <br>
-      <button type="button" class="button_language"><img
-          src="../svgs/Python.svg"><b>
+      <button type="button" class="button_language"><img src="../svgs/Python.svg"><b>
           PYTHON</b></button>
       <br>
       <br>
-      <button type="button" class="button_language"><img
-          src="../svgs/C.svg"><b>
+      <button type="button" class="button_language"><img src="../svgs/C.svg"><b>
           C</b></button>
       <br>
       <br>
@@ -119,7 +125,8 @@
   </div>
   </div>
   <!-- <script type="module" src="../Login/script.js"></script> -->
-  <script type="module" src="./script.js"></script>
+  <script src="../Skills/script.js"></script>
+  <script src="../Nav/script.js"></script>
 
 </body>
 

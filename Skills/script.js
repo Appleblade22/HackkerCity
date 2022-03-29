@@ -18,7 +18,14 @@ if (logout) {
   logout.addEventListener("click", (event) => {
     event.preventDefault();
     localStorage.removeItem("userData");
-
+    window.location.href = "../Dashboard/index.html";
+  });
+}
+const log = document.getElementById("log");
+if (log) {
+  log.addEventListener("click", (event) => {
+    event.preventDefault();
+    localStorage.removeItem("userData");
     window.location.href = "../Dashboard/index.html";
   });
 }

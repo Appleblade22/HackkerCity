@@ -25,6 +25,17 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
+.listuser:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+.blockuser:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.deleteuser:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
 .tagline {
   font-size: 1.75rem;
   font-weight: 500;
