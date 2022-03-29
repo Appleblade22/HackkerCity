@@ -3,8 +3,58 @@
   <head>
     <title>Responsive Table</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../Nav/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
   <body>
+    <!-- Navigation Bar -->
+
+    <nav id="navbar">
+      <div class="menu-icon">
+        <span class="fas fa-bars"></span>
+      </div>
+      <div class="logo">
+        <a href="../Dashboard/index.html"> HackkerCity </a>
+      </div>
+      <div class="nav-items">
+        <li><a href="../Skills/skills.html">Practice</a></li>
+        <li><a href="../Submission/index.html">Submissions</a></li>
+        <li><a href="../Profile/profile.html">Profile</a></li>
+        <li>
+          <a href="../ContactUs/ContactUs.html" target="_blank">Contact</a>
+        </li>
+        <li class="logouthead" id="log">
+          <a href="../Dashboard/index.html">Logout</a>
+        </li>
+      </div>
+      <div class="search-icon">
+        <span class="fas fa-search"></span>
+      </div>
+      <div class="cancel-icon">
+        <span class="fas fa-times"></span>
+      </div>
+      <form action="#">
+        <input
+          type="search"
+          class="search-data"
+          placeholder="Search"
+          required
+        />
+        <button type="submit" class="fas fa-search"></button>
+      </form>
+      <span>
+        <button class="logout" id="logout">
+          <a href="../Dashboard/index.html">Logout</a>
+        </button>
+      </span>
+    </nav>
+
+    <!-- Navigation Bar ends here -->
+
     <div class="submission-container">
       <h1 class="heading">Your Submissions</h1>
       <table class="table">
@@ -39,5 +89,6 @@
         </tbody>
       </table>
     </div>
+    <script src="../Nav/script.js"></script>
   </body>
 </html>
