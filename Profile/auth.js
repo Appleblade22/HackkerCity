@@ -25,6 +25,8 @@ onValue(data, snap => {
     console.log(username);
     document.getElementById("userName").setAttribute("value", username);
     document.getElementById("uheading").innerHTML = "@" + username;
+    document.getElementById("pfp-text").innerHTML = username[0] + username[1];
+    document.querySelector("title").innerHTML = username + " - Profile";
 });
 //Setting Email
 document.getElementById("Email").setAttribute("value", udata.currentUser.email);
