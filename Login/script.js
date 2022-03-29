@@ -133,7 +133,7 @@ if (signupForm) {
         }
         //Create operation with firebase
         if (flags && (username.length > 3) && ValidateEmail(email)) {
-            console.log(flags);
+            // console.log(flags);
             const spin = document.getElementById("cover-spin");
             createUserWithEmailAndPassword(auth, email, password).then(function (userCredentials) {
                 spin.style.display = "block";

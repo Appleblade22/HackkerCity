@@ -15,6 +15,7 @@
 </head>
 
 <body id="bootstrap-overrides">
+  <script src="../Login/check.js"></script>
   <!--Navigation bar-->
   <nav id="navbar">
     <div class="menu-icon">
@@ -56,7 +57,7 @@
             zy
           </div>
         </div>
-        <h2>@username</h2>
+        <h2 id="uheading"></h2>
         <p>Description here...</p>
       </div>
       <div class="settings">
@@ -64,8 +65,7 @@
           <h4>Account</h4>
           <h6>Username</h6>
           <ul class="list-inline m-0">
-            <li class="list-inline-item"><input type="text" class="form-control" id="username" value="zyzzsama"
-                readonly></li>
+            <li class="list-inline-item"><input type="text" class="form-control" id="userName" readonly></li>
             <li class="list-inline-item"><button class="btn btn-success btn-sm rounded-0" type="button"
                 data-bs-toggle="modal" data-bs-target="#editUsernameModal" data-bs-placement="center" title="Edit"><i
                   class="fa fa-edit"></i></button></li>
@@ -73,8 +73,7 @@
 
           <h6>Email</h6>
           <ul class="list-inline m-0">
-            <li class="list-inline-item"><input type="text" class="form-control" id="email" value="amjazz2002@gmail.com"
-                readonly></li>
+            <li class="list-inline-item"><input type="text" class="form-control" id="Email" readonly></li>
             <li class="list-inline-item"><button class="btn btn-success btn-sm rounded-0" type="button"
                 data-bs-toggle="modal" data-bs-target="#editEmailModal" data-bs-placement="top" title="Edit"><i
                   class="fa fa-edit"></i></button></li>
@@ -241,7 +240,7 @@
     </div>
   </div>
 
-  <script src="../Profile/profile.js"></script>
+  <script type="module" src="../Profile/profile.js"></script>
   <script src="../Nav/script.js"></script>
 
 </body>
