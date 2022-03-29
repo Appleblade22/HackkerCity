@@ -1,4 +1,3 @@
-
 console.log(JSON.parse(localStorage.getItem("userData")));
 
 function insertTest() {
@@ -11,6 +10,7 @@ function insertTest() {
       </div>
     </div>`;
 }
+<<<<<<< HEAD
 
 //Logout
 const logout = document.getElementById("logout");
@@ -33,3 +33,5 @@ if (log) {
 
 
 // insertTest()
+=======
+>>>>>>> d5a1bd708d374e162e1bab17530d628786f180cd
