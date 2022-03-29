@@ -29,11 +29,12 @@ function RetrieveData() {
   const data = ref(db, "/users");
   onValue(data, (snapshot) => {
     snapshot.forEach((child) => {
-      AddItemsToTable(
-        child.val().email,
-        child.val().username,
-        child.val().last_login
-      );
+      let login = child.val().last_login;
+
+      if (login == undefined) {
+        login = "Never Logged In";
+      }
+      AddItemsToTable(child.val().email, child.val().username, login);
     });
   });
 }
