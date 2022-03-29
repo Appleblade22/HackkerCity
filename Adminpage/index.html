@@ -8,6 +8,12 @@
     <title>Admin Page</title>
   </head>
   <body>
+    <div class="headingpage">
+      <h1 class="head">Admin Page</h1>
+    </div>
+    <div class="logoutcontainer">
+      <button class="btn signout" id="logout">Logout</button>
+    </div>
     <div class="container">
       <div class="listuser">
         <p class="tagline">List of All Users</p>
@@ -34,23 +40,13 @@
         <table class="table">
           <thead>
             <tr>
+              <th>S No.</th>
               <th>Email</th>
               <th>Username</th>
               <th>Last Login</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td data-label="Email">Hello World!</td>
-              <td data-label="Username">10</td>
-              <td data-label="Last Login">C++</td>
-            </tr>
-            <tr>
-              <td data-label="Email">Print Array!</td>
-              <td data-label="Username">10</td>
-              <td data-label="Last Login">C++</td>
-            </tr>
-          </tbody>
+          <tbody id="tbody1"></tbody>
         </table>
       </div>
     </div>
@@ -71,5 +67,6 @@
     </div>
     <div class="overlay hidden"></div>
     <script src="script.js"></script>
+    <script type="module" src="auth.js"></script>
   </body>
 </html>

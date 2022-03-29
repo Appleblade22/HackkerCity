@@ -45,6 +45,10 @@ h1 {
   color: white;
 }
 
+.card-body{
+  cursor: pointer;
+}
+
 .Skills-navigation {
   text-align: center;
   font-weight: 700;
