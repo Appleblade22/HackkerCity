@@ -1,5 +1,3 @@
-console.log(JSON.parse(localStorage.getItem("userData")));
-
 function insertTest() {
   const insertCard = document.querySelector(".row");
   insertCard.innerHTML += `<div class="card">
