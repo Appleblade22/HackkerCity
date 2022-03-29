@@ -42,3 +42,5 @@ deleteuser.addEventListener("click", () => {
   headingcls.textContent =
     "The User Account will be permanently deleted. Please click confirm to continue";
 });
+
+// User List In Table

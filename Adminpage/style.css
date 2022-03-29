@@ -83,7 +83,7 @@ body {
   border-collapse: collapse;
 }
 
-.table thead tr th {
+.table thead th {
   font-size: 14px;
   font-weight: 600;
   opacity: 1;
