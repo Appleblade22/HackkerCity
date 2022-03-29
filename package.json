@@ -1,0 +1,24 @@
+{
+  "name": "HackkerCity",
+  "version": "1.0.0",
+  "description": "Online Coding Platform to practice problems",
+  "main": "index.js",
+  "dependencies": {
+    "firebase": "^9.6.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Appleblade22/HackkerCity.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Appleblade22/HackkerCity/issues"
+  },
+  "homepage": "https://github.com/Appleblade22/HackkerCity#readme"
+}
