@@ -5,6 +5,7 @@ import {
   set,
   ref,
   update,
+  onValue,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js";
 import {
   getAuth,
@@ -97,8 +98,23 @@ if (loginForm) {
               // console.log(auth);
               // console.log(auth.currentUser);
               localStorage.setItem("userData", JSON.stringify(auth));
-              // alert("Logged in");
-              window.location.href = "../Skills/skills.html";
+              const isadmin = auth.currentUser.uid;
+              console.log(auth.currentUser.uid);
+              const data = ref(database, "/users");
+              onValue(data, (snapshot) => {
+                snapshot.forEach((child) => {
+                  console.log(child.val().uid);
+                  if (child.val().uid == isadmin) {
+                    console.log(child.val().admin);
+                    if (child.val().admin == true) {
+                      window.location.href = "../Adminpage/index.html";
+                    }
+                    else {
+                      window.location.href = "../Skills/skills.html";
+                    }
+                  }
+                });
+              });
             })
             .catch(function (error) {
               console.log(error);
