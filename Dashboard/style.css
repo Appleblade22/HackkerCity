@@ -54,8 +54,8 @@ main {
   margin: 0;
   position: absolute;
   margin-top: 5%;
-  width: 500px;
-  max-width: 500px;
+  width: 400px;
+  max-width: 400px;
   font-size: 3rem;
   color: black;
   padding: 20px;
@@ -104,5 +104,91 @@ main {
   .site {
     top: 4rem;
     font-size: 4rem;
+  }
+}
+
+@media (max-width: 510px) {
+  .site {
+    font-size: 27px;
+    left: 2rem;
+  }
+  .login {
+    position: absolute;
+    padding: 8px 12px;
+    top: 3.5rem;
+    right: 2rem;
+  }
+
+  .signup {
+    position: absolute;
+    padding: 8px 12px;
+    top: 3.5rem;
+    right: 12rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .site {
+    font-size: 24px;
+    left: 2rem;
+  }
+  .login {
+    position: absolute;
+    padding: 6px 10px;
+    top: 3.5rem;
+    right: 2rem;
+  }
+
+  .signup {
+    position: absolute;
+    padding: 6px 10px;
+    top: 3.5rem;
+    right: 11rem;
+  }
+
+  .dashboard {
+    width: 350px;
+    max-width: 350px;
+  }
+
+  .dashboard h1 {
+    font-size: 5rem;
+  }
+
+  .dashboard p {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .site {
+    font-size: 20px;
+    left: 1rem;
+  }
+  .login {
+    position: absolute;
+    padding: 4px 8px;
+    top: 3.5rem;
+    right: 1rem;
+  }
+
+  .signup {
+    position: absolute;
+    padding: 4px 8px;
+    top: 3.5rem;
+    right: 9rem;
+  }
+
+  .dashboard {
+    width: 300px;
+    max-width: 300px;
+  }
+
+  .dashboard h1 {
+    font-size: 4rem;
+  }
+
+  .dashboard p {
+    font-size: 1.5rem;
   }
 }
