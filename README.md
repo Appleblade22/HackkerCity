@@ -20,6 +20,12 @@ To use this application, run the following command:
 node app.js
 ```
 
+Then Open this on browser
+
+```
+localhost:3000
+```
+
 ## License
 
 This application is licensed under the MIT license.

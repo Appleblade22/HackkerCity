@@ -9,6 +9,6 @@ app.use(express.static(__dirname));
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/Dashboard/index.html")
 })
-app.listen(3010, 'localhost', () => {
+app.listen(3000, 'localhost', () => {
     console.log("Server is running")
 })
