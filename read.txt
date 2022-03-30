@@ -1,0 +1,16 @@
+HackkerCity 
+Group no.44
+
+Installation
+
+To install necessary dependencies, run the following command:
+    npm install
+
+Usage
+
+To use this application, run the following command:
+    node app.js
+
+
+Then Open this on browser
+    localhost:3000
