@@ -17,7 +17,7 @@ npm install
 To use this application, run the following command:
 
 ```
-node app.js
+node server.js
 ```
 
 Then Open this on browser
