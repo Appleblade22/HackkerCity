@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-analytics.js';
-import { getDatabase, onValue, ref, update } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getDatabase, onValue, ref, update, set } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js';
+import { signInWithEmailAndPassword,getAuth, updatePassword, deleteUser } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 const firebaseConfig = {
     apiKey: "AIzaSyAvdACqDU3yNw2kHI1nFkfhzp5l8CXdp8U",
     authDomain: "hackercity-dc10f.firebaseapp.com",
@@ -20,6 +20,8 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getDatabase();
 const data = ref(db, 'users/' + uid + '/username');
+const auth = getAuth();
+
 onValue(data, snap => {
     const username = snap.val();
     console.log(username);
@@ -31,4 +33,59 @@ onValue(data, snap => {
 //Setting Email
 document.getElementById("Email").setAttribute("value", udata.currentUser.email);
 //Setting Username from database
+document.getElementById("edit-username-btn").addEventListener("click", () => {
+    let username = document.getElementById("new-username").value;
+    console.log(username.length)
+    if(username.length < 3){
+        alert("Username must be at least 3 characters long");
+        return
+    }
+    signInWithEmailAndPassword(auth, udata.currentUser.email, document.getElementById("edit-username-pwd").value)
+    .then(() => {
+        set(ref(db, 'users/' + uid), {
+            username: document.getElementById("new-username").value
+          });
+        alert('DONE');
+    })
+    .catch(error => {
+        alert(error.message);
+    });
+})
+document.getElementById("change-pwd-btn").addEventListener("click", () => {
+    let newPassword = document.getElementById("new-pwd-1").value;
+    if(newPassword.length < 6){
+        alert("Password must be at least 6 characters long");
+        return
+    }
+    if(newPassword != document.getElementById("new-pwd-2").value){
+        alert("Passwords do not match");
+        return
+    }
+    updatePassword(auth.currentUser, document.getElementById("new-pwd-1").value)
+    .then(() => {
+        alert('DONE');
+    })
+    .catch(error => {
+        alert(error.message);
+    });
+})
+
+document.getElementById("delete-user-btn").addEventListener("click", () => {
+    let Password = document.getElementById("delete-acc-pwd").value;
+
+    signInWithEmailAndPassword(auth, udata.currentUser.email, Password)
+    .then(() => {
+        deleteUser(auth.currentUser).then(() => {
+            alert('DONE');
+            localStorage.removeItem("userData");
+            window.location.href = "../Dashboard/index.html";
+          }).catch((error) => {
+            alert(error.message);
+            return
+          });
+    })
+    .catch(error => {
+        alert(error.message);
+    });
+})
 
