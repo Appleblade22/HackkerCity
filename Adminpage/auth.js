@@ -33,21 +33,26 @@ function RetrieveData() {
       if (login == undefined) {
         login = "Never Logged In";
       }
-      AddItemsToTable(child.val().uid, child.val().email, child.val().username, login);
+      AddItemsToTable(
+        child.val().uid,
+        child.val().email,
+        child.val().username,
+        login
+      );
     });
   });
 }
 RetrieveData();
 
-var stdNo = 0;
+let stdNo = 0;
 function AddItemsToTable(uid, email, username, lastlogin) {
-  var tbody = document.getElementById("tbody1");
-  var trow = document.createElement("tr");
-  var td1 = document.createElement("td");
-  var td2 = document.createElement("td");
-  var td3 = document.createElement("td");
-  var td4 = document.createElement("td");
-  var td5 = document.createElement("td");
+  let tbody = document.getElementById("tbody1");
+  let trow = document.createElement("tr");
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
+  let td3 = document.createElement("td");
+  let td4 = document.createElement("td");
+  let td5 = document.createElement("td");
 
   td1.innerHTML = ++stdNo;
   td2.innerHTML = uid;
