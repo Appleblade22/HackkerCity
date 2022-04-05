@@ -152,14 +152,14 @@
         <div class="modal-body">
           <form>
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter new username">
+            <input type="text" class="form-control" id="new-username" placeholder="Enter new username">
             <label for="password">Password</label>
-            <input type="password" class="form-control" placeholder="Enter password" required>
+            <input type="password" id="edit-username-pwd" class="form-control" placeholder="Enter password" required>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" id="edit-username-btn">Save changes</button>
         </div>
       </div>
     </div>
@@ -168,7 +168,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editPasswordModal">Change password</h5>
+          <h5 class="modal-title">Change password</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -176,16 +176,16 @@
         <div class="modal-body">
           <form>
             <label for="password">Old password</label>
-            <input type="password" class="form-control"placeholder="Enter old password" required>
+            <input type="password" id="old-pwd" class="form-control"placeholder="Enter old password" required>
             <label for="password">New password</label>
-            <input type="password" class="form-control" placeholder="Enter new password" required>
+            <input type="password" id="new-pwd-1" class="form-control" placeholder="Enter new password" required>
             <label for="password">Re-enter new password</label>
-            <input type="password" class="form-control" placeholder="Enter new password" required>
+            <input type="password" id="new-pwd-2" class="form-control" placeholder="Enter new password" required>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" id="change-pwd-btn" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -194,7 +194,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteAccountModal">Delete Account</h5>
+          <h5 class="modal-title" >Delete Account</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -202,12 +202,12 @@
         <div class="modal-body">
           <form>
             <label for="password">Enter password to confirm</label>
-            <input type="password" class="form-control" placeholder="Enter password" required>
+            <input type="password" id="delete-acc-pwd" class="form-control" placeholder="Enter password" required>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger">Confirm</button>
+          <button type="button" id="delete-user-btn" class="btn btn-danger">Confirm</button>
         </div>
       </div>
     </div>
