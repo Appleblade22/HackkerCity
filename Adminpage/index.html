@@ -1,76 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Admin Page</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Admin Page</title>
-</head>
-
-<body>
-  <div class="headingpage">
-    <h1 class="head">Admin Page</h1>
-  </div>
-  <div class="logoutcontainer">
-    <button class="btn signout" id="logout">Logout</button>
-  </div>
-  <div class="container">
-    <div class="listuser">
-      <p class="tagline">List of All Users</p>
-      <div class="listbtn">
-        <button class="btn user">User List</button>
+  <body>
+    <div class="headingpage">
+      <h1 class="head">Admin Page</h1>
+    </div>
+    <div class="logoutcontainer">
+      <button class="btn signout" id="logout">Logout</button>
+    </div>
+    <div class="container">
+      <div class="listuser">
+        <p class="tagline">List of All Users</p>
+        <div class="listbtn">
+          <button class="btn user">User List</button>
+        </div>
+      </div>
+      <div class="blockuser">
+        <p class="tagline">Block a User Account</p>
+        <div class="blockbtn">
+          <button class="btn block">Block User</button>
+        </div>
+      </div>
+      <div class="deleteuser">
+        <p class="tagline">Delete a User Account</p>
+        <div class="deletebtn">
+          <button class="btn delete">Delete User</button>
+        </div>
       </div>
     </div>
-    <div class="blockuser">
-      <p class="tagline">Block a User Account</p>
-      <div class="blockbtn">
-        <button class="btn block">Block User</button>
+    <div class="tablecontent">
+      <div class="submission-container hidden">
+        <h1 class="heading">List of users</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>S No.</th>
+              <th>Unique ID</th>
+              <th>Email</th>
+              <th>Username</th>
+              <th>Last Login</th>
+            </tr>
+          </thead>
+          <tbody id="tbody1"></tbody>
+        </table>
       </div>
     </div>
-    <div class="deleteuser">
-      <p class="tagline">Delete a User Account</p>
-      <div class="deletebtn">
-        <button class="btn delete">Delete User</button>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1 class="headingcls">
+        The User will be temporarily blocked from accessing the website
+      </h1>
+
+      <div class="textbox">
+        <p class="text-p">Enter UID:</p>
+        <span><input type="text" class="textfield" id="uid" /></span>
+      </div>
+      <div class="confirmbtn">
+        <button class="btn confirm" id="confirm">Confirm</button>
       </div>
     </div>
-  </div>
-  <div class="tablecontent">
-    <div class="submission-container hidden">
-      <h1 class="heading">List of users</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>S No.</th>
-            <th>Unique ID</th>
-            <th>Email</th>
-            <th>Username</th>
-            <th>Last Login</th>
-          </tr>
-        </thead>
-        <tbody id="tbody1"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="modal hidden">
-    <button class="close-modal">&times;</button>
-    <h1 class="headingcls">
-      The User will be temporarily blocked from accessing the website
-    </h1>
-
-    <div class="textbox">
-      <p class="text-p">Enter UID:</p>
-      <span><input type="text" class="textfield" id="uid" /></span>
-    </div>
-    <div class="confirmbtn">
-      <button class="btn confirm" id="confirm">Confirm</button>
-    </div>
-  </div>
-  <div class="overlay hidden"></div>
-  <script src="script.js"></script>
-  <script type="module" src="auth.js"></script>
-</body>
-
+    <div class="overlay hidden"></div>
+    <script src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+  </body>
 </html>

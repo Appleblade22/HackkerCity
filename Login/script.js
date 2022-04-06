@@ -108,8 +108,7 @@ if (loginForm) {
                     console.log(child.val().admin);
                     if (child.val().admin == true) {
                       window.location.href = "../Adminpage/index.html";
-                    }
-                    else {
+                    } else {
                       window.location.href = "../Skills/skills.html";
                     }
                   }
@@ -184,6 +183,7 @@ if (signupForm) {
             email: email,
             uid: userCredentials.user.uid,
             admin: false,
+            block: false,
           })
             .then(function () {
               window.location.href = "../Login/Redirect.html";

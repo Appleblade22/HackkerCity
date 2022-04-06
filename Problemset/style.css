@@ -3,22 +3,19 @@
   padding: 0;
 }
 
-.pull-left {
-  display: flex;
-  flex-direction: row;
+.mscore,
+.diff,
+.meet {
+  padding-right: 10px;
 }
 
-.skill,
-.max-score {
-  padding: 10px;
-}
-
-.solvebtn {
-  transform: translate(150%, 25%);
+.probname {
+  margin-bottom: 0.4rem;
 }
 
 .heading {
   font-size: 1.5rem;
+  text-align: center;
   padding: 20px 30px;
 }
 
@@ -48,6 +45,18 @@ h1 {
   width: 50rem;
   margin-left: 4rem;
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding: 30px 20px 30px 20px;
+}
+
+.left {
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.right {
+  align-self: center;
 }
 
 .liclass:hover {
@@ -117,7 +126,8 @@ input[type="checkbox"] {
     display: none;
   }
   .responsive-filt {
-    display: block;
+    display: flex;
+    justify-content: center;
   }
   .headingskill {
     height: 15rem;
@@ -136,17 +146,11 @@ input[type="checkbox"] {
   .liclass {
     width: 40rem;
   }
-  .solvebtn {
-    transform: translate(70%, 25%);
-  }
 }
 @media (max-width: 710px) {
   .liclass {
     width: 30rem;
     margin-left: 3rem;
-  }
-  .solvebtn {
-    transform: translate(-15%, 25%);
   }
 }
 
@@ -155,24 +159,12 @@ input[type="checkbox"] {
     width: 25.5rem;
     margin-left: 0.25rem;
   }
-  .pull-left {
-    flex-direction: column;
-  }
-  .solvebtn {
-    transform: translate(20%, -25%);
-  }
 }
 
 @media (max-width: 410px) {
   .liclass {
     width: 25.5rem;
     margin-left: 0.25rem;
-  }
-  .pull-left {
-    flex-direction: column;
-  }
-  .solvebtn {
-    transform: translate(20%, -25%);
   }
   .solved,
   .unsolved,
