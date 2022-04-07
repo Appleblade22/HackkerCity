@@ -10,11 +10,8 @@ pre {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
-  /* border: 2px solid grey; */
-  /* width: 450px; */
-  border-left: 12px solid green;
-  /* border-radius: 5px; */
   padding: 14px;
+  white-space: pre-wrap;
 }
 
 .probheader {
@@ -55,10 +52,22 @@ ol {
   width: 50%;
   padding: 20px 30px;
   margin-left: 1rem;
-  overflow: auto;
   font-size: 1.25rem;
   border-radius: 10px;
 }
+
+/* .outputform,
+.inputform,
+.constraint,
+.subinput-1,
+.subinput-2,
+.suboutput-1,
+.suboutput-2,
+.explaination-1,
+.explaination-2 {
+  overflow-y: scroll;
+  overflow-x: auto;
+} */
 
 .main,
 .head {
@@ -80,16 +89,20 @@ ol {
 }
 
 .inputform-ques,
-.subtask-ques,
-.explain-ques,
+.subint-1,
+.subint-2,
+.subout-1,
+.sub-out-2,
+.explain-1,
+.explain-2,
 .constraint-ques,
 .outputform-ques {
-  padding: 5px 10px;
+  padding: 0px 10px;
   width: 80%;
   font-size: 1rem;
   background-color: #dfddddb6;
-  overflow-wrap: break-word;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-left: 12px solid green;
 }
 
 .constraint h4 {
