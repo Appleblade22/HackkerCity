@@ -5,6 +5,9 @@ const app = express();
 const bodyparser = require('body-parser')
 app.use(bodyparser.urlencoded({ extended: true }));
 let path = require('path');
+const dburi = "mongodb + srv://kali:kali@data.vcmov.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+
 app.use(express.static(__dirname));
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/Dashboard/index.html")
