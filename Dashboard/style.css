@@ -289,7 +289,7 @@ body {
 
 header {
   position: relative;
-  height: 23vh;
+  height: 25vh;
 }
 
 .site {
@@ -405,6 +405,9 @@ main {
     padding: 8px 12px;
     top: 3.5rem;
     right: 12rem;
+  }
+  .dashboard {
+    margin-top: 15%;
   }
 }
 
