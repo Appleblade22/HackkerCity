@@ -297,7 +297,10 @@ header {
   top: 3rem;
   left: 7rem;
   font-size: 5rem;
-  color: white;
+  background: -webkit-linear-gradient(rgb(17, 173, 17), #eee);
+  background-clip: text-decoration;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .login {
