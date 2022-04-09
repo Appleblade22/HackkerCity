@@ -4,6 +4,7 @@
   "description": "Online Coding Platform to practice problems",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.26.1",
     "body-parser": "^1.19.2",
     "express": "^4.17.3",
     "firebase": "^9.6.9",
@@ -11,7 +12,6 @@
     "nodemon": "^2.0.15",
     "path": "^0.12.7"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

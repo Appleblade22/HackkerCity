@@ -285,7 +285,6 @@ html {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: white;
 }
 
 header {
@@ -298,7 +297,10 @@ header {
   top: 3rem;
   left: 7rem;
   font-size: 5rem;
-  color: white;
+  background: -webkit-linear-gradient(rgb(17, 173, 17), #eee);
+  background-clip: text-decoration;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .login {
@@ -313,6 +315,10 @@ header {
   right: 17rem;
 }
 
+.signin {
+  margin-bottom: 4rem;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -322,11 +328,10 @@ main {
   margin: 0;
   position: absolute;
   margin-top: 5%;
-  width: 400px;
+  width: 450px;
   max-width: 400px;
-  font-size: 3rem;
+  padding: 10px;
   color: black;
-  padding: 20px;
   background-color: white;
   border-radius: 4px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
@@ -334,18 +339,26 @@ main {
   opacity: 0.9;
 }
 
-.dashboard h1 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-weight: 500;
+.head {
+  text-align: left;
 }
 
-.dashboard p {
+.head h1 {
+  text-align: center;
+  font-size: 5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.head p {
   text-align: left;
   font-size: 2rem;
-  width: 50%;
-  transform: translateX(50%);
-  margin-bottom: 3rem;
+  letter-spacing: 1px;
+  width: 80%;
+  margin-left: 4rem;
+  margin-bottom: 3.5rem;
 }
 
 .sign {
@@ -395,6 +408,9 @@ main {
     padding: 8px 12px;
     top: 3.5rem;
     right: 12rem;
+  }
+  .dashboard {
+    margin-top: 15%;
   }
 }
 
