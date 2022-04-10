@@ -5,9 +5,11 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser')
 app.use(bodyparser.urlencoded({ extended: true }));
+app.use(express.static(__dirname));
+app.use(express.json())
 let path = require('path');
 const dbuser = "mongodb+srv://kali:kali@data.vcmov.mongodb.net/User?retryWrites=true&w=majority";
-const { eval } = require("./eval.js");
+const { eval } = require("./Compilation/eval.js");
 
 mongoose.connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -20,9 +22,10 @@ mongoose.connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     });
 
 app.post("/compile", (req, res) => {
+    console.log(req.body);
     let code = req.body.code;
-    let output = eval(code);
-    //   console.log(output);
+    let output = eval(code, req.body.lang);
+    console.log(output);
     res.send({
         status: true,
         message: "Code Compiled Successfully",
@@ -33,6 +36,6 @@ app.post("/compile", (req, res) => {
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/Dashboard/index.html");
 });
-app.listen(3000, "localhost", () => {
-    console.log("Server is running");
-});
+// app.listen(3000, "localhost", () => {
+//     console.log("Server is running");
+// });

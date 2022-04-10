@@ -29,13 +29,12 @@ let editorlib = {
 executeCodebtn.addEventListener("click", function () {
   let code = codeEditor.getValue();
   try {
-    // console.log(code);
     fetch("http://localhost:3000/compile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "code": code }),
+      body: JSON.stringify({ "code": code, "lang": "c" }),
     })
       .then((res) => res.json())
       .then((data) => {
