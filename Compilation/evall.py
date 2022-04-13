@@ -1,2 +1,2 @@
-
-print('trnb')
+a =input()
+print(a)

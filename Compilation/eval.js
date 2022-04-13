@@ -13,7 +13,7 @@ const eval = (code, lang) => {
     }
 
     try {
-        let childp2 = execSync(".\\eval.exe");
+        let childp2 = execSync(".\\eval.exe < ./Compilation/input.txt");
         return childp2.toString() ;
     }
     catch(err) {
@@ -23,7 +23,7 @@ const eval = (code, lang) => {
   if(lang === "python"){
     fs.writeFileSync("./Compilation/evall.py", code);
     try {
-        let childp2 = execSync("py ./Compilation/evall.py");
+        let childp2 = execSync("py ./Compilation/evall.py < ./Compilation/input.txt");  
         return childp2.toString() ;
     }
     catch(err) {
@@ -40,7 +40,7 @@ const eval = (code, lang) => {
         return err.stderr.toString();
     }
       try {
-        let childp2 = execSync(".\\a.exe");
+        let childp2 = execSync(".\\a.exe < ./Compilation/input.txt");
         return childp2.toString() ;
     }
       catch(err) {
@@ -52,7 +52,7 @@ const eval = (code, lang) => {
     fs.writeFileSync("./Compilation/evalJs.js", code);
     let childp1;
     try {
-        childp1 = execSync("node ./Compilation/evaljs.js");
+        childp1 = execSync("node ./Compilation/evaljs.js < ./Compilation/input.txt");
         return childp1.toString() ;
     }
     catch(err) {
