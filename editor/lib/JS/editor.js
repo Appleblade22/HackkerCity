@@ -33,7 +33,7 @@ executeCodebtn.addEventListener("click", function () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "code": code, "lang": "javascript" }),
+      body: JSON.stringify({ "code": code, "lang": "c" }),
     })
       .then((res) => res.json())
       .then((data) => {

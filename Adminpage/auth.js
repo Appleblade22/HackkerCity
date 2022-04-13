@@ -67,24 +67,3 @@ function AddItemsToTable(uid, email, username, lastlogin) {
   tbody.appendChild(trow);
 }
 
-// document.getElementById("confirm").addEventListener("click", (e) => {
-//   e.preventDefault();
-// console.log("sucess");
-// //   const uid = document.getElementById("uid").value;
-// //   const data = ref(db, "/users");
-// //   onValue(data, (snapshot) => {
-// //     snapshot.forEach((child) => {
-// //       if (child.val().uid == uid) {
-// //         getAuth()
-// //           .deleteUser(uid)
-// //           .then(() => {
-// //             console.log('Successfully deleted user');
-// //           })
-// //           .catch((error) => {
-// //             console.log('Error deleting user:', error);
-// //           });
-// //         return
-// //       }
-// //     });
-// //   });
-// // });

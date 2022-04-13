@@ -1,9 +1,7 @@
-const lines = []
-const rl = require('readline').createInterface({ input: process.stdin, output: process.stdout })
-  rl.on('line', line => {
-      lines.push(line);
-  });
-  rl.on('close', main)
-  function main() {
-  console.log(lines)
+// Hello my friends
+#include <stdio.h>
+int main() {
+   // printf() displays the string inside quotation
+   printf("Hello, World!");
+   return 0;
 }

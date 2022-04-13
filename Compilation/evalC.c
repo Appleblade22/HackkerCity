@@ -1,10 +1,7 @@
 // Hello my friends
 #include <stdio.h>
-
-int main()
-{
-  int a, b;
-  scanf("%d %d", &a, &b);
-  printf("sum: %d", a + b);
-  return 0;
+int main() {
+   // printf() displays the string inside quotation
+   printf("Hello, World!");
+   return 0;
 }

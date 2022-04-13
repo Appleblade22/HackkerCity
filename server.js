@@ -41,6 +41,9 @@ app.post("/compile", (req, res) => {
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/Dashboard/index.html");
 });
-app.get('/edit', (req, res) => {
-    res.render("editor");
+app.get('/Problem/index.html', (req, res) => {
+    res.render("problem");
+});
+app.get('/Problemset/index.html', (req, res) => {
+    res.render("problemset");
 });
