@@ -1,5 +1,4 @@
 //Retrieve Elements
-const axios = require("axios");
 const executeCodebtn = document.querySelector(".editor__run");
 const resetCodebtn = document.querySelector(".editor__reset");
 const defaultCode = "// Hello my friends" + "\n";
@@ -34,7 +33,7 @@ executeCodebtn.addEventListener("click", function () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "code": code, "lang": "c" }),
+      body: JSON.stringify({ "code": code, "lang": "javascript" }),
     })
       .then((res) => res.json())
       .then((data) => {
