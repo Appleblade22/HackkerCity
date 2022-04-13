@@ -10,6 +10,11 @@ app.use(express.json())
 let path = require('path');
 const dbuser = "mongodb+srv://kali:kali@data.vcmov.mongodb.net/User?retryWrites=true&w=majority";
 const { eval } = require("./Compilation/eval.js");
+app.use(express.static(path.join(__dirname, 'dashboard')));
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 
 mongoose.connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -36,6 +41,6 @@ app.post("/compile", (req, res) => {
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/Dashboard/index.html");
 });
-// app.listen(3000, "localhost", () => {
-//     console.log("Server is running");
-// });
+app.get('/edit', (req, res) => {
+    res.render("editor");
+});

@@ -1,6 +1,6 @@
 //Retrieve Elements
 const axios = require("axios");
-const executeCodebtn = document.querySelector(".editor__run");
+const executeCodebtn = document.querySelector(".editor__submit");
 const resetCodebtn = document.querySelector(".editor__reset");
 const defaultCode = "// Hello my friends" + "\n";
 
@@ -10,7 +10,7 @@ let consoleMessages = [];
 let editorlib = {
   init() {
     codeEditor.setTheme("ace/theme/dracula");
-    codeEditor.session.setMode("ace/mode/javascript");
+    codeEditor.session.setMode("ace/mode/c_cpp");
     codeEditor.setOptions({
       enableBasicAutocompletion: true,
       enableLiveAutocompletion: true,
