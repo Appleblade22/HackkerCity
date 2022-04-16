@@ -44,6 +44,34 @@ app.get("/", (req, res) => {
 app.get('/Problem/index.html', (req, res) => {
     res.render("problem");
 });
-app.get('/Problemset/index.html', (req, res) => {
-    res.render("problemset");
+app.get('/Problemset/Cpp.html', (req, res) => {
+    res.render("problemset", {
+        lang: "C++",
+        problems: [
+            {
+                name: "Hello World",
+                difficulty: "Hard",
+                link: "/Problem/HelloWorld.html",
+                scored: "100"
+            },
+            {
+                name: "Factorial",
+                difficulty: "Easy",
+                link: "/Problem/Factorial.html",
+                scored: "80"
+            },
+            {
+                name: "Fibonacci",
+                difficulty: "Easy",
+                link: "/Problem/Fibonacci.html",
+                scored: "80"
+            }
+        ]
+
+    });
+});
+
+app.get('/Skills/skills.html', (req, res) => {
+    console.log("Hello server");
+    res.render("skills");
 });
