@@ -50,7 +50,7 @@ app.get('/Problemset/Cpp.html', (req, res) => {
         problems: [
             {
                 name: "Hello World",
-                difficulty: "Hard",
+                difficulty: "Easy",
                 link: "/Problem/HelloWorld.html",
                 scored: "100"
             },
