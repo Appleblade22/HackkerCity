@@ -66,6 +66,7 @@ app.get('/Problemset/*', (req, res) => {
                     console.log(result);
                     res.render("problemset", {
                         info: result,
+                        lan: lang
                     })
                 }
             });
