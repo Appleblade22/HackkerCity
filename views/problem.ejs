@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="../editor/lib/CSS/Editor-style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Problem/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <title>Problem</title>
-  </head>
 
-  <body>
-    <script src="../Login/check.js"></script>
-    <!-- nav bar  -->
-    <%- include('../views/nav.ejs') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="../editor/lib/CSS/Editor-style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../Problem/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <title>Problem</title>
+</head>
+
+<body>
+  <script src="../Login/check.js"></script>
+  <!-- nav bar  -->
+  <%- include('../views/nav.ejs') %>
     <!-- Nav Ends Here -->
 
     <div class="head">
@@ -38,17 +32,21 @@
               </li>
             </a>
             <li class="list name">
-              <span class="arrow"><i class="fas fa-angle-right"></i></span
-              >Problem Name
+              <span class="arrow"><i class="fas fa-angle-right"></i></span>
+              <%= info[0].PROBLEM_NAME%>
             </li>
           </ol>
-          <h1>Problem Name</h1>
+          <h1>
+            <%= info[0].PROBLEM_NAME%>
+          </h1>
         </header>
       </div>
     </div>
     <div class="main">
       <div class="question">
-        <div class="givenprob"><%- info[0].PROBLEM_STATEMENT %></div>
+        <div class="givenprob">
+          <%- info[0].PROBLEM_STATEMENT %>
+        </div>
         <div class="inputform">
           <h4>Input Format</h4>
           <div class="inputform-ques">
@@ -72,13 +70,13 @@
         <div class="subinput-1">
           <h4>Sample input 1</h4>
           <div class="subint-1">
-            <pre> 5 </pre>
+            <pre><%- info[0].SAMPLE_INPUT%></pre>
           </div>
         </div>
         <div class="suboutput-1">
           <h4>Sample output 1</h4>
           <div class="subout-1">
-            <pre> five </pre>
+            <pre><%- info[0].SAMPLE_OUTPUT%> </pre>
           </div>
         </div>
       </div>
@@ -109,5 +107,6 @@
     <script src="../editor/lib/JS/editor-console.js"></script>
     <script src="../Problemset/script.js"></script>
     <script src="../Nav/script.js"></script>
-  </body>
+</body>
+
 </html>
