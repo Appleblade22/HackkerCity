@@ -1,6 +1,5 @@
 const user = document.querySelector(".user");
 const block = document.querySelector(".block");
-const deleteuser = document.querySelector(".delete");
 const hiddentable = document.querySelector(".submission-container");
 
 const modal = document.querySelector(".modal");
@@ -33,14 +32,6 @@ block.addEventListener("click", () => {
   overlay.classList.remove("hidden");
   headingcls.textContent =
     "The User Account will be temporarily blocked and cannot be able to access the website";
-});
-
-deleteuser.addEventListener("click", () => {
-  hiddentable.classList.add("hidden");
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-  headingcls.textContent =
-    "The User Account will be permanently deleted. Please click confirm to continue";
 });
 
 const logout = document.getElementById("logout");
