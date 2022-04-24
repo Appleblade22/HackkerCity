@@ -47,10 +47,10 @@ app.get('/Problemset/*', (req, res) => {
         lang = "C++";
     }
     else if (pro == "Java.html") {
-        lang = "Java";
+        lang = "JAVA";
     }
     else if (pro == "Python.html") {
-        lang = "Python";
+        lang = "PYTHON";
     }
     else if (pro == "C.html") {
         lang = "C";

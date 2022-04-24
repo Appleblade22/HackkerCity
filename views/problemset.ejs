@@ -129,7 +129,10 @@
             </div>
         </div>
         <script src="../Nav/script.js"></script>
-        <script src="../Problemset/script.js"></script>
+        <script>
+            let x = '<%- JSON.stringify(info)%>';
+            console.log(x);
+        </script>
 </body>
 
 </html>
