@@ -88,10 +88,6 @@ app.get('/Problem/*', (req, res) => {
         });
 });
 
-
-
-
-
 app.get('/Skills/skills.html', (req, res) => {
     console.log("Hello server");
     res.render("skills");
