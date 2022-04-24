@@ -44,21 +44,21 @@ app.get('/Problemset/*', (req, res) => {
     let pro = req.url.split("/")[2];
     let lang = null;
     if (pro == "Cpp.html") {
-        lang = "c++";
+        lang = "C++";
     }
     else if (pro == "Java.html") {
-        lang = "java";
+        lang = "Java";
     }
     else if (pro == "Python.html") {
-        lang = "python";
+        lang = "Python";
     }
     else if (pro == "C.html") {
-        lang = "c";
+        lang = "C";
     }
 
     mongoose.connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(() => {
-            mongoose.connection.db.collection("problem-set").find({ language: lang }).toArray((err, result) => {
+            mongoose.connection.db.collection("problem-set").find({ LANGUAGE: lang }).toArray((err, result) => {
                 if (err) {
                     console.log(err);
                 }
@@ -75,36 +75,6 @@ app.get('/Problemset/*', (req, res) => {
             console.log("Connection failed");
         });
 });
-
-
-
-
-
-//     res.render("problemset", {
-//         lang: "C++",
-//         problems: [
-//             {
-//                 name: "Hello World",
-//                 difficulty: "Easy",
-//                 link: "/Problem/Loop in C",
-//                 scored: "100"
-//             },
-//             {
-//                 name: "Factorial",
-//                 difficulty: "Easy",
-//                 link: "/Problem/Factorial.html",
-//                 scored: "80"
-//             },
-//             {
-//                 name: "Fibonacci",
-//                 difficulty: "Easy",
-//                 link: "/Problem/Fibonacci.html",
-//                 scored: "80"
-//             }
-//         ]
-
-//     });
-// });
 app.get('/Problem/*', (req, res) => {
     let pro = req.url.split("/")[2].replace(/%20/g, " ");
     console.log(pro);

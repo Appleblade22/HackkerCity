@@ -70,21 +70,22 @@
                         <div class="left">
                             <div class="probname">
                                 <h3 class="probname">
-                                    <%= info[0].problem_name.title %>
+                                    <%= info[0].PROBLEM_NAME %>
                                 </h3>
                             </div>
                             <div class="substate">
 
                                 <span class="meet">
                                     <b>
-                                        <%= info[0].difficulty %>
+                                        <%= info[0].DIFFICULTY %>
                                     </b>
-                                    Max-Score : <%= info[0].max_score %>
+                                    Max-Score : <%= info[0].MAX_SCORE %>
                                 </span>
                             </div>
                         </div>
                         <div class="right">
-                            <button class="btn solve" onclick="window.location.href= ''">
+                            <button class="btn solve"
+                                onclick="window.location.href= '/Problem/' + '<%= info[0].PROBLEM_NAME %>'">
                                 solve
                             </button>
                         </div>
