@@ -11,6 +11,7 @@ let path = require('path');
 const dbuser = "mongodb+srv://kali:kali@data.vcmov.mongodb.net/User?retryWrites=true&w=majority";
 const dbprob = "mongodb+srv://kali:kali@data.vcmov.mongodb.net/questions?retryWrites=true&w=majority";
 
+
 const { eval } = require("./Compilation/eval.js");
 app.use(express.static(path.join(__dirname, 'dashboard')));
 
@@ -39,33 +40,69 @@ app.get("/", (req, res) => {
 app.get('/Problem/index.html', (req, res) => {
     res.render("problem");
 });
-app.get('/Problemset/Cpp.html', (req, res) => {
-    console.log(req.url.split("/")[3]);
-    res.render("problemset", {
-        lang: "C++",
-        problems: [
-            {
-                name: "Hello World",
-                difficulty: "Easy",
-                link: "/Problem/Loop in C",
-                scored: "100"
-            },
-            {
-                name: "Factorial",
-                difficulty: "Easy",
-                link: "/Problem/Factorial.html",
-                scored: "80"
-            },
-            {
-                name: "Fibonacci",
-                difficulty: "Easy",
-                link: "/Problem/Fibonacci.html",
-                scored: "80"
-            }
-        ]
+app.get('/Problemset/*', (req, res) => {
+    let pro = req.url.split("/")[2];
+    let lang = null;
+    if (pro == "Cpp.html") {
+        lang = "c++";
+    }
+    else if (pro == "Java.html") {
+        lang = "java";
+    }
+    else if (pro == "Python.html") {
+        lang = "python";
+    }
+    else if (pro == "C.html") {
+        lang = "c";
+    }
 
-    });
+    mongoose.connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(() => {
+            mongoose.connection.db.collection("problem").find({ language: lang }).toArray((err, result) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.render("problem", {
+                        info: result,
+                    })
+                }
+            });
+        })
+        .catch(() => {
+            console.log("Connection failed");
+        });
 });
+
+
+
+
+
+//     res.render("problemset", {
+//         lang: "C++",
+//         problems: [
+//             {
+//                 name: "Hello World",
+//                 difficulty: "Easy",
+//                 link: "/Problem/Loop in C",
+//                 scored: "100"
+//             },
+//             {
+//                 name: "Factorial",
+//                 difficulty: "Easy",
+//                 link: "/Problem/Factorial.html",
+//                 scored: "80"
+//             },
+//             {
+//                 name: "Fibonacci",
+//                 difficulty: "Easy",
+//                 link: "/Problem/Fibonacci.html",
+//                 scored: "80"
+//             }
+//         ]
+
+//     });
+// });
 app.get('/Problem/*', (req, res) => {
     let pro = req.url.split("/")[2].replace(/%20/g, " ");
     console.log(pro);
