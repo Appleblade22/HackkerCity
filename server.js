@@ -58,12 +58,13 @@ app.get('/Problemset/*', (req, res) => {
 
     mongoose.connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(() => {
-            mongoose.connection.db.collection("problem").find({ language: lang }).toArray((err, result) => {
+            mongoose.connection.db.collection("problem-set").find({ language: lang }).toArray((err, result) => {
                 if (err) {
                     console.log(err);
                 }
                 else {
-                    res.render("problem", {
+                    console.log(result);
+                    res.render("problemset", {
                         info: result,
                     })
                 }
