@@ -42,31 +42,26 @@
         <div class="main">
             <div class="question">
                 <div class="givenprob">
-                    if and else are two of the most frequently used conditionals in C/C++,
-                    and they enable you to execute zero or one conditional statement among
-                    many such dependent conditional statements. We use them in the
-                    following ways: 1. if:This executes the body of bracketed code
-                    starting with statement1 if conditions evaluates to true.
+
+                    <%- info[0].PROBLEM_STATEMENT %>
+
                 </div>
                 <div class="inputform">
                     <h4>Input Format</h4>
                     <div class="inputform-ques">
-                        <pre>A single integer, n </pre>
+                        <pre><%- info[0].INPUT_FORMAT %></pre>
                     </div>
                 </div>
                 <div class="constraint">
                     <h4>Constraints</h4>
                     <div class="constraint-ques">
-                        <pre> n lies between 1 to 10 power 9</pre>
+                        <pre> <%- info[0].CONSTRAINTS %></pre>
                     </div>
                 </div>
                 <div class="outputform">
                     <h4>Output Format</h4>
                     <div class="outputform-ques">
-                        <pre>
-If , then print the lowercase English word corresponding to the
-number (e.g., one for , two for , etc.); otherwise, print Greater
-than 9.
+                        <pre><%- info[0].OUTPUT_FORMAT %>
             </pre>
                     </div>
                 </div>

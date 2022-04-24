@@ -9,22 +9,18 @@ app.use(express.static(__dirname));
 app.use(express.json())
 let path = require('path');
 const dbuser = "mongodb+srv://kali:kali@data.vcmov.mongodb.net/User?retryWrites=true&w=majority";
+const dbprob = "mongodb+srv://kali:kali@data.vcmov.mongodb.net/questions?retryWrites=true&w=majority";
+
 const { eval } = require("./Compilation/eval.js");
 app.use(express.static(path.join(__dirname, 'dashboard')));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.listen(3000, 'localhost', () => {
+    console.log("Server is running");
+});
 
-mongoose.connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        app.listen(3000, 'localhost', () => {
-            console.log("Server is running")
-        });
-    })
-    .catch(() => {
-        console.log("Connection failed");
-    });
 
 app.post("/compile", (req, res) => {
     console.log(req.body);
@@ -37,7 +33,6 @@ app.post("/compile", (req, res) => {
         output: output,
     });
 });
-
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/Dashboard/index.html");
 });
@@ -45,13 +40,14 @@ app.get('/Problem/index.html', (req, res) => {
     res.render("problem");
 });
 app.get('/Problemset/Cpp.html', (req, res) => {
+    console.log(req.url.split("/")[3]);
     res.render("problemset", {
         lang: "C++",
         problems: [
             {
                 name: "Hello World",
                 difficulty: "Easy",
-                link: "/Problem/HelloWorld.html",
+                link: "/Problem/Loop in C",
                 scored: "100"
             },
             {
@@ -70,6 +66,31 @@ app.get('/Problemset/Cpp.html', (req, res) => {
 
     });
 });
+app.get('/Problem/*', (req, res) => {
+    let pro = req.url.split("/")[2].replace(/%20/g, " ");
+    console.log(pro);
+    //Database query in mongodb
+    mongoose.connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(() => {
+            mongoose.connection.db.collection("problem").find({ PROBLEM_NAME: pro }).toArray((err, result) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.render("problem", {
+                        info: result,
+                    })
+                }
+            });
+        })
+        .catch(() => {
+            console.log("Connection failed");
+        });
+});
+
+
+
+
 
 app.get('/Skills/skills.html', (req, res) => {
     console.log("Hello server");
