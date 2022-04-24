@@ -1,5 +1,5 @@
 // Hello my friends
-#include<iostream.h>
+#include <stdio.h>
 int main(){
-  printf("Hello world");
+  printf("atbtnrwbn");
 }

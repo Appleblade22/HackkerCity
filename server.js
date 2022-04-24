@@ -96,7 +96,9 @@ app.get('/Problem/*', (req, res) => {
             console.log("Connection failed");
         });
 });
-
+app.get('/Profile/profile.html', (req, res) => {
+    res.render("profile");
+});
 app.get('/Skills/skills.html', (req, res) => {
     console.log("Hello server");
     res.render("skills");
