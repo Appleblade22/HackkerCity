@@ -131,7 +131,10 @@
         <script src="../Nav/script.js"></script>
         <script>
             let x = '<%- JSON.stringify(info)%>';
-            console.log(x);
+            x = JSON.parse(x);
+            for (let i = 0; i < x.length; i++) {
+
+            }
         </script>
 </body>
 
