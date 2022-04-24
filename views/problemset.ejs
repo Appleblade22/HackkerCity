@@ -1,141 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Problem set</title>
 
     <!-- css style for this page -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <link rel="stylesheet" href="../Problemset/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <script src="../Login/check.js"></script>
     <!-- nav bar  -->
     <%- include('../views/nav.ejs') %>
 
-        <!-- heading  -->
+    <!-- heading  -->
 
-        <div class="headingskill">
-            <div class="heading">
-                <h1>
-                    <%= lan%>
-                </h1>
-                <p>Let's Start Coding</p>
-            </div>
-            <div class="responsive-filt">
-                <div class="rightside">
-                    <div class="solved-container">
-                        <ul class="filter-sol">
-                            <li class="filter-solved">
-                                <p class="status">Status</p>
-                                <input type="radio" class="checkbox-input" value="solved" />
-                                <span class="solved">Solved</span>
-                            </li>
-                            <li class="filter-unsolved">
-                                <input type="radio" class="checkbox-input" value="unsolved" />
-                                <span class="unsolved">Unsolved</span>
-                            </li>
-                            <br />
-                        </ul>
-                    </div>
-                    <div class="diff-container">
-                        <ul class="filter-diff">
-                            <li class="filter-easy">
-                                <p class="status">Difficulty</p>
-                                <input type="checkbox" class="checkbox-input" value="solved" />
-                                <span class="easy">Easy</span>
-                            </li>
-                            <li class="filter-intermediate">
-                                <input type="checkbox" class="checkbox-input" value="intermediate" />
-                                <span class="intermediate">Intermediate</span>
-                            </li>
-                            <li class="filter-hard">
-                                <input type="checkbox" class="checkbox-input" value="hard" />
-                                <span class="hard">Hard</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <div class="headingskill">
+      <div class="heading">
+        <h1><%= lan%></h1>
+        <p>Let's Start Coding</p>
+      </div>
+      <div class="responsive-filt">
+        <div class="rightside">
+          <div class="solved-container">
+            <ul class="filter-sol">
+              <li class="filter-solved">
+                <p class="status">Status</p>
+                <input type="radio" class="checkbox-input" value="solved" />
+                <span class="solved">Solved</span>
+              </li>
+              <li class="filter-unsolved">
+                <input type="radio" class="checkbox-input" value="unsolved" />
+                <span class="unsolved">Unsolved</span>
+              </li>
+              <br />
+            </ul>
+          </div>
+          <div class="diff-container">
+            <ul class="filter-diff">
+              <li class="filter-easy">
+                <p class="status">Difficulty</p>
+                <input type="checkbox" class="checkbox-input" value="solved" />
+                <span class="easy">Easy</span>
+              </li>
+              <li class="filter-intermediate">
+                <input
+                  type="checkbox"
+                  class="checkbox-input"
+                  value="intermediate"
+                />
+                <span class="intermediate">Intermediate</span>
+              </li>
+              <li class="filter-hard">
+                <input type="checkbox" class="checkbox-input" value="hard" />
+                <span class="hard">Hard</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <!-- questions -->
-        <div class="container">
-            <div class="leftside">
-                <ul class="ulfirst">
-                    <li class="liclass">
-                        <div class="left">
-                            <div class="probname">
-                                <h3 class="probname">
-                                    <%= info[0].PROBLEM_NAME %>
-                                </h3>
-                            </div>
-                            <div class="substate">
-
-                                <span class="meet">
-                                    <b>
-                                        <%= info[0].DIFFICULTY %>
-                                    </b>
-                                    Max-Score : <%= info[0].MAX_SCORE %>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <button class="btn solve"
-                                onclick="window.location.href= '/Problem/' + '<%= info[0].PROBLEM_NAME %>'">
-                                solve
-                            </button>
-                        </div>
-                    </li>
-                </ul>
+      </div>
+    </div>
+    <!-- questions -->
+    <div class="container">
+      <div class="leftside">
+        <ul class="ulfirst">
+          <% for (var i = 0; i < info.length; i++){ %>
+          <li class="liclass">
+            <div class="left">
+              <div class="probname">
+                <h3 class="probname"><%= info[i].PROBLEM_NAME %></h3>
+              </div>
+              <div class="substate">
+                <span class="meet">
+                  <b> <%= info[i].DIFFICULTY %> </b>
+                  Max-Score : <%= info[i].MAX_SCORE %>
+                </span>
+              </div>
             </div>
-            <div class="rightside-response">
-                <div class="rightside">
-                    <div class="solved-container">
-                        <ul class="filter-sol">
-                            <li class="filter-solved">
-                                <p class="status">Status</p>
-                                <input type="checkbox" class="checkbox-input" value="solved" />
-                                <span class="solved">Solved</span>
-                            </li>
-                            <li class="filter-unsolved">
-                                <input type="checkbox" class="checkbox-input" value="unsolved" />
-                                <span class="unsolved">Unsolved</span>
-                            </li>
-                            <br />
-                        </ul>
-                    </div>
-                    <div class="diff-container">
-                        <ul class="filter-diff">
-                            <li class="filter-easy">
-                                <p class="status">Difficulty</p>
-                                <input type="checkbox" class="checkbox-input" value="solved" />
-                                <span class="easy">Easy</span>
-                            </li>
-                            <li class="filter-intermediate">
-                                <input type="checkbox" class="checkbox-input" value="intermediate" />
-                                <span class="intermediate">Intermediate</span>
-                            </li>
-                            <li class="filter-hard">
-                                <input type="checkbox" class="checkbox-input" value="hard" />
-                                <span class="hard">Hard</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="right">
+              <button
+                class="btn solve"
+                onclick="window.location.href= '/Problem/' + '<%= info[i].PROBLEM_NAME %>'"
+              >
+                solve
+              </button>
             </div>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+      <div class="rightside-response">
+        <div class="rightside">
+          <div class="solved-container">
+            <ul class="filter-sol">
+              <li class="filter-solved">
+                <p class="status">Status</p>
+                <input type="checkbox" class="checkbox-input" value="solved" />
+                <span class="solved">Solved</span>
+              </li>
+              <li class="filter-unsolved">
+                <input
+                  type="checkbox"
+                  class="checkbox-input"
+                  value="unsolved"
+                />
+                <span class="unsolved">Unsolved</span>
+              </li>
+              <br />
+            </ul>
+          </div>
+          <div class="diff-container">
+            <ul class="filter-diff">
+              <li class="filter-easy">
+                <p class="status">Difficulty</p>
+                <input type="checkbox" class="checkbox-input" value="solved" />
+                <span class="easy">Easy</span>
+              </li>
+              <li class="filter-intermediate">
+                <input
+                  type="checkbox"
+                  class="checkbox-input"
+                  value="intermediate"
+                />
+                <span class="intermediate">Intermediate</span>
+              </li>
+              <li class="filter-hard">
+                <input type="checkbox" class="checkbox-input" value="hard" />
+                <span class="hard">Hard</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <script src="../Nav/script.js"></script>
-        <script>
-            let x = '<%- JSON.stringify(info)%>';
-            x = JSON.parse(x);
-            for (let i = 0; i < x.length; i++) {
-
-            }
-        </script>
-</body>
-
+      </div>
+    </div>
+    <script src="../Nav/script.js"></script>
+    <!-- <script>
+      let x = "<%- JSON.stringify(info)%>";
+      x = JSON.parse(x);
+      for (let i = 0; i < x.length; i++) {}
+    </script> -->
+  </body>
 </html>
