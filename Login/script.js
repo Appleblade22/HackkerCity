@@ -4,6 +4,8 @@ import {
   getDatabase,
   set,
   ref,
+  get,
+  child,
   update,
   onValue,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js";
@@ -91,33 +93,42 @@ if (loginForm) {
           const date = new Date().toLocaleString("en-US", {
             timeZone: "Asia/Kolkata",
           });
-          update(ref(database, "users/" + us.uid), {
-            last_login: date,
-          })
-            .then(function () {
-              // console.log(auth);
-              // console.log(auth.currentUser);
-              localStorage.setItem("userData", JSON.stringify(auth));
-              const isadmin = auth.currentUser.uid;
-              console.log(auth.currentUser.uid);
-              const data = ref(database, "/users");
-              onValue(data, (snapshot) => {
-                snapshot.forEach((child) => {
-                  console.log(child.val().uid);
-                  if (child.val().uid == isadmin) {
-                    console.log(child.val().admin);
-                    if (child.val().admin == true) {
-                      window.location.href = "../Adminpage/index.html";
-                    } else {
-                      window.location.href = "../Skills/skills.html";
-                    }
-                  }
-                });
-              });
+          let dbref = ref(database);
+          get(child(dbref, "users/" + us.uid))
+            .then((snapshot) => {
+              if (snapshot.val().block === true) {
+                setFormMessage(form, "error", "You are blocked");
+                spin.style.display = "none";
+              } else {
+                update(ref(database, "users/" + us.uid), {
+                  last_login: date,
+                })
+                  .then(function () {
+                    // console.log(auth);
+                    // console.log(auth.currentUser);
+                    localStorage.setItem("userData", JSON.stringify(auth));
+                    const isadmin = auth.currentUser.uid;
+                    console.log(auth.currentUser.uid);
+                    const data = ref(database, "/users");
+                    onValue(data, (snapshot) => {
+                      snapshot.forEach((child) => {
+                        console.log(child.val().uid);
+                        if (child.val().uid == isadmin) {
+                          console.log(child.val().admin);
+                          if (child.val().admin == true) {
+                            window.location.href = "../Adminpage/index.html";
+                          } else {
+                            window.location.href = "../Skills/skills.html";
+                          }
+                        }
+                      });
+                    });
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
+              }
             })
-            .catch(function (error) {
-              console.log(error);
-            });
         })
         .catch(function (error) {
           spin.style.display = "none";
@@ -127,6 +138,7 @@ if (loginForm) {
             setFormMessage(form, "error", "Wrong Password");
           } else {
             setFormMessage(form, "error", "Something went wrong");
+            console.log(error);
           }
         });
     }
