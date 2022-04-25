@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
-<body id="bootstrap-overrides">
+<body id="bootstrap-overrides" onload="myFunction()">
   <script src="../Login/check.js"></script>
   <script type="module" src="../Profile/auth.js"></script>
   <!--Navigation bar-->
@@ -28,7 +28,7 @@
     <div class="nav-items">
       <li><a href="../Skills/skills.html">Practice</a></li>
       <li><a href="../Submission/index.html">Submissions</a></li>
-      <li><a href="../Profile/profile.html">Profile</a></li>
+      <li><a href="../Profile/aman.j20@iiits.in">Profile</a></li>
       <li><a href="../ContactUs/ContactUs.html" target="_blank">Contact</a></li>
       <li class="logouthead" id="log"><a href="../Dashboard/index.html">Logout</a></li>
     </div>
@@ -115,11 +115,9 @@
       <div id="submissions">
         <strong style="font-weight:600">Submissions<strong>
             <div class="card-body" id="submissions-card-body">
-              <a href="">problem y</a> <i> - x days ago</i> <br>
-              <a href="">problem y</a> <i> - x days ago</i> <br>
-              <a href="">problem y</a> <i> - x days ago</i> <br>
-              <a href="">problem y</a> <i> - x days ago</i> <br>
-              <a href="">problem y</a> <i> - x days ago</i> <br>
+              <% for(let i = 0; i<info[0].submissions.length; i++){ %>
+              <a href=""><%= info[0].submissions[i].problemName %></a> <i> <%= info[0].submissions[i].verdict %></i> <br>
+              <% } %>
             </div>
       </div>
       <button id="load-more">Load more...</button>

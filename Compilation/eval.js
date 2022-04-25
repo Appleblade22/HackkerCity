@@ -3,7 +3,7 @@ const { exec, execSync } = require("child_process");
 const { stderr } = require("process");
 
 const eval = (code, lang) => {
-  if(lang === "cpp"){
+  if(lang === "C++"){
     fs.writeFileSync("./Compilation/eval.cpp", code);
     let childp1
     try{
@@ -20,7 +20,7 @@ const eval = (code, lang) => {
         return err.stderr.toString();
     }
   }
-  if(lang === "python"){
+  if(lang === "PYTHON"){
     fs.writeFileSync("./Compilation/evall.py", code);
     try {
         let childp2 = execSync("py ./Compilation/evall.py < ./Compilation/input.txt");  
@@ -30,7 +30,7 @@ const eval = (code, lang) => {
         return err.stderr.toString();
     }
   }
-  if(lang === "c"){
+  if(lang === "C"){
     fs.writeFileSync("./Compilation/evalC.c", code);
     let childp1;
     try {

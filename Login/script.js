@@ -107,6 +107,21 @@ if (loginForm) {
                     // console.log(auth);
                     // console.log(auth.currentUser);
                     localStorage.setItem("userData", JSON.stringify(auth));
+                    try {
+                      fetch("http://localhost:3000/checkUser", {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ "email": JSON.parse(localStorage.getItem("userData")).currentUser.email }),
+                      })
+                        .then((res) => res.json())
+                        .then((data) => {
+                          console.log(data);
+                        });
+                    } catch (err) {
+                      console.log(err);
+                    }
                     const isadmin = auth.currentUser.uid;
                     console.log(auth.currentUser.uid);
                     const data = ref(database, "/users");

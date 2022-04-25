@@ -34,6 +34,37 @@ app.post("/compile", (req, res) => {
     output: output,
   });
 });
+app.post("/checkUser", (req, res) => {
+  console.log("login req: " + req.body.email);
+  mongoose
+    .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      console.log('good')
+      mongoose.connection.db
+        .collection("users")
+        .find({email: req.body.email})
+        .toArray((err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(result);
+            if(result.length < 1){
+              console.log('inserting')
+              mongoose.connection.db.collection("users").insertOne(
+                {
+                  email: req.body.email,
+                  submissions: [],
+                }
+              )
+            }
+          }
+        });
+    })
+    .catch(() => {
+      console.log("Connection failed");
+      res.render('problem');
+    });
+});
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/Dashboard/index.html");
 });
@@ -99,8 +130,31 @@ app.get("/Problem/*", (req, res) => {
       console.log("Connection failed");
     });
 });
-app.get("/Profile/profile.html", (req, res) => {
-  res.render("profile");
+app.get("/Profile/:email", (req, res) => {
+  console.log(req.params);
+  mongoose
+    .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      console.log('good')
+      mongoose.connection.db
+        .collection("users")
+        .find({email: req.params.email})
+        .toArray((err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(result);
+            // console.log("ress: "+ result[0].email)
+            res.render("profile", {
+              info: result,
+            });
+          }
+        });
+    })
+    .catch(() => {
+      console.log("Connection failed");
+      res.render('problem');
+    });
 });
 app.get("/Skills/skills.html", (req, res) => {
   console.log("Hello server");
