@@ -4,6 +4,9 @@ import {
   getDatabase,
   ref,
   onValue,
+  update,
+  child,
+  get,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js";
 
 //------------------------------------------
@@ -67,3 +70,50 @@ function AddItemsToTable(uid, email, username, lastlogin) {
   tbody.appendChild(trow);
 }
 
+function updateUserData() {
+  let uid = document.querySelector(".textfield").value;
+  //Get data 
+  let dbref = ref(db);
+  get(child(dbref, "users/" + uid))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        let email = snapshot.val().email;
+        let username = snapshot.val().username;
+        let lastlogin = snapshot.val().last_login;
+        let admin = snapshot.val().admin;
+
+        //Update data
+        if (lastlogin) {
+          update(ref(db, "users/" + uid), {
+            admin: admin,
+            block: true,
+            email: email,
+            uid: uid,
+            username: username,
+            last_login: lastlogin,
+          });
+        }
+        else {
+          update(ref(db, "users/" + uid), {
+            admin: admin,
+            block: true,
+            email: email,
+            uid: uid,
+            username: username
+          });
+        }
+
+
+      }
+      else {
+        alert("User does not exist");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    }
+    );
+
+}
+
+document.querySelector(".confirmbtn").addEventListener("click", updateUserData);
