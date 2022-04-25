@@ -17,40 +17,7 @@
   <!-- Navigation Bar -->
   <script src="../Login/check.js">
   </script>
-  <nav id="navbar">
-    <div class="menu-icon">
-      <span class="fas fa-bars"></span>
-    </div>
-    <div class="logo">
-      <a href="../Dashboard/index.html"> HackkerCity </a>
-    </div>
-    <div class="nav-items">
-      <li><a href="../Skills/skills.html">Practice</a></li>
-      <li><a href="../Submission/index.html">Submissions</a></li>
-      <li><a href="../Profile/aman.j20@iiits.in">Profile</a></li>
-      <li>
-        <a href="../ContactUs/ContactUs.html" target="_blank">Contact</a>
-      </li>
-      <li class="logouthead" id="log">
-        <a href="../Dashboard/index.html">Logout</a>
-      </li>
-    </div>
-    <div class="search-icon">
-      <span class="fas fa-search"></span>
-    </div>
-    <div class="cancel-icon">
-      <span class="fas fa-times"></span>
-    </div>
-    <form action="#">
-      <input type="search" class="search-data" placeholder="Search" required />
-      <button type="submit" class="fas fa-search"></button>
-    </form>
-    <span>
-      <button class="logout" id="logout">
-        <a href="../Dashboard/index.html">Logout</a>
-      </button>
-    </span>
-  </nav>
+  <%- include('../views/nav.ejs') %>
 
   <!-- Navigation Bar ends here -->
 

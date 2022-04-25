@@ -56,3 +56,8 @@ if (log) {
     window.location.href = "../Dashboard/index.html";
   });
 }
+const pfpbtn = document.getElementById("pfpbtn");
+pfpbtn.addEventListener("click", (event) => {
+  console.log('nog')
+  window.location.href = "/Profile/" + JSON.parse(localStorage.getItem("userData")).currentUser.email;
+});

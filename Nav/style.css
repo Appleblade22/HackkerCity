@@ -53,14 +53,15 @@ nav .nav-items li {
   list-style: none;
   padding: 0 15px;
 }
-nav .nav-items li a {
+nav .nav-items li a, #pfpbtn {
   color: #fff;
   font-size: 18px;
   font-weight: 500;
   text-decoration: none;
 }
-nav .nav-items li a:hover {
+nav .nav-items li a:hover, #pfpbtn:hover {
   color: rgb(17, 173, 17);
+  cursor: pointer;
 }
 nav form {
   display: flex;

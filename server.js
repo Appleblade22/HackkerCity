@@ -144,10 +144,16 @@ app.get("/Profile/:email", (req, res) => {
             console.log(err);
           } else {
             console.log(result);
-            // console.log("ress: "+ result[0].email)
-            res.render("profile", {
-              info: result,
-            });
+            if(result.length < 1){
+              res.render("profile", {
+                info: [{"submissions": []}],
+              })
+            }
+            else {
+              res.render("profile", {
+                info: result,
+              });
+            }
           }
         });
     })
@@ -157,8 +163,10 @@ app.get("/Profile/:email", (req, res) => {
     });
 });
 app.get("/Skills/skills.html", (req, res) => {
-  console.log("Hello server");
   res.render("skills");
+});
+app.get("/submission", (req, res) => {
+  res.render("submission");
 });
 
 // db.stores.find( { $text: { $search: "java coffee shop" } } )
