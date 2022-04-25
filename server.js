@@ -66,8 +66,8 @@ app.post("/compile", (req, res) => {
               fs.writeFileSync("./Compilation/input.txt", data.INPUT);
               let output = eval(code, req.body.lang);
               console.log(data);
-              console.log("cmp : ", output, data.OUTPUT);
-              if (output === data.OUTPUT) {
+              console.log("cmp : (" + output + ")(" + data.OUTPUT + ")");
+              if (output.replace(/(\r\n|\n|\r)/gm, " ").trim() === data.OUTPUT.replace(/(\r\n|\n|\r)/gm, " ").trim()) {
                 res.send({
                   name: data.PROBLEM_NAME,
                   status: true,

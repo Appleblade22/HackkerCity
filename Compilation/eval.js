@@ -48,7 +48,7 @@ const eval = (code, lang) => {
       }
     }
 
-  if(lang === "javascript"){
+  if(lang === "JS"){
     fs.writeFileSync("./Compilation/evalJs.js", code);
     let childp1;
     try {
