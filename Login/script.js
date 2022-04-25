@@ -99,13 +99,21 @@ if (loginForm) {
               // console.log(auth.currentUser);
               localStorage.setItem("userData", JSON.stringify(auth));
               const isadmin = auth.currentUser.uid;
-              console.log(auth.currentUser.uid);
+              // console.log(auth.currentUser.uid);
               const data = ref(database, "/users");
               onValue(data, (snapshot) => {
                 snapshot.forEach((child) => {
-                  console.log(child.val().uid);
-                  if (child.val().uid == isadmin) {
-                    console.log(child.val().admin);
+
+                  if (child.val().block == true) {
+                    // console.log("block");
+                    auth.signOut();
+                    localStorage.removeItem("userData");
+                    spin.style.display = "none";
+                    setFormMessage(form, "error", "You are blocked");
+                  }
+
+                  else if (child.val().uid == isadmin) {
+                    // console.log(child.val().admin);
                     if (child.val().admin == true) {
                       window.location.href = "../Adminpage/index.html";
                     } else {
@@ -241,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //Forgot password
 const forgotForm = document.getElementById("send_reset");
 if (forgotForm) {
-  console.log("Heya");
+  // console.log("Heya");
   forgotForm.addEventListener("click", (event) => {
     event.preventDefault();
     const form = document.getElementById("forgot");
