@@ -80,15 +80,14 @@ app.post("/compile", (req, res) => {
                   message: "Wrong Answer",
                 });
               }
-            }
-            else {
+            } else {
               res.send({
                 name: data.PROBLEM_NAME,
                 status: false,
                 message: "SERVER ERROR",
                 output: output,
               });
-          }
+            }
           }
           mongoose.disconnect();
         });
@@ -122,13 +121,12 @@ app.post("/getlang", (req, res) => {
                 message: "Success",
                 lang: data.LANGUAGE,
               });
-            }
-            else {
+            } else {
               res.send({
                 status: false,
                 message: "SERVER ERROR",
               });
-          }
+            }
           }
           mongoose.disconnect();
         });
@@ -142,16 +140,15 @@ app.post("/getlang", (req, res) => {
     });
 });
 
-
 app.post("/checkUser", (req, res) => {
   console.log("connecting 4");
   mongoose
     .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-      console.log('good1')
+      console.log("good1");
       mongoose.connection.db
         .collection("users")
-        .find({email: req.body.email})
+        .find({ email: req.body.email })
         .toArray((err, result) => {
           if (err) {
             console.log(err);
@@ -178,7 +175,7 @@ app.post("/checkUser", (req, res) => {
     })
     .catch(() => {
       console.log("Connection failed");
-      res.render('problem');
+      res.render("problem");
     });
 });
 app.get("/", (req, res) => {
@@ -192,8 +189,8 @@ app.get("/Problemset/*", (req, res) => {
   let lang = null;
   if (pro == "Cpp.html") {
     lang = "C++";
-  } else if (pro == "Java.html") {
-    lang = "JAVA";
+  } else if (pro == "Javascript.html") {
+    lang = "JS";
   } else if (pro == "Python.html") {
     lang = "PYTHON";
   } else if (pro == "C.html") {
@@ -256,21 +253,20 @@ app.get("/Profile/:email", (req, res) => {
   mongoose
     .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-      console.log('good2')
+      console.log("good2");
       mongoose.connection.db
         .collection("users")
-        .find({email: req.params.email})
+        .find({ email: req.params.email })
         .toArray((err, result) => {
           if (err) {
             console.log(err);
           } else {
             console.log(result);
-            if(result.length < 1){
+            if (result.length < 1) {
               res.render("profile", {
-                info: [{"submissions": []}],
-              })
-            }
-            else {
+                info: [{ submissions: [] }],
+              });
+            } else {
               res.render("profile", {
                 info: result,
               });
@@ -281,7 +277,7 @@ app.get("/Profile/:email", (req, res) => {
     })
     .catch(() => {
       console.log("Connection failed");
-      res.render('profile');
+      res.render("profile");
     });
 });
 app.get("/Submission/:email", (req, res) => {
@@ -289,21 +285,20 @@ app.get("/Submission/:email", (req, res) => {
   mongoose
     .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-      console.log('good3')
+      console.log("good3");
       mongoose.connection.db
         .collection("users")
-        .find({email: req.params.email})
+        .find({ email: req.params.email })
         .toArray((err, result) => {
           if (err) {
             console.log(err);
           } else {
             console.log(result.length);
-            if(result.length < 1){
+            if (result.length < 1) {
               res.render("submission", {
-                info: [{"submissions": []}],
-              })
-            }
-            else {
+                info: [{ submissions: [] }],
+              });
+            } else {
               res.render("submission", {
                 info: result,
               });
@@ -315,12 +310,11 @@ app.get("/Submission/:email", (req, res) => {
     .catch((err) => {
       console.log("Connection failed");
       console.log(err);
-      res.render('submission');
+      res.render("submission");
     });
 });
 app.get("/Skills/skills.html", (req, res) => {
   res.render("skills");
 });
-
 
 // db.stores.find( { $text: { $search: "java coffee shop" } } )
