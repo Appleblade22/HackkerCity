@@ -106,3 +106,5 @@ app.get("/Skills/skills.html", (req, res) => {
   console.log("Hello server");
   res.render("skills");
 });
+
+// db.stores.find( { $text: { $search: "java coffee shop" } } )

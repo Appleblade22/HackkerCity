@@ -1,5 +1,6 @@
 const user = document.querySelector(".user");
 const block = document.querySelector(".block");
+const unblock = document.querySelector(".unblock");
 const hiddentable = document.querySelector(".submission-container");
 
 const modal = document.querySelector(".modal");
@@ -32,6 +33,14 @@ block.addEventListener("click", () => {
   overlay.classList.remove("hidden");
   headingcls.textContent =
     "The User Account will be temporarily blocked and cannot be able to access the website";
+});
+
+unblock.addEventListener("click", () => {
+  hiddentable.classList.add("hidden");
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  headingcls.textContent =
+    "Here you can unblock the user so that he will be able to access the website";
 });
 
 const logout = document.getElementById("logout");

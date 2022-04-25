@@ -37,6 +37,7 @@ body {
 
 .listuser,
 .blockuser,
+.unblockuser,
 .deleteuser {
   display: inline-block;
   margin: 1rem;
@@ -67,6 +68,7 @@ body {
 .blockbtn,
 .deletebtn,
 .confirmbtn,
+.unblockbtn,
 .textbox {
   display: flex;
   justify-content: center;
