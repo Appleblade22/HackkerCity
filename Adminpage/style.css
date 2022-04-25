@@ -68,6 +68,7 @@ body {
 .blockbtn,
 .deletebtn,
 .confirmbtn,
+.confirmbtn1,
 .unblockbtn,
 .textbox {
   display: flex;
@@ -164,7 +165,8 @@ body {
   z-index: 5;
 }
 
-.headingcls {
+.headingcls,
+.headingcls1 {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 2rem;
