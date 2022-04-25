@@ -53,13 +53,13 @@ nav .nav-items li {
   list-style: none;
   padding: 0 15px;
 }
-nav .nav-items li a, #pfpbtn {
+nav .nav-items li a, #pfpbtn, #submissions-btn {
   color: #fff;
   font-size: 18px;
   font-weight: 500;
   text-decoration: none;
 }
-nav .nav-items li a:hover, #pfpbtn:hover {
+nav .nav-items li a:hover, #pfpbtn:hover, #submissions-btn:hover {
   color: rgb(17, 173, 17);
   cursor: pointer;
 }

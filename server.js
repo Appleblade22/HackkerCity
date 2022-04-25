@@ -39,7 +39,7 @@ app.post("/checkUser", (req, res) => {
   mongoose
     .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-      console.log('good')
+      console.log('good1')
       mongoose.connection.db
         .collection("users")
         .find({email: req.body.email})
@@ -57,6 +57,7 @@ app.post("/checkUser", (req, res) => {
                 }
               )
             }
+            mongoose.disconnect();
           }
         });
     })
@@ -83,7 +84,7 @@ app.get("/Problemset/*", (req, res) => {
   } else if (pro == "C.html") {
     lang = "C";
   }
-
+  console.log('fine')
   mongoose
     .connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -100,10 +101,12 @@ app.get("/Problemset/*", (req, res) => {
               lan: lang,
             });
           }
+          mongoose.disconnect();
         });
     })
-    .catch(() => {
+    .catch((err) => {
       console.log("Connection failed");
+      console.log(err)
     });
 });
 app.get("/Problem/*", (req, res) => {
@@ -124,6 +127,7 @@ app.get("/Problem/*", (req, res) => {
               info: result,
             });
           }
+          mongoose.disconnect();
         });
     })
     .catch(() => {
@@ -135,7 +139,7 @@ app.get("/Profile/:email", (req, res) => {
   mongoose
     .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-      console.log('good')
+      console.log('good2')
       mongoose.connection.db
         .collection("users")
         .find({email: req.params.email})
@@ -154,19 +158,52 @@ app.get("/Profile/:email", (req, res) => {
                 info: result,
               });
             }
+            mongoose.disconnect();
           }
         });
     })
     .catch(() => {
       console.log("Connection failed");
-      res.render('problem');
+      res.render('profile');
+    });
+});
+app.get("/Submission/:email", (req, res) => {
+  console.log(req.params);
+  mongoose
+    .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      console.log('good3')
+      mongoose.connection.db
+        .collection("users")
+        .find({email: req.params.email})
+        .toArray((err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(result.length);
+            if(result.length < 1){
+              res.render("submission", {
+                info: [{"submissions": []}],
+              })
+            }
+            else {
+              res.render("submission", {
+                info: result,
+              });
+            }
+            mongoose.disconnect();
+          }
+        });
+    })
+    .catch((err) => {
+      console.log("Connection failed");
+      console.log(err);
+      res.render('submission');
     });
 });
 app.get("/Skills/skills.html", (req, res) => {
   res.render("skills");
 });
-app.get("/submission", (req, res) => {
-  res.render("submission");
-});
+
 
 // db.stores.find( { $text: { $search: "java coffee shop" } } )
