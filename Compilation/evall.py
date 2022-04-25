@@ -1,2 +1,2 @@
-a =input()
-print(a)
+// Hello my friends
+p

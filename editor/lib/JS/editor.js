@@ -5,11 +5,69 @@ const defaultCode = "// Hello my friends" + "\n";
 
 //Setup ace
 let codeEditor = ace.edit("editorCode");
+// function setsesh(){
+//   fetch('/getlang', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         url: window.location.href,
+//         })
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//       if(data.status){
+//         if(data.lang === "C++"){
+//           codeEditor.session.setMode("ace/mode/c_cpp");
+//         } else if(data.lang === "Java"){
+//           codeEditor.session.setMode("ace/mode/java");
+//         }
+//         else if(data.lang === "Python"){
+//           codeEditor.session.setMode("ace/mode/python");
+//         }
+//         else if(data.lang === "C"){
+//           codeEditor.session.setMode("ace/mode/c_cpp");
+//         }
+//       }
+//     }
+//   )
+
+// }
 let consoleMessages = [];
+let language = "C++";
 let editorlib = {
   init() {
     codeEditor.setTheme("ace/theme/dracula");
-    codeEditor.session.setMode("ace/mode/c_cpp");
+    fetch('/getlang', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({
+          url: window.location.href,
+          })
+      })
+      .then(res => res.json())
+      .then(data => {
+        
+        if(data.status){
+          if(data.lang === "C++"){
+            codeEditor.session.setMode("ace/mode/c_cpp");
+          } else if(data.lang === "JAVA"){
+            codeEditor.session.setMode("ace/mode/java");
+            language="JAVA";
+          }
+          else if(data.lang === "PYTHON"){
+            codeEditor.session.setMode("ace/mode/python");
+            language="PYTHON";
+          }
+          else if(data.lang === "C"){
+            codeEditor.session.setMode("ace/mode/c_cpp");
+            language="C";
+          }
+        }
+      })
     codeEditor.setOptions({
       enableBasicAutocompletion: true,
       enableLiveAutocompletion: true,
@@ -33,13 +91,16 @@ executeCodebtn.addEventListener("click", function () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "code": code, "lang": "c" }),
+      body: JSON.stringify({ "code": code, "lang": language, "url": window.location.href }),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.status) {
-          console.log(data.output);
+          alert(data.message);
+        }
+        else {
+          alert(data.message);
         }
       });
   } catch (err) {

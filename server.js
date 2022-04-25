@@ -1,6 +1,7 @@
 const { response } = require("express");
 const express = require("express");
 const { render } = require("express/lib/response");
+const fs = require("fs");
 const app = express();
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
@@ -25,15 +26,97 @@ app.listen(3000, "localhost", () => {
 
 app.post("/compile", (req, res) => {
   console.log(req.body);
+  let pro = req.body.url.split("/")[4].replace(/%20/g, " ");
   let code = req.body.code;
-  let output = eval(code, req.body.lang);
-  console.log(output);
-  res.send({
-    status: true,
-    message: "Code Compiled Successfully",
-    output: output,
-  });
+  mongoose
+    .connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      mongoose.connection.db
+        .collection("problem")
+        .find({ PROBLEM_NAME: pro })
+        .toArray((err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            if (result.length > 0) {
+              let data = result[0];
+              fs.writeFileSync("./Compilation/input.txt", data.SAMPLE_INPUT);
+              let output = eval(code, req.body.lang);
+              console.log(data);
+              console.log("cmp : ", output, data.SAMPLE_OUTPUT);
+              if (output === data.SAMPLE_OUTPUT) {
+                res.send({
+                  status: true,
+                  message: "Correct Answer",
+                });
+              } else {
+                res.send({
+                  status: false,
+                  message: "Wrong Answer",
+                });
+              }
+            }
+            else {
+              res.send({
+                status: false,
+                message: "SERVER ERROR",
+                output: output,
+              });
+          }
+          }
+          mongoose.disconnect();
+        });
+    })
+    .catch(() => {
+      console.log("Connection failed");
+      res.send({
+        status: false,
+        message: "Server error",
+        output: output,
+      });
+    });
 });
+app.post("/getlang", (req, res) => {
+  console.log(req.body);
+  let pro = req.body.url.split("/")[4].replace(/%20/g, " ");
+  mongoose
+    .connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      mongoose.connection.db
+        .collection("problem")
+        .find({ PROBLEM_NAME: pro })
+        .toArray((err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            if (result.length > 0) {
+              let data = result[0];
+              res.send({
+                status: true,
+                message: "Success",
+                lang: data.LANGUAGE,
+              });
+            }
+            else {
+              res.send({
+                status: false,
+                message: "SERVER ERROR",
+              });
+          }
+          }
+          mongoose.disconnect();
+        });
+    })
+    .catch(() => {
+      console.log("Connection failed");
+      res.send({
+        status: false,
+        message: "Server error",
+      });
+    });
+});
+
+
 app.post("/checkUser", (req, res) => {
   console.log("login req: " + req.body.email);
   mongoose
