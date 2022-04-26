@@ -24,7 +24,7 @@
 
     <div class="submission-container">
       <h1 class="heading">Your Submissions</h1>
-      <table class="table">
+      <!-- <table class="table">
         <thead class="thread-dark">
           <tr>
             <th>Problem Name</th>
@@ -32,6 +32,55 @@
             <th>Language</th>
             <th>Verdict</th>
             <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0; i<info[0].submissions.length; i++){ %>
+            <tr>
+              <td data-label="Problem Name">
+                <%=info[0].submissions[i].problemName%>
+              </td>
+              <td data-label="Score">
+                <%=info[0].submissions[i].score%>
+              </td>
+              <td data-label="Language">
+                <%=info[0].submissions[i].language%>
+              </td>
+              <td data-label="Verdict">
+                <%=info[0].submissions[i].verdict%>
+              </td>
+              <td data-label="Result">
+                <a href="#" class="result" data-bs-toggle="modal" data-bs-target="#viewSubModal<%=i%>"
+                  data-bs-placement="center" title="View Result">View Result</a>
+                <div class="modal fade" id="viewSubModal<%=i%>">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">View submission</h5>
+                        <button type="btn btn-danger button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <textarea class="form-control" id="viewSubmission" rows="10"
+                          style="text-align : left !important" readonly><%=info[0].submissions[i].code%></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table> -->
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Problem Name</th>
+            <th scope="col">Score</th>
+            <th scope="col">Language</th>
+            <th scope="col">Verdict</th>
+            <th scope="col">Result</th>
           </tr>
         </thead>
         <tbody>
