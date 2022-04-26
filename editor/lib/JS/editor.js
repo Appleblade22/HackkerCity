@@ -101,9 +101,11 @@ executeCodebtn.addEventListener("click", function () {
       .then((data) => {
         console.log(data);
         if (data.status) {
-          editConsole.innerHTML =
+          editMessage.innerHTML =
             `<i class="bi bi-check-circle"></i>` + "ALL TEST CASES PASSED!";
-        } else if (data.output.includes("error", 0)) {
+            editExpectOut.innerHTML = data.correctOutput.replace(/\n/g, "<br>");
+            editYourOut.innerHTML = data.output.replace(/\n/g, "<br>");
+        } else if (data.output.includes("error", 0) || data.output.includes("Error", 0)) {
           editMessage.innerHTML = "Compilation Error  :(";
           editExpectOut.classList.add("hidden");
           label.classList.add("hidden");
