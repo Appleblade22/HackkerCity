@@ -173,6 +173,10 @@ function addSubmission(
   difficulty,
   email
 ) {
+  if (verdict == "AC" || verdict == "Accepted") {
+    solved = true;
+    score = 100;
+  }
   return new Promise((resolve, reject) => {
     mongoose
       .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -469,6 +473,7 @@ app.get("/Submission/:email", (req, res) => {
                 info: [{ submissions: [] }],
               });
             } else {
+              console.log(result[0].submissions[1].code);
               res.render("submission", {
                 info: result,
               });
