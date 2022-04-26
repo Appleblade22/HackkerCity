@@ -95,7 +95,12 @@ executeCodebtn.addEventListener("click", function () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "code": code, "lang": language, "url": window.location.href, "email": JSON.parse(localStorage.getItem("userData")).currentUser.email }),
+      body: JSON.stringify({
+        code: code,
+        lang: language,
+        url: window.location.href,
+        email: JSON.parse(localStorage.getItem("userData")).currentUser.email,
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -103,15 +108,22 @@ executeCodebtn.addEventListener("click", function () {
         if (data.status) {
           editMessage.innerHTML =
             `<i class="bi bi-check-circle"></i>` + "ALL TEST CASES PASSED!";
-            editExpectOut.innerHTML = data.correctOutput.replace(/\n/g, "<br>");
-            editYourOut.innerHTML = data.output.replace(/\n/g, "<br>");
-        } else if (data.output.includes("error", 0) || data.output.includes("Error", 0)) {
+          editExpectOut.classList.remove("hidden");
+          label.classList.remove("hidden");
+          editExpectOut.innerHTML = data.correctOutput.replace(/\n/g, "<br>");
+          editYourOut.innerHTML = data.output.replace(/\n/g, "<br>");
+        } else if (
+          data.output.includes("error", 0) ||
+          data.output.includes("Error", 0)
+        ) {
           editMessage.innerHTML = "Compilation Error  :(";
           editExpectOut.classList.add("hidden");
           label.classList.add("hidden");
           editYourOut.innerHTML = data.output;
         } else {
           editMessage.innerHTML = "WRONG ANSWER   :(";
+          editExpectOut.classList.remove("hidden");
+          label.classList.remove("hidden");
           editExpectOut.innerHTML = data.correctOutput.replace(/\n/g, "<br>");
           editYourOut.innerHTML = data.output.replace(/\n/g, "<br>");
         }
