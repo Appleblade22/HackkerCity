@@ -79,7 +79,7 @@ function getDiffScore(pro, lang, callback){
 function getOutput(pro, code, lang){
   return new Promise((resolve, reject) => {
     let verdict = "Wrong Answer";
-    let score = 0;
+    let score = 100;
     let solved = false;
     let difficulty = ""
     let outputt = "";
@@ -134,6 +134,7 @@ function getOutput(pro, code, lang){
               "output": outputt,
               "correctOutput": correctOutput,
               "verdict": verdict,
+              "score": score,
             })
           }
           mongoose.disconnect();
