@@ -157,6 +157,9 @@ nav .search-icon {
     flex: 2;
     text-align: center;
   }
+  .logouthead{
+    color: aliceblue ;
+  }
   nav .nav-items {
     position: fixed;
     z-index: 99;

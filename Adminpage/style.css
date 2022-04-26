@@ -37,8 +37,7 @@ body {
 
 .listuser,
 .blockuser,
-.unblockuser,
-.deleteuser {
+.unblockuser {
   display: inline-block;
   margin: 1rem;
   height: 15rem;
@@ -53,7 +52,7 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-.deleteuser:hover {
+.unblockuser:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -85,8 +84,6 @@ body {
   text-align: center;
   margin-bottom: 40px;
 }
-
-
 
 /* Block and Delete User */
 
@@ -137,7 +134,7 @@ body {
   text-align: center;
 }
 
-.error{
+.error {
   color: red;
   font-size: 1.5rem;
   text-align: center;
