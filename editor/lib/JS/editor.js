@@ -39,35 +39,33 @@ let language = "C++";
 let editorlib = {
   init() {
     codeEditor.setTheme("ace/theme/dracula");
-    fetch('/getlang', {
-      method: 'POST',
+    fetch("/getlang", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
-        },
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-          url: window.location.href,
-          })
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log("lang: " + data.lang)
-        if(data.status){
-          if(data.lang === "C++"){
+        url: window.location.href,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("lang: " + data.lang);
+        if (data.status) {
+          if (data.lang === "C++") {
             codeEditor.session.setMode("ace/mode/c_cpp");
-          } else if(data.lang === "JS"){
+          } else if (data.lang === "JS") {
             codeEditor.session.setMode("ace/mode/javascript");
-            language="JS";
-          }
-          else if(data.lang === "PYTHON"){
+            language = "JS";
+          } else if (data.lang === "PYTHON") {
             codeEditor.session.setMode("ace/mode/python");
-            language="PYTHON";
-          }
-          else if(data.lang === "C"){
+            language = "PYTHON";
+          } else if (data.lang === "C") {
             codeEditor.session.setMode("ace/mode/c_cpp");
-            language="C";
+            language = "C";
           }
         }
-      })
+      });
     codeEditor.setOptions({
       enableBasicAutocompletion: true,
       enableLiveAutocompletion: true,
@@ -83,8 +81,13 @@ let editorlib = {
   },
 };
 //Events
-const editConsole = document.querySelector(".editor__console-logs")
+const editMessage = document.querySelector(".message");
+const editExpectOut = document.querySelector(".expectedout");
+const editYourOut = document.querySelector(".yourout");
+const bottom = document.querySelector(".bottom");
+const label = document.querySelector(".expect");
 executeCodebtn.addEventListener("click", function () {
+  bottom.classList.remove("hidden");
   let code = codeEditor.getValue();
   try {
     fetch("http://localhost:3000/compile", {
@@ -92,16 +95,27 @@ executeCodebtn.addEventListener("click", function () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "code": code, "lang": language, "url": window.location.href }),
+      body: JSON.stringify({
+        code: code,
+        lang: language,
+        url: window.location.href,
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.status) {
-          editConsole.innerHTML =  `<i class="bi bi-check-circle"></i>` + "ALL TEST CASES PASSED!";
-        }
-        else {
-          editConsole.innerHTML = "WRONG ANSWER <br> Expected Output: " + data.correctOutput + "<br> Your Output: " + data.output;
+          editConsole.innerHTML =
+            `<i class="bi bi-check-circle"></i>` + "ALL TEST CASES PASSED!";
+        } else if (data.output.includes("error", 0)) {
+          editMessage.innerHTML = "Compilation Error  :(";
+          editExpectOut.classList.add("hidden");
+          label.classList.add("hidden");
+          editYourOut.innerHTML = data.output;
+        } else {
+          editMessage.innerHTML = "WRONG ANSWER   :(";
+          editExpectOut.innerHTML = data.correctOutput.replace(/\n/g, "<br>");
+          editYourOut.innerHTML = data.output.replace(/\n/g, "<br>");
         }
       });
   } catch (err) {
