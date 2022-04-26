@@ -94,6 +94,11 @@ thead {
   height: 400px;
   overflow-y: auto;
 }
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 #editor__wrapper {
   width: 100%;
   height: 100%;
