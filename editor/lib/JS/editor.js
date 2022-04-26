@@ -83,6 +83,7 @@ let editorlib = {
   },
 };
 //Events
+const editConsole = document.querySelector(".editor__console-logs")
 executeCodebtn.addEventListener("click", function () {
   let code = codeEditor.getValue();
   try {
@@ -97,10 +98,10 @@ executeCodebtn.addEventListener("click", function () {
       .then((data) => {
         console.log(data);
         if (data.status) {
-          alert(data.message);
+          editConsole.innerHTML =  `<i class="bi bi-check-circle"></i>` + "ALL TEST CASES PASSED!";
         }
         else {
-          alert(data.message);
+          editConsole.innerHTML = "WRONG ANSWER <br> Expected Output: " + data.correctOutput + "<br> Your Output: " + data.output;
         }
       });
   } catch (err) {

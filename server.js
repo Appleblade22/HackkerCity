@@ -72,12 +72,16 @@ app.post("/compile", (req, res) => {
                   name: data.PROBLEM_NAME,
                   status: true,
                   message: "Correct Answer",
+                  output: output,
+                  correctOutput: data.OUTPUT,
                 });
               } else {
                 res.send({
                   name: data.PROBLEM_NAME,
                   status: false,
                   message: "Wrong Answer",
+                  output: output,
+                  correctOutput: data.OUTPUT,
                 });
               }
             } else {
@@ -86,6 +90,7 @@ app.post("/compile", (req, res) => {
                 status: false,
                 message: "SERVER ERROR",
                 output: output,
+                correctOutput: data.OUTPUT,
               });
             }
           }
