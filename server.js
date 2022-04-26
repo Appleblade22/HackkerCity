@@ -29,18 +29,18 @@ app.post('/submit', (req, res) => {
     .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
       mongoose.connection.db.collection("users").findOneAndUpdate(
-        { email: req.body.email }, 
-        { $push: { submissions: {problemName: req.body.name, code: req.body.code, verdict: req.body.verdict, score: req.body.score, language: req.body.language, solved: req.body.solved, difficulty: req.body.difficulty}  } },
-       function (error, success) {
-             if (error) {
-                 console.log(error);
-             } else {
-                 console.log(success);
-             }
-         })
-         .then(() => {
-           mongoose.disconnect()
-         })
+        { email: req.body.email },
+        { $push: { submissions: { problemName: req.body.name, code: req.body.code, verdict: req.body.verdict, score: req.body.score, language: req.body.language, solved: req.body.solved, difficulty: req.body.difficulty } } },
+        function (error, success) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log(success);
+          }
+        })
+        .then(() => {
+          mongoose.disconnect()
+        })
     })
     .catch(() => {
       console.log("Connection failed");
@@ -51,6 +51,32 @@ app.post("/compile", (req, res) => {
   console.log("connecting 2");
   let pro = req.body.url.split("/")[4].replace(/%20/g, " ");
   let code = req.body.code;
+  let verdict = "Wrong Answer";
+  let score = 0;
+  let solved = false;
+  let difficulty = "";
+  //Problem
+  mongoose
+    .connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      mongoose.connection.db.collection("problem-set").findOne({
+        name: pro,
+      })
+        .then((data) => {
+          if (data) {
+            difficulty = data.difficulty;
+            score = data.score;
+            mongoose.disconnect();
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  console.log(solved);
   mongoose
     .connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -68,6 +94,8 @@ app.post("/compile", (req, res) => {
               console.log(data);
               console.log("cmp : (" + output + ")(" + data.OUTPUT + ")");
               if (output.replace(/(\r\n|\n|\r)/gm, " ").trim() === data.OUTPUT.replace(/(\r\n|\n|\r)/gm, " ").trim()) {
+                verdict = "Accepted";
+                solved = true;
                 res.send({
                   name: data.PROBLEM_NAME,
                   status: true,
@@ -76,6 +104,8 @@ app.post("/compile", (req, res) => {
                   correctOutput: data.OUTPUT,
                 });
               } else {
+                verdict = "Wrong Answer";
+                score = 0;
                 res.send({
                   name: data.PROBLEM_NAME,
                   status: false,
@@ -85,6 +115,7 @@ app.post("/compile", (req, res) => {
                 });
               }
             } else {
+
               res.send({
                 name: data.PROBLEM_NAME,
                 status: false,
@@ -98,12 +129,35 @@ app.post("/compile", (req, res) => {
         });
     })
     .catch(() => {
-      console.log("Connection failed");
+      console.log("Connection failed2");
       res.send({
         status: false,
         message: "Server error",
         output: output,
       });
+    });
+
+
+  //Submit
+  mongoose
+    .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      mongoose.connection.db.collection("users").findOneAndUpdate(
+        { email: req.body.email },
+        { $push: { submissions: { problemName: pro, code: code, verdict: verdict, score: score, language: req.body.lang, solved: solved, difficulty: difficulty } } },
+        function (error, success) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log(success);
+          }
+        })
+        .then(() => {
+          mongoose.disconnect()
+        })
+    })
+    .catch((err) => {
+      console.log("Connection failed3" + err);
     });
 });
 app.post("/getlang", (req, res) => {
@@ -159,7 +213,7 @@ app.post("/checkUser", (req, res) => {
             console.log(err);
           } else {
             console.log(result);
-            if(result.length < 1){
+            if (result.length < 1) {
               console.log('inserting')
               mongoose.connection.db.collection("users").insertOne(
                 {
@@ -171,13 +225,14 @@ app.post("/checkUser", (req, res) => {
                 }
               )
             }
-            else{
+            else {
               console.log('disconnected');
               mongoose.disconnect();
             }
           }
         });
     })
+
     .catch(() => {
       console.log("Connection failed");
       res.render("problem");
