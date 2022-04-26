@@ -45,7 +45,7 @@ h1 {
   color: white;
 }
 
-.card-body{
+.card-body {
   cursor: pointer;
 }
 
@@ -93,13 +93,9 @@ h1 {
 }
 
 .score {
-  margin-top: 5.5rem;
+  margin-top: 7rem;
   font-size: 1.5rem;
   text-align: center;
-}
-
-.total {
-  margin-left: 0.5rem;
 }
 
 .lang {
