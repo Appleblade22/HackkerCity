@@ -50,13 +50,13 @@ let editorlib = {
       })
       .then(res => res.json())
       .then(data => {
-        
+        console.log("lang: " + data.lang)
         if(data.status){
           if(data.lang === "C++"){
             codeEditor.session.setMode("ace/mode/c_cpp");
-          } else if(data.lang === "JAVA"){
-            codeEditor.session.setMode("ace/mode/java");
-            language="JAVA";
+          } else if(data.lang === "JS"){
+            codeEditor.session.setMode("ace/mode/javascript");
+            language="JS";
           }
           else if(data.lang === "PYTHON"){
             codeEditor.session.setMode("ace/mode/python");
