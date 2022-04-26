@@ -19,7 +19,9 @@ cancelBtn.onclick = () => {
   cancelBtn.style.color = "white";
 };
 searchBtn.onclick = () => {
-  window.location.href = "../Profile/profile.html";
+  window.location.href =
+    "/Profile/" +
+    JSON.parse(localStorage.getItem("userData")).currentUser.email;
 };
 
 window.onscroll = function () {

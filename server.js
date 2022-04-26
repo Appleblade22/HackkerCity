@@ -177,32 +177,30 @@ function addSubmission(
     mongoose
       .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
       .then(() => {
-        mongoose.connection.db
-          .collection("users")
-          .findOneAndUpdate(
-            { email: email },
-            {
-              $push: {
-                submissions: {
-                  problemName: pro,
-                  code: code,
-                  verdict: verdict,
-                  score: score,
-                  language: lang,
-                  solved: solved,
-                  difficulty: difficulty,
-                },
+        mongoose.connection.db.collection("users").findOneAndUpdate(
+          { email: email },
+          {
+            $push: {
+              submissions: {
+                problemName: pro,
+                code: code,
+                verdict: verdict,
+                score: score,
+                language: lang,
+                solved: solved,
+                difficulty: difficulty,
               },
             },
-            function (error, success) {
-              if (error) {
-                console.log(error);
-              } else {
-                mongoose.disconnect();
-                resolve();
-              }
+          },
+          function (error, success) {
+            if (error) {
+              console.log(error);
+            } else {
+              mongoose.disconnect();
+              resolve();
             }
-          );
+          }
+        );
       })
       .catch((err) => {
         reject("errrur");
@@ -489,7 +487,7 @@ app.get("/Skills/skills.html", (req, res) => {
   res.render("skills");
 });
 
-app.get("/Profile/profile.html", (req, res) => {
+app.get("/Profile/:email", (req, res) => {
   res.render("profile");
 });
 
