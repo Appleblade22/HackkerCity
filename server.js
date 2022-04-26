@@ -139,6 +139,7 @@ app.post("/compile", (req, res) => {
 
 
   //Submit
+  setTimeout(() => {
   mongoose
     .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -159,6 +160,7 @@ app.post("/compile", (req, res) => {
     .catch((err) => {
       console.log("Connection failed3" + err);
     });
+  }, 2000);
 });
 app.post("/getlang", (req, res) => {
   console.log("connecting 3");

@@ -92,7 +92,7 @@ executeCodebtn.addEventListener("click", function () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "code": code, "lang": language, "url": window.location.href }),
+      body: JSON.stringify({ "code": code, "lang": language, "url": window.location.href, "email": JSON.parse(localStorage.getItem("userData")).currentUser.email }),
     })
       .then((res) => res.json())
       .then((data) => {
