@@ -40,7 +40,8 @@ function RetrieveData() {
         child.val().uid,
         child.val().email,
         child.val().username,
-        login
+        login,
+        child.val().block
       );
     });
   });
@@ -48,31 +49,39 @@ function RetrieveData() {
 RetrieveData();
 
 let stdNo = 0;
-function AddItemsToTable(uid, email, username, lastlogin) {
+function AddItemsToTable(uid, email, username, lastlogin, block) {
   let tbody = document.getElementById("tbody1");
   let trow = document.createElement("tr");
+  trow.setAttribute("scope", "row");
   let td1 = document.createElement("td");
   let td2 = document.createElement("td");
   let td3 = document.createElement("td");
   let td4 = document.createElement("td");
   let td5 = document.createElement("td");
-
+  let td6 = document.createElement("td");
+  if (block == true) {
+    trow.setAttribute("class", "table-danger");
+  }
   td1.innerHTML = ++stdNo;
   td2.innerHTML = uid;
   td3.innerHTML = email;
   td4.innerHTML = username;
   td5.innerHTML = lastlogin;
+  td6.innerHTML = block;
   trow.appendChild(td1);
   trow.appendChild(td2);
   trow.appendChild(td3);
   trow.appendChild(td4);
   trow.appendChild(td5);
+  trow.appendChild(td6);
   tbody.appendChild(trow);
 }
 
-function updateUserData() {
-  let uid = document.querySelector(".textfield").value;
+function updateUserData(blocked) {
+  let label = document.querySelector(".textfield");
+  let uid = label.value;
   //Get data 
+
   let dbref = ref(db);
   get(child(dbref, "users/" + uid))
     .then((snapshot) => {
@@ -86,27 +95,31 @@ function updateUserData() {
         if (lastlogin) {
           update(ref(db, "users/" + uid), {
             admin: admin,
-            block: true,
+            block: blocked,
             email: email,
             uid: uid,
             username: username,
             last_login: lastlogin,
           });
+          label.value = "";
+          location.reload();
         }
         else {
           update(ref(db, "users/" + uid), {
             admin: admin,
-            block: true,
+            block: blocked,
             email: email,
             uid: uid,
             username: username
           });
+          label.value = "";
+          location.reload();
         }
 
 
       }
       else {
-        alert("User does not exist");
+        document.querySelector(".error").setAttribute("style", "display:block");
       }
     })
     .catch((error) => {
@@ -116,4 +129,9 @@ function updateUserData() {
 
 }
 
-document.querySelector(".confirmbtn").addEventListener("click", updateUserData);
+document.querySelector(".confirmbtn").addEventListener("click", function () {
+  updateUserData(true);
+});
+document.querySelector(".confirmbtn1").addEventListener("click", function () {
+  updateUserData(false);
+});

@@ -4,18 +4,20 @@ const unblock = document.querySelector(".unblock");
 const hiddentable = document.querySelector(".submission-container");
 const confirmbtn = document.querySelector(".confirmbtn");
 const confirmbtn1 = document.querySelector(".confirmbtn1");
-const modal = document.querySelector(".modal");
+const modall = document.querySelector(".modall");
 const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".close-modal");
+const btnCloseModal = document.querySelector(".close-modall");
 
 const openModal = function () {
-  modal.classList.remove("hidden");
+  modall.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
 
 const closeModal = function () {
-  modal.classList.add("hidden");
+  modall.classList.add("hidden");
   overlay.classList.add("hidden");
+  document.querySelector(".error").setAttribute("style", "display:none");
+  document.querySelector(".textfield").value = "";
 };
 
 const headingcls = document.querySelector(".headingcls");
@@ -31,7 +33,7 @@ user.addEventListener("click", () => {
 
 block.addEventListener("click", () => {
   hiddentable.classList.add("hidden");
-  modal.classList.remove("hidden");
+  modall.classList.remove("hidden");
   overlay.classList.remove("hidden");
   headingcls1.classList.add("hidden");
   headingcls.classList.remove("hidden");
@@ -41,7 +43,7 @@ block.addEventListener("click", () => {
 
 unblock.addEventListener("click", () => {
   hiddentable.classList.add("hidden");
-  modal.classList.remove("hidden");
+  modall.classList.remove("hidden");
   overlay.classList.remove("hidden");
   headingcls.classList.add("hidden");
   headingcls1.classList.remove("hidden");
