@@ -2,7 +2,6 @@ const menuBtn = document.querySelector(".menu-icon span");
 const searchBtn = document.querySelector(".search-icon");
 const cancelBtn = document.querySelector(".cancel-icon");
 const items = document.querySelector(".nav-items");
-const form = document.querySelector("form");
 menuBtn.onclick = () => {
   document.body.classList.toggle("lock-scroll");
   items.classList.add("active");
@@ -17,14 +16,10 @@ cancelBtn.onclick = () => {
   menuBtn.classList.remove("hide");
   searchBtn.classList.remove("hide");
   cancelBtn.classList.remove("show");
-  form.classList.remove("active");
   cancelBtn.style.color = "white";
 };
 searchBtn.onclick = () => {
-  document.body.classList.toggle("lock-scroll");
-  form.classList.add("active");
-  searchBtn.classList.add("hide");
-  cancelBtn.classList.add("show");
+  window.location.href = "../Profile/profile.html";
 };
 
 window.onscroll = function () {
@@ -58,9 +53,13 @@ if (log) {
 }
 const submissionsbtn = document.getElementById("submissions-btn");
 submissionsbtn.addEventListener("click", (event) => {
-  window.location.href = "/Submission/" + JSON.parse(localStorage.getItem("userData")).currentUser.email;
+  window.location.href =
+    "/Submission/" +
+    JSON.parse(localStorage.getItem("userData")).currentUser.email;
 });
 const pfpbtn = document.getElementById("pfpbtn");
 pfpbtn.addEventListener("click", (event) => {
-  window.location.href = "/Profile/" + JSON.parse(localStorage.getItem("userData")).currentUser.email;
+  window.location.href =
+    "/Profile/" +
+    JSON.parse(localStorage.getItem("userData")).currentUser.email;
 });

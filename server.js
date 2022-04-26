@@ -23,161 +23,202 @@ app.set("views", path.join(__dirname, "views"));
 app.listen(3000, "localhost", () => {
   console.log("Server is running");
 });
-app.post('/submit', (req, res) => {
+app.post("/submit", (req, res) => {
   console.log("connecting 1");
   mongoose
     .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-      mongoose.connection.db.collection("users").findOneAndUpdate(
-        { email: req.body.email },
-        { $push: { submissions: { problemName: req.body.name, code: req.body.code, verdict: req.body.verdict, score: req.body.score, language: req.body.language, solved: req.body.solved, difficulty: req.body.difficulty } } },
-        function (error, success) {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log(success);
-          }
-        })
-        .then(() => {
-          mongoose.disconnect()
-        })
-    })
-    .catch(() => {
-      console.log("Connection failed");
-      res.render('problem');
-    });
-})
-function getDiffScore(pro, lang, callback){
-  return new Promise((resolve, reject) => {
-     mongoose
-    .connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-      mongoose.connection.db.collection("problem-set").findOne({
-        PROBLEM_NAME: pro,
-      })
-        .then((data) => {
-          
-            let difficulty = data.DIFFICULTY;
-            let score = data.MAX_SCORE;
-            mongoose.disconnect();
-            console.log(difficulty, score);
-            resolve({"difficulty": difficulty, "score": score});
-        })
-        .catch((err) => {
-          console.log(err);
-          reject("erur")
-        });
-    })
-    .catch((err) => {
-      console.log(err);
-      reject("erur")
-    });
-  })
-  let difficulty, score;
-
-}
-function getOutput(pro, code, lang){
-  return new Promise((resolve, reject) => {
-    let verdict = "Wrong Answer";
-    let score = 100;
-    let solved = false;
-    let difficulty = ""
-    let outputt = "";
-    let correctOutput = "";
-    let name;
-    let status;
-  mongoose
-    .connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
       mongoose.connection.db
-        .collection("problem")
-        .find({ PROBLEM_NAME: pro })
-        .toArray((err, result) => {
-          if (err) {
-            console.log(err);
-          } else {
-            if (result.length > 0) {
-              let data = result[0];
-              fs.writeFileSync("./Compilation/input.txt", data.INPUT);
-              let output = eval(code, lang);
-              console.log(data);
-              console.log("cmp : (" + output + ")(" + data.OUTPUT + ")");
-              if (output.replace(/(\r\n|\n|\r)/gm, " ").trim() === data.OUTPUT.replace(/(\r\n|\n|\r)/gm, " ").trim()) {
-                verdict = "Accepted";
-                solved = true;
-                name= data.PROBLEM_NAME,
-                status= true,
-                message= "Correct Answer",
-                outputt= output,
-                correctOutput= data.OUTPUT
-              } else {
-                verdict = "Wrong Answer";
-                score = 0;
-                name= data.PROBLEM_NAME,
-                status= false,
-                message= "Wrong Answer",
-                outputt= output,
-                correctOutput= data.OUTPUT
-              }
+        .collection("users")
+        .findOneAndUpdate(
+          { email: req.body.email },
+          {
+            $push: {
+              submissions: {
+                problemName: req.body.name,
+                code: req.body.code,
+                verdict: req.body.verdict,
+                score: req.body.score,
+                language: req.body.language,
+                solved: req.body.solved,
+                difficulty: req.body.difficulty,
+              },
+            },
+          },
+          function (error, success) {
+            if (error) {
+              console.log(error);
             } else {
-
-                name= data.PROBLEM_NAME,
-                status= false,
-                message= "SERVER ERROR",
-                outputt= "",
-                correctOutput= data.OUTPUT
+              console.log(success);
             }
-            resolve({
-              "name": name,
-              "status": status,
-              "message": message,
-              "output": outputt,
-              "correctOutput": correctOutput,
-              "verdict": verdict,
-              "score": score,
-            })
           }
+        )
+        .then(() => {
           mongoose.disconnect();
         });
     })
     .catch(() => {
-      console.log("Connection failed2");
-      reject('erur')
+      console.log("Connection failed");
+      res.render("problem");
     });
-  })
-}
-function addSubmission(pro, lang, code, verdict, score, solved, difficulty, email){
+});
+function getDiffScore(pro, lang, callback) {
   return new Promise((resolve, reject) => {
-  mongoose
-    .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-      mongoose.connection.db.collection("users").findOneAndUpdate(
-        { email: email },
-        { $push: { submissions: { problemName: pro, code: code, verdict: verdict, score: score, language: lang, solved: solved, difficulty: difficulty } } },
-        function (error, success) {
-          if (error) {
-            console.log(error);
-          } else {
+    mongoose
+      .connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
+      .then(() => {
+        mongoose.connection.db
+          .collection("problem-set")
+          .findOne({
+            PROBLEM_NAME: pro,
+          })
+          .then((data) => {
+            let difficulty = data.DIFFICULTY;
+            let score = data.MAX_SCORE;
             mongoose.disconnect();
-            resolve();
-          }
-        })
-    })
-    .catch((err) => {
-      reject('errrur')
-      console.log("Connection failed3" + err);
-    })
-  })
+            console.log(difficulty, score);
+            resolve({ difficulty: difficulty, score: score });
+          })
+          .catch((err) => {
+            console.log(err);
+            reject("erur");
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        reject("erur");
+      });
+  });
+  let difficulty, score;
 }
-async function compile(pro, code, lang, email){
+function getOutput(pro, code, lang) {
+  return new Promise((resolve, reject) => {
+    let verdict = "Wrong Answer";
+    let score = 100;
+    let solved = false;
+    let difficulty = "";
+    let outputt = "";
+    let correctOutput = "";
+    let name;
+    let status;
+    mongoose
+      .connect(dbprob, { useNewUrlParser: true, useUnifiedTopology: true })
+      .then(() => {
+        mongoose.connection.db
+          .collection("problem")
+          .find({ PROBLEM_NAME: pro })
+          .toArray((err, result) => {
+            if (err) {
+              console.log(err);
+            } else {
+              if (result.length > 0) {
+                let data = result[0];
+                fs.writeFileSync("./Compilation/input.txt", data.INPUT);
+                let output = eval(code, lang);
+                console.log(data);
+                console.log("cmp : (" + output + ")(" + data.OUTPUT + ")");
+                if (
+                  output.replace(/(\r\n|\n|\r)/gm, " ").trim() ===
+                  data.OUTPUT.replace(/(\r\n|\n|\r)/gm, " ").trim()
+                ) {
+                  verdict = "Accepted";
+                  solved = true;
+                  (name = data.PROBLEM_NAME),
+                    (status = true),
+                    (message = "Correct Answer"),
+                    (outputt = output),
+                    (correctOutput = data.OUTPUT);
+                } else {
+                  verdict = "Wrong Answer";
+                  score = 0;
+                  (name = data.PROBLEM_NAME),
+                    (status = false),
+                    (message = "Wrong Answer"),
+                    (outputt = output),
+                    (correctOutput = data.OUTPUT);
+                }
+              } else {
+                (name = data.PROBLEM_NAME),
+                  (status = false),
+                  (message = "SERVER ERROR"),
+                  (outputt = ""),
+                  (correctOutput = data.OUTPUT);
+              }
+              resolve({
+                name: name,
+                status: status,
+                message: message,
+                output: outputt,
+                correctOutput: correctOutput,
+                verdict: verdict,
+                score: score,
+              });
+            }
+            mongoose.disconnect();
+          });
+      })
+      .catch(() => {
+        console.log("Connection failed2");
+        reject("erur");
+      });
+  });
+}
+function addSubmission(
+  pro,
+  lang,
+  code,
+  verdict,
+  score,
+  solved,
+  difficulty,
+  email
+) {
+  return new Promise((resolve, reject) => {
+    mongoose
+      .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
+      .then(() => {
+        mongoose.connection.db
+          .collection("users")
+          .findOneAndUpdate(
+            { email: email },
+            {
+              $push: {
+                submissions: {
+                  problemName: pro,
+                  code: code,
+                  verdict: verdict,
+                  score: score,
+                  language: lang,
+                  solved: solved,
+                  difficulty: difficulty,
+                },
+              },
+            },
+            function (error, success) {
+              if (error) {
+                console.log(error);
+              } else {
+                mongoose.disconnect();
+                resolve();
+              }
+            }
+          );
+      })
+      .catch((err) => {
+        reject("errrur");
+        console.log("Connection failed3" + err);
+      });
+  });
+}
+async function compile(pro, code, lang, email) {
   let verdict = "Wrong Answer";
   let score = 0;
   let solved = false;
-  let difficulty = ""
+  let difficulty = "";
   let obj;
   //Submit
-  
-    return obj
+
+  return obj;
 }
 app.post("/compile", (req, res) => {
   console.log("connecting 2");
@@ -188,20 +229,25 @@ app.post("/compile", (req, res) => {
   let verdict = "Wrong Answer";
   let score = 0;
   let solved = false;
-  let difficulty = ""
+  let difficulty = "";
   let output = "";
   let correctOutput = "";
-  getDiffScore(pro)
-    .then((data) => {
-      getOutput(pro, code, lang)
-        .then((ress) => {
-          addSubmission(pro, lang, code, ress.verdict, ress.score, ress.solved, ress.difficulty, email)
-            .then(() => {
-              res.send(ress);
-            }
-            )
-        })
-    })
+  getDiffScore(pro).then((data) => {
+    getOutput(pro, code, lang).then((ress) => {
+      addSubmission(
+        pro,
+        lang,
+        code,
+        ress.verdict,
+        ress.score,
+        ress.solved,
+        ress.difficulty,
+        email
+      ).then(() => {
+        res.send(ress);
+      });
+    });
+  });
 
   // getDiffScore(pro).then((data) => {
   //   difficulty = data.difficulty;
@@ -225,7 +271,6 @@ app.post("/compile", (req, res) => {
   //   )
   // }
   // )
-  
 });
 app.post("/getlang", (req, res) => {
   console.log("connecting 3");
@@ -281,19 +326,19 @@ app.post("/checkUser", (req, res) => {
           } else {
             console.log(result);
             if (result.length < 1) {
-              console.log('inserting')
+              console.log("inserting");
               mongoose.connection.db.collection("users").insertOne(
                 {
                   email: req.body.email,
                   submissions: [],
-                }, () => {
-                  console.log('disconnected');
+                },
+                () => {
+                  console.log("disconnected");
                   mongoose.disconnect();
                 }
-              )
-            }
-            else {
-              console.log('disconnected');
+              );
+            } else {
+              console.log("disconnected");
               mongoose.disconnect();
             }
           }
@@ -338,14 +383,14 @@ app.get("/Problemset/*", (req, res) => {
             res.render("problemset", {
               info: result,
               lan: lang,
-            })
-          };
-          mongoose.disconnect()
+            });
+          }
+          mongoose.disconnect();
         });
     })
     .catch((err) => {
       console.log("Connection failed 2");
-      console.log(err)
+      console.log(err);
     });
 });
 app.get("/Problem/*", (req, res) => {
@@ -442,6 +487,10 @@ app.get("/Submission/:email", (req, res) => {
 });
 app.get("/Skills/skills.html", (req, res) => {
   res.render("skills");
+});
+
+app.get("/Profile/profile.html", (req, res) => {
+  res.render("profile");
 });
 
 // db.stores.find( { $text: { $search: "java coffee shop" } } )
