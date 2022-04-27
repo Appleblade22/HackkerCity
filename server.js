@@ -23,45 +23,7 @@ app.set("views", path.join(__dirname, "views"));
 app.listen(3000, "localhost", () => {
   console.log("Server is running");
 });
-app.post("/submit", (req, res) => {
-  console.log("connecting 1");
-  mongoose
-    .connect(dbuser, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-      mongoose.connection.db
-        .collection("users")
-        .findOneAndUpdate(
-          { email: req.body.email },
-          {
-            $push: {
-              submissions: {
-                problemName: req.body.name,
-                code: req.body.code,
-                verdict: req.body.verdict,
-                score: req.body.score,
-                language: req.body.language,
-                solved: req.body.solved,
-                difficulty: req.body.difficulty,
-              },
-            },
-          },
-          function (error, success) {
-            if (error) {
-              console.log(error);
-            } else {
-              console.log(success);
-            }
-          }
-        )
-        .then(() => {
-          mongoose.disconnect();
-        });
-    })
-    .catch(() => {
-      console.log("Connection failed");
-      res.render("problem");
-    });
-});
+
 function getDiffScore(pro, lang, callback) {
   return new Promise((resolve, reject) => {
     mongoose
@@ -212,16 +174,7 @@ function addSubmission(
       });
   });
 }
-async function compile(pro, code, lang, email) {
-  let verdict = "Wrong Answer";
-  let score = 0;
-  let solved = false;
-  let difficulty = "";
-  let obj;
-  //Submit
 
-  return obj;
-}
 app.post("/compile", (req, res) => {
   console.log("connecting 2");
   let pro = req.body.url.split("/")[4].replace(/%20/g, " ");
@@ -251,28 +204,6 @@ app.post("/compile", (req, res) => {
     });
   });
 
-  // getDiffScore(pro).then((data) => {
-  //   difficulty = data.difficulty;
-  //   score = data.score;
-  //   getOutput(pro, lang).then((res) => {
-  //     verdict = res.verdict;
-  //     solved = res.status;
-  //     output = res.output;
-  //     correctOutput = res.correctOutput;
-  //     addSubmission(pro, lang, code, verdict, score, solved, difficulty).then(() => {
-  //       res.send({
-  //         verdict: verdict,
-  //         output: output,
-  //         correctOutput: correctOutput,
-  //         solved: solved,
-  //         score: score,
-  //         difficulty: difficulty,
-  //       })
-  //     })
-  //   }
-  //   )
-  // }
-  // )
 });
 app.post("/getlang", (req, res) => {
   console.log("connecting 3");

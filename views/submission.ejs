@@ -34,7 +34,7 @@
           </tr>
         </thead>
         <tbody>
-          <% for(let i=0; i<info[0].submissions.length; i++){ %>
+          <% for(let i=info[0].submissions.length - 1; i>=0; i--){ %>
             <tr>
               <td data-label="Problem Name">
                 <%=info[0].submissions[i].problemName%>
