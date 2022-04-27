@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat",sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .mscore,
@@ -71,7 +71,7 @@ h1 {
 }
 
 .btn {
-  background-color: #03C04A; /* Green */
+  background-color: #03c04a; /* Green */
   border: none;
   color: white;
   padding: 10px 10px;
@@ -132,7 +132,7 @@ input[type="checkbox"] {
     justify-content: center;
   }
   .headingskill {
-    height: 15rem;
+    height: 17rem;
   }
   .rightside {
     margin-left: 2rem;
