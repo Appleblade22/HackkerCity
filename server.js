@@ -360,14 +360,18 @@ app.get("/Problem/index.html", (req, res) => {
 });
 app.get("/Problemset/*", (req, res) => {
   let pro = req.url.split("/")[2];
+  //remove extension
+  pro = pro.split(".").shift();
+  let sort = req.url.split("/")[3];
+
   let lang = null;
-  if (pro == "Cpp.html") {
+  if (pro == "Cpp") {
     lang = "C++";
-  } else if (pro == "Javascript.html") {
+  } else if (pro == "Javascript") {
     lang = "JS";
-  } else if (pro == "Python.html") {
+  } else if (pro == "Python") {
     lang = "PYTHON";
-  } else if (pro == "C.html") {
+  } else if (pro == "C") {
     lang = "C";
   }
   console.log("connecting 5");

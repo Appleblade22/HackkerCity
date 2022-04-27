@@ -112,6 +112,7 @@ input[type="checkbox"] {
 .solved,
 .unsolved,
 .easy,
+.all,
 .intermediate,
 .hard {
   margin-left: 0.5rem;
@@ -171,7 +172,8 @@ input[type="checkbox"] {
   .unsolved,
   .easy,
   .intermediate,
-  .hard {
+  .hard,
+  .all {
     margin-left: 0.1rem;
   }
   input[type="checkbox"] {
