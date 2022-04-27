@@ -477,7 +477,6 @@ app.get("/Submission/:email", (req, res) => {
                 info: [{ submissions: [] }],
               });
             } else {
-              console.log(result[0].submissions[1].code);
               res.render("submission", {
                 info: result,
               });
