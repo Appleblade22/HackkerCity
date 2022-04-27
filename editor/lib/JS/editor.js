@@ -89,10 +89,10 @@ const editYourOut = document.querySelector(".yourout");
 const bottom = document.querySelector(".bottom");
 const label = document.querySelector(".expect");
 executeCodebtn.addEventListener("click", function () {
-  bottom.classList.remove("hidden");
+
   let code = codeEditor.getValue();
   try {
-    fetch("http://localhost:3000/compile", {
+    fetch("/compile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -106,10 +106,12 @@ executeCodebtn.addEventListener("click", function () {
     })
       .then((res) => res.json())
       .then((data) => {
+        bottom.classList.remove("hidden");
         // console.log(data);
         if (data.status) {
           editMessage.innerHTML =
-            `<i class="bi bi-check-circle"></i>` + "ALL TEST CASES PASSED!";
+            "ALL TEST CASES PASSED!";
+          editMessage.setAttribute("color", "green");
           editExpectOut.classList.remove("hidden");
           label.classList.remove("hidden");
           editExpectOut.innerHTML = data.correctOutput.replace(/\n/g, "<br>");
@@ -119,11 +121,13 @@ executeCodebtn.addEventListener("click", function () {
           data.output.includes("Error", 0)
         ) {
           editMessage.innerHTML = "Compilation Error  :(";
+          editMessage.setAttribute("color", "red");
           editExpectOut.classList.add("hidden");
           label.classList.add("hidden");
           editYourOut.innerHTML = data.output;
         } else {
           editMessage.innerHTML = "WRONG ANSWER   :(";
+          editMessage.setAttribute("color", "red");
           editExpectOut.classList.remove("hidden");
           label.classList.remove("hidden");
           editExpectOut.innerHTML = data.correctOutput.replace(/\n/g, "<br>");
