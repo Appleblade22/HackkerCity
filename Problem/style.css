@@ -15,9 +15,11 @@ pre {
 }
 .green {
   color: green !important;
+  font-weight: bold;
 }
 .red {
   color: red !important;
+  font-weight: bold;
 }
 .probheader {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
