@@ -109,9 +109,10 @@ executeCodebtn.addEventListener("click", function () {
         bottom.classList.remove("hidden");
         // console.log(data);
         if (data.status) {
+          editMessage.classList.remove("red");
+          editMessage.classList.add("green");
           editMessage.innerHTML =
             "ALL TEST CASES PASSED!";
-          editMessage.setAttribute("color", "green");
           editExpectOut.classList.remove("hidden");
           label.classList.remove("hidden");
           editExpectOut.innerHTML = data.correctOutput.replace(/\n/g, "<br>");
@@ -120,14 +121,16 @@ executeCodebtn.addEventListener("click", function () {
           data.output.includes("error", 0) ||
           data.output.includes("Error", 0)
         ) {
+          editMessage.classList.remove("green");
+          editMessage.classList.add("red");
           editMessage.innerHTML = "Compilation Error  :(";
-          editMessage.setAttribute("color", "red");
           editExpectOut.classList.add("hidden");
           label.classList.add("hidden");
           editYourOut.innerHTML = data.output;
         } else {
+          editMessage.classList.remove("green");
+          editMessage.classList.add("red");
           editMessage.innerHTML = "WRONG ANSWER   :(";
-          editMessage.setAttribute("color", "red");
           editExpectOut.classList.remove("hidden");
           label.classList.remove("hidden");
           editExpectOut.innerHTML = data.correctOutput.replace(/\n/g, "<br>");

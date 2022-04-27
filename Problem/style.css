@@ -13,7 +13,12 @@ pre {
   padding: 14px;
   white-space: pre-wrap;
 }
-
+.green {
+  color: green !important;
+}
+.red {
+  color: red !important;
+}
 .probheader {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   margin-top: 1.5rem;
